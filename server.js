@@ -19,6 +19,9 @@ app.get('/*', function(req, res) {
   });
 
 // Will this work?
+// Just another test
+// another comment
+// another comment also
 
 /* Configure to use port 3001 instead of 3000 during
  development to avoid collision with React's dev server  */
