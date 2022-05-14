@@ -10,7 +10,7 @@ const artSchema = new Schema(
         isDone: Boolean,
         supplies: { type: String, required: true },
         gallery: Array,
-        comments: Array,
+        comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
         image: { type: String, required: true },
         cloudinaryImage: { type: String, required: false }
 
