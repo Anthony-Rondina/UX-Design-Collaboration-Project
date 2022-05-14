@@ -66,11 +66,11 @@ async function create(req, res) {
 
 async function show(req, res) {
   try {
-    User.findById(req.params.id, (err, foundUsers) => {
+    User.findById(req.params.id, (err, foundUser) => {
       if(err) {
         res.status(400).json(err)
       } else {
-        res.status(200).json(foundUsers)
+        res.status(200).json(foundUser)
       }
     })
   } catch (e) {
