@@ -13,7 +13,7 @@ export default function AuthPage({ setUser }) {
         <Logo />
         <h3>where artists inspire and motivate each other!</h3>
       </div>
-      <div>
+      <div className={styles.SplitSide}>
           <h1>Create an account</h1>
           <h5>Already have an account?<span onClick={() => setShowLogin(!showLogin)}> {showLogin ? 'Sign Up' : 'Sign In'}</span></h5>
       {showLogin ? <LoginForm setUser={setUser} /> : <SignUpForm setUser={setUser} />}
