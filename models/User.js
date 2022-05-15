@@ -26,15 +26,50 @@ const userSchema = new Schema({
     required: true
   },
   firstName: {
-      type: String,
-      required: true,
-      minLength: 1
+    type: String,
+    required: true,
+    minLength: 1
   },
   lastName: {
     type: String,
     required: true,
     minLength: 1
-}
+},
+  avatar: {
+    type: String,
+    required: true
+},
+  location: {
+    type: String,
+    required: true
+},
+  bio: {
+    type: String,
+    required: true
+},
+  website: {
+    type: String,
+    required: false
+},
+  portfolioUrl: {
+    type: String,
+    required: false
+},
+  portfolioPassword: {
+    type: String,
+    required: false
+},
+  background: {
+    type: String,
+    required: false
+},
+  favorites: {
+    type: Array,
+    required: false
+},
+  artCollection: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Art' }],
+  following: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+  followers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
 }, {
   timestamps: true,
   toJSON: {
