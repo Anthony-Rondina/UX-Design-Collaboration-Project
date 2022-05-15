@@ -42,7 +42,7 @@
     height: 55px;
     left: 962px;
     top: 198px;
-    font-family: 'AcuminPro', 'sans-serif';
+    font-family: 'AcuminProBold', 'sans-serif';
     font-style: normal;
     font-weight: 700;
     font-size: 40px;
@@ -53,6 +53,7 @@
 
   .AuthPage > .SplitSide > h5 {
     margin-left: 50px;
+    margin-top: -25px;
     width: 425px;
     height: 17px;
     left: 966px;
@@ -66,10 +67,22 @@
   }
 
   .AuthPage > .SplitSide > span {
-      font-weight: bolder
+      font-family: 'AcuminProBold'
+  }
+
+  .AuthPage > .SplitSide > p {
+      font-family: 'AcuminPro';
+      font-weight: 500;
+      margin-left: 50px;
+
   }
 
   @font-face {
       font-family: 'AcuminPro';
       src: url(../../public/fonts/acumin-pro.ttf);
+  }
+
+  @font-face {
+      font-family: 'AcuminProBold';
+      src: url(../../public/fonts/acumin-pro-bold.ttf);
   }
