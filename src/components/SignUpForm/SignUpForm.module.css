@@ -1,1 +1,20 @@
+<<<<<<< HEAD
 
+=======
+.SignUpForm {
+    display: grid;
+    background-color: #FFFFFF;
+}
+
+div.FormContainer {
+    display: block;
+}
+
+.FormContainer {
+    padding: 3vmin;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    border: 0.1vmin solid black;
+    border-radius: 1vmin;
+}
+>>>>>>> 7091864826d665468c6a8de0f50082bd368fb007

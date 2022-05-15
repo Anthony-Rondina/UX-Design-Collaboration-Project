@@ -1,4 +1,4 @@
-const User = require('../../models/user');
+const User = require('../../models/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
@@ -7,7 +7,9 @@ module.exports = {
   login,
   checkToken,
   get,
-  put
+  put,
+  destroy,
+  show
 };
 
 function checkToken(req, res) {
@@ -62,6 +64,33 @@ async function create(req, res) {
   }
 }
 
+async function show(req, res) {
+  try {
+    User.findById(req.params.id, (err, foundUser) => {
+      if(err) {
+        res.status(400).json(err)
+      } else {
+        res.status(200).json(foundUser)
+      }
+    })
+  } catch (e) {
+    res.status(400).json(e)
+  }
+}
+
+async function destroy(req, res) {
+  try {
+    User.findByIdAndDelete(req.params.id, (err) => {
+      if (err) {
+        res.status(400).json(err)
+      } else {
+        res.status(200).json({message: "User Deleted"})
+      }
+    })
+  } catch (e) {
+    res.status(400).json(e);
+  }
+}
 
 /*-- Helper Functions --*/
 
