@@ -1,0 +1,128 @@
+.userBioWrapper {
+    height: 100%;
+    /* border: solid 2px red; */
+    overflow-x: hidden;
+    z-index: 1;
+  }
+  .userCoverImage{
+    max-width: 100%;
+  }
+  .userInfo {
+    background-color: #F7F7F7;
+    width: 500px;
+    height: 200px;
+    border-radius: 15px;
+    z-index: 5;
+    position: absolute;
+    margin-top:  -150px;
+    margin-left: 70px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    filter: drop-shadow(0 0 .1rem black);
+  }
+  .profilePic{
+    width: 170px;
+    height: 180px;
+    border-radius: 50%;
+    margin-left: 50px;
+  }
+  .userUpperOptions{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100px;
+    /* border: solid green 2px; */
+  }
+
+  .welcomeUser{
+    font-size: 1.8em;
+    /* font-family: ; */
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    /* border: solid purple 2px; */
+  }
+  .rightHalf {
+    display: flex;
+    flex-direction: column;
+    /* border: red solid 1px; */
+    width: 250px;
+    height: 160px;
+    /* padding: 10px; */
+    justify-content: space-between;
+  }
+
+  button {
+    padding: 15px;
+    color: white;
+    background-color: black;
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    /* border: .1vmin solid var(--tan-2); */
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .userBottomOptions{
+    border: solid white 2px;
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+  }
+
+  .userSortOptions li{
+    display: inline;
+    cursor: pointer;
+    font-size: 1.3em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 31px;
+    padding-right: 31px;
+    /* filter: drop-shadow(0rem .1rem 0rem black); */
+  }
+  body {
+    margin: 0;
+  }
+  .userSortOptions {
+    margin-top: 80px;
+    margin-left: 34px;
+  }
+
+  .sortOption{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+  .sortOption2 {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .filterResults{
+    /* background-color: white; */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 70px;
+  }
+
+  .contentBox{
+    border: solid black 2px;
+    height: 100%;
+    width: 96%;
+    padding: 30px;
+  }
+
+  .mainProfileWrapper{
+    background-color: white;
+  }
+
+  .userMore{
+    /* font-size: 1.5em; */
+  }
+
+ 
