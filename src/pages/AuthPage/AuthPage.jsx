@@ -16,6 +16,7 @@ export default function AuthPage({ setUser }) {
       <div className={styles.SplitSide}>
           <h1>Create an account</h1>
           <h5>Already have an account?<span onClick={() => setShowLogin(!showLogin)}> {showLogin ? 'Sign Up' : 'Sign In'}</span></h5>
+          <p>Sign up with social</p>
       {showLogin ? <LoginForm setUser={setUser} /> : <SignUpForm setUser={setUser} />}
       </div>
     </main>
