@@ -3,7 +3,7 @@ import logo from '../../public/atelier-1.png';
 
 export default function Logo() {
     return (
-        <div className='logoImage'>
+        <div className={styles.Logo}>
             <img src={logo}/>
         </div>
     )
