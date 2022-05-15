@@ -18,13 +18,11 @@ useEffect(() => {
 // make a backend call to get a filtered search result based on the option picked from 
 }, [refresh])
 
-
-
     return (
         <div className={styles.mainProfileWrapper}>
             <UserBioBar />
-            <ListBar setRefresh={setRefresh} setArtWork={setArtWork} setWIP={setWIP} setFollowing={setFollowing} setAbout={setAbout} setDisplayContent={setDisplayContent} displayContent={displayContent} about={about} WIP={WIP} artwork={artwork} following={following} />
-            <ResultBox about={about} WIP={WIP} artwork={artwork} following={following} />
+            {/* <ListBar setRefresh={setRefresh} setArtWork={setArtWork} setWIP={setWIP} setFollowing={setFollowing} setAbout={setAbout} setDisplayContent={setDisplayContent} displayContent={displayContent} about={about} WIP={WIP} artwork={artwork} following={following} />
+            <ResultBox about={about} WIP={WIP} artwork={artwork} following={following} /> */}
         </div>
     )
 }
