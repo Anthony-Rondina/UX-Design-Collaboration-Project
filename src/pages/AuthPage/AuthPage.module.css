@@ -75,7 +75,12 @@
       font-weight: 500;
       margin-left: 50px;
       margin-top: 40px;
+  }
 
+  img {
+      height: 69.13px;
+      width: 69.13px;
+      margin-left: 10px;
   }
 
   @font-face {
