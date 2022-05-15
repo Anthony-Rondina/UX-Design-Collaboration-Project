@@ -33,5 +33,18 @@
     left: 896px;
     top: 137px;
     background: #FFFFFF;
-    border-radius: 10px;
+    border-radius: 35px;
+  }
+
+  .AuthPage > .SplitSide > h1 {
+    /* position: absolute; */
+    width: 450px;
+    height: 55px;
+    left: 962px;
+    top: 198px;
+    font-family: 'Acumin Pro';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
   }
