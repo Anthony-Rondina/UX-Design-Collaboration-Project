@@ -11,13 +11,21 @@ export default function UserUploadArtPage() {
     const nameOfArt = useRef()
     const isDone = useRef()
     const image = useRef()
-    
+    const artPrompt = useRef()
+    const supplies = useRef()
+    let token = localStorage.getItem("token")
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            // const response = await axios.post("/api/cards/", {
-            //     type: type.current.value, nameOfArt: nameOfArt.current.value, isDone: isDone.current.checked, image: image.current.value
-            // })
+            console.log(`test`)
+            const response = await axios.post("/api/art/", {
+                type: type.current.value, nameOfArt: nameOfArt.current.value, isDone: isDone.current.checked, image: image.current.value,artPrompt: artPrompt.current.value, supplies: supplies.current.value
+            },{
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            console.log(`test2`)
             navigate("/user/IDGOESHERE!")
         } catch (err) {
             console.log(err)
@@ -41,6 +49,10 @@ export default function UserUploadArtPage() {
                                 <input placeholder='Enter card number'  type="checkbox" className={styles.largeCheckBox} ref={isDone} />
                                 <p>Where is the image located?</p>
                                 <input placeholder="Enter link to art" type="text" ref={image} />
+                                <p>What supplies are needed?</p>
+                                <input placeholder="Enter supply list" type="text" ref={supplies} />
+                                <p>What do you want the viewer to know?</p>
+                                <input placeholder="Enter art prompt" type="text" ref={artPrompt} />
                                 <input type="submit" value="Upload your art!" />
                             </form>
                         </div>

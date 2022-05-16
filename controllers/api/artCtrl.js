@@ -1,5 +1,5 @@
 const Art = require('../../models/Art');
-
+const User = require('../../models/User');
 module.exports = {
   create,
   get,
@@ -32,9 +32,19 @@ async function put(req, res) {
 
 async function create(req, res) {
   try {
+    //get the body from Request
     const { body } = req
-    const createdArt = await Art.create(body)
-    res.status(200).json({ message: "Art Created!", createdArt })
+    //Find the post from the ID in params
+    const user = await User.findById(req.user._id)
+    //Make the art from the form's body
+    const art = new Art(body)
+    //save art to DB
+    art.save()
+    //push art to the User's Collection
+    user.artCollection.push(art._id)
+    //save User to DB
+    user.save()
+    res.status(200).json({ message: "Worked!" })
   } catch (e) {
     res.status(400).json(e);
   }
@@ -69,4 +79,29 @@ async function destroy(req, res) {
   } catch (e) {
     res.status(400).json(e);
   }
+}
+
+//TEST CODE FOR LATER
+//For Pulling all art from a user
+async function fromUser(req, res) {
+  const person = await User.findById(req.user._id).populate("artCollection")
+    if (person) {
+      //"Done" is up to backend and can change
+      if(req.query.status === "done"){
+        const filtered = person.artCollection.filter((art) => {
+          return art.isDone === true 
+        })
+        res.status(200).json(filtered)
+      } else if (req.query.status === "wip"){
+        //"wip" is up to backend and can change
+        const filtered = person.artCollection.filter((art) => {
+          return art.isDone === false 
+        })
+        res.status(200).json(filtered)
+      } else {
+        res.status(200).json(person.artCollection)
+      }
+    } else {
+      res.status(400).json(err)
+    }
 }
