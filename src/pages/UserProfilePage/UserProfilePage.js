@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import ResultBox from "../../components/UserProfilePage/ResultBox"
 import ListBar from "../../components/UserProfilePage/ListBar"
 import UserBioBar from "../../components/UserProfilePage/UserBioBar"
-import styles from "../../components/UserProfilePage/UPPC.module.css"
+import styles from "./UserProfilePage.module.css"
 
 export default function UserProfilePage() {
 const [refresh, setRefresh] = useState(false)

@@ -6,7 +6,8 @@ import { useState, useEffect } from 'react';
 import HomePage from "../Homepage/Homepage"
 import { getUser } from '../../utilities/users-service';
 function App() {
-  const [user, setUser] = useState(getUser())
+  const [user, setUser] = useState(getUser());
+  
   useEffect(() => {
     (async () => {
       try {
