@@ -10,7 +10,7 @@ export default function UserBioBar() {
             </div>
             <div className={styles.userInfo}>
                 {/* Change User.avatar to actual props once implimented */}
-                <img className={styles.profilePic}src="https://i.imgur.com/KnCMI31.jpg" alt="" />
+                <img className={styles.profilePic}src="https://ctorthopaedic.com/wp-content/uploads/2017/01/profile-silhouette.jpg" alt="" />
                 <div className={styles.rightHalf}>
                     <div className={styles.userUpperOptions}>
                         <div className="welcome">
