@@ -136,4 +136,7 @@
     /* font-size: 1.5em; */
   }
 
- 
+ .userUpload{
+  cursor:pointer;
+  width: 400px;
+ }

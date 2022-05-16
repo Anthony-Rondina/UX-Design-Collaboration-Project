@@ -20,19 +20,16 @@ function App() {
   }, [])
   
   return (
-
     <div className="App">
-      {user ? //ADMIN users can access everything
+      {user ?
         <Routes>
           <Route path="/" element={<HomePage/>}/>
           <Route path="/user/:id" element={<UserProfilePage/>}/>
         </Routes>
         :
         <AuthPage setUser={setUser}/>
-  }
-      
-    </div>
+      }
+   </div>
   );
 }
-
 export default App;
