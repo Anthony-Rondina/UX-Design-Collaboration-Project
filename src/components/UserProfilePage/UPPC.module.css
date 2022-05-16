@@ -2,6 +2,7 @@
     height: 100%;
     /* border: solid 2px red; */
     overflow-x: hidden;
+    width: 1280px;
     z-index: 1;
   }
   .userCoverImage{
@@ -68,7 +69,7 @@
   }
 
   .userBottomOptions{
-    border: solid white 2px;
+    /* border: solid white 2px; */
     display: flex;
     justify-content: space-between;
     width: 200px;
@@ -118,6 +119,13 @@
   }
 
   .mainProfileWrapper{
+    background-color: rgb(232, 242, 247);
+    display: flex;
+    justify-content: center;
+    max-width: 780;
+    align-items: center;
+  }
+  .innerProfileWrapper{
     background-color: white;
   }
 
