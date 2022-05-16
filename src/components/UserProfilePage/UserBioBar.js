@@ -6,7 +6,7 @@ export default function UserBioBar() {
     return (
         <div className={styles.userBioWrapper}>
             <div className={styles.userCoverImage}>
-                <img className="coverImage" src={coverImage} alt="user cover image" />
+                <img className={styles.coverImage} src={coverImage} alt="user cover image" />
             </div>
             <div className={styles.userInfo}>
                 {/* Change User.avatar to actual props once implimented */}

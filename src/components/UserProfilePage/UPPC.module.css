@@ -7,7 +7,10 @@
   }
   .userCoverImage{
     max-width: 100%;
-  }
+    }
+    .coverImage {
+      width: 100%;
+    }
   .userInfo {
     background-color: #F7F7F7;
     width: 500px;
