@@ -1,4 +1,8 @@
-module.exports = function(req, res, next) {
-    if (!req.user) return res.status(401).json('Unauthorized');
-    next();
-  };
+// config/ensureLoggedIn.js
+
+module.exports = function (req, res, next) {
+  // Status code of 401 is Unauthorized
+  if (!req.user) return res.status(401).json('Unauthorized didnt get a token');
+  // A okay
+  next();
+};

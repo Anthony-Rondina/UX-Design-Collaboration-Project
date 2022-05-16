@@ -3,38 +3,41 @@ import { Component } from "react";
 import { signUp } from '../../utilities/users-service';
 
 export default class SignUpForm extends Component {
-state = {
-  name: '',
-  email: '',
-  password: '',
-  confirm: '',
-  error: ''
-};
-
-handleChange = (evt) => {
-  this.setState({
-    [evt.target.name]: evt.target.value,
+  state = {
+    name: '',
+    email: '',
+    password: '',
+    confirm: '',
     error: ''
-  });
 };
 
-handleSubmit = async (evt) => {
-  evt.preventDefault();
-  try {
-    const formData = {...this.state};
-    delete formData.confirm;
-    delete formData.error;
-    // The promise returned by the signUp service method
-    // will resolve to the user object included in the
-    // payload of the JSON Web Token (JWT)
-    const user = await signUp(formData);
-    // Baby step
-    this.props.setUser(user);
-  } catch {
-    // An error happened on the server
-    this.setState({ error: 'Sign Up Failed - Try Again' });
-  }
-};
+handleChange = (e) => {
+    this.setState({ ...this.state, [e.target.name]: e.target.value, error: '' })
+}
+
+handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+        // keeps the previous values of the state from line 4
+        const formData = { ...this.state };
+        console.log('formdata is', formData)
+        // removes the error and confirm from the newly made formData ojbect
+        delete formData.error;
+        console.log('pass1')
+        delete formData.confirm;
+        console.log('pass2')
+        const user = await signUp(formData)
+        console.log('pass3')
+        this.props.setUser(user)
+        console.log('pass4')
+        localStorage.setItem('token', user)
+        console.log('pass5')
+    } catch (err) {
+        this.setState({ error: "Sign up failed" })
+    }
+    // event.preventDefault();
+    // alert(JSON.stringify(this.state));
+}
 
 // We must override the render method
 // The render method is the equivalent to a function-based component
