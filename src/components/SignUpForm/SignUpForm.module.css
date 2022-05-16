@@ -11,5 +11,6 @@ div.FormContainer {
     padding: 3vmin;
     background-color: #FFFFFF;
     box-sizing: border-box;
+    border: 0.1vmin solid black;
     border-radius: 1vmin;
 }

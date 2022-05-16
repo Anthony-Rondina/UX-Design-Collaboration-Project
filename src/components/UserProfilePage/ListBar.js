@@ -3,6 +3,8 @@ import styles from "./UPPC.module.css"
 export default function ListBar({setArtWork, setWIP, setAbout, setDisplayContent, displayContent, setFollowing, setRefresh, refresh, artwork, WIP, about,following }) {
 //This function will help change the background color of the selected li
 
+//make data a usestate
+
 const choice =  (input) => {
     const data = ''
     switch (input) {

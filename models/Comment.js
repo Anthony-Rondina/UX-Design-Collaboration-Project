@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const commentSchema = new Schema(
     {
-        type: {type: String, enum: [POST, REPLY]},
+        type: {type: String, enum: ["POST", "REPLY"]},
         text: String,
         user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
     },
