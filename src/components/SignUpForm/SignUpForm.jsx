@@ -4,7 +4,7 @@ import { signUp } from '../../utilities/users-service';
 
 export default class SignUpForm extends Component {
   state = {
-    name: '',
+    username: '',
     email: '',
     password: '',
     confirm: '',
@@ -27,11 +27,11 @@ handleSubmit = async (event) => {
         delete formData.confirm;
         console.log('pass2')
         const user = await signUp(formData)
-        console.log('pass3')
+        console.log('user is now', user)
         this.props.setUser(user)
-        console.log('pass4')
+        console.log('setUser successful!')
         localStorage.setItem('token', user)
-        console.log('pass5')
+        console.log('setitem to local storage!')
     } catch (err) {
         this.setState({ error: "Sign up failed" })
     }
@@ -49,7 +49,7 @@ render() {
       <div className={styles.FormContainer}>
         <form autoComplete="off" onSubmit={this.handleSubmit}>
           <label>Name</label>
-          <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
+          <input type="text" name="username" value={this.state.name} onChange={this.handleChange} required />
           <label>Email</label>
           <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
           <label>Password</label>

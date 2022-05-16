@@ -20,7 +20,7 @@ export async function signUp(userData) {
   // Check if request was successful
   if (res.ok) {
     // res.json() will resolve to the JWT
-    console.log('test5')
+    console.log('res was ok!')
     return res.json();
     
   } else {
