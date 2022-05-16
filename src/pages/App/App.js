@@ -4,9 +4,12 @@ import { Route, Routes } from 'react-router-dom'
 import UserProfilePage from "../UserProfilePage/UserProfilePage"
 import { useState, useEffect } from 'react';
 import HomePage from "../Homepage/Homepage"
+import UserUploadArtPage from '../UserUploadArtPage/UserUploadArtPage';
 import { getUser } from '../../utilities/users-service';
 function App() {
   const [user, setUser] = useState(getUser());
+  const [chosenUser, setChosenUser] = useState({})
+  const [chosenWork, setChosenWork] = useState({})
   
   useEffect(() => {
     (async () => {
@@ -25,6 +28,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage/>}/>
           <Route path="/user/:id" element={<UserProfilePage/>}/>
+          <Route path="/user/:id/upload" element={<UserUploadArtPage/>}/>
         </Routes>
         :
         <AuthPage setUser={setUser}/>

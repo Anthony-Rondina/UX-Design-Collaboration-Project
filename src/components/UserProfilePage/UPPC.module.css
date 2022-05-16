@@ -130,6 +130,7 @@
   }
   .innerProfileWrapper{
     background-color: white;
+    width: 1280px;
   }
 
   .userMore{
@@ -138,5 +139,5 @@
 
  .userUpload{
   cursor:pointer;
-  width: 400px;
+  width: 300px;
  }

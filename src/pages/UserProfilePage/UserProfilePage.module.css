@@ -1,3 +1,7 @@
 .mainProfileWrapper{
     background-color: white;
   }
+  input.largeCheckBox {
+    width: 40px;
+    height: 40px;
+  }
