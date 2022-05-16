@@ -1,6 +1,6 @@
 import styles from './SignUpForm.module.css';
 import { Component } from "react";
-// import { signUp } from '../../utilities/users-service';
+import { signUp } from '../../utilities/users-service';
 
 export default class SignUpForm extends Component {
 state = {
@@ -27,9 +27,9 @@ handleSubmit = async (evt) => {
     // The promise returned by the signUp service method
     // will resolve to the user object included in the
     // payload of the JSON Web Token (JWT)
-    // const user = await signUp(formData);
+    const user = await signUp(formData);
     // Baby step
-    // this.props.setUser(user);
+    this.props.setUser(user);
   } catch {
     // An error happened on the server
     this.setState({ error: 'Sign Up Failed - Try Again' });
