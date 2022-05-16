@@ -20,9 +20,9 @@ export default function AuthPage({ setUser }) {
           <h1>Create an account</h1>
           <h5>Already have an account?<span onClick={() => setShowLogin(!showLogin)}> {showLogin ? 'Sign Up' : 'Sign In'}</span></h5>
           <p>Sign up with social</p>
-          <img className='social-logo' src={fb}/>
-          <img className='social-logo' src={goog}/>
-          <img className='social-logo' src={apple}/>
+          <img className={styles.mediaIcon} alt='social-logo' src={fb}/>
+          <img className={styles.mediaIcon} alt='social-logo' src={goog}/>
+          <img className={styles.mediaIcon} alt='social-logo' src={apple}/>
       {showLogin ? <LoginForm setUser={setUser} /> : <SignUpForm setUser={setUser} />}
       </div>
     </main>
