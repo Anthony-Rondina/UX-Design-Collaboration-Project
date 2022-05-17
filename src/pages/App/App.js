@@ -1,9 +1,10 @@
 import './App.css';
+import NavHeader from '../../components/NavHeader/NavHeader';
 
 function App() {
   return (
     <div className="App">
-      {/* Routes will go here */}
+      <NavHeader/>
     </div>
   );
 }
