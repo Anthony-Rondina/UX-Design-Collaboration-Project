@@ -14,7 +14,6 @@ const artSchema = new Schema(
         image: { type: String, required: false },
         cloudinaryImage: { type: String, required: false },
         user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
-
     },
     { 
         timestamps: true 

@@ -79,6 +79,9 @@ async function create(req, res) {
     const art = new Art(body)
     //save art to DB
     art.save()
+    console.log("art saved to DB")
+    //assigning the user to the art
+    art.user = req.user._id
     //push art to the User's Collection
     user.artCollection.push(art._id)
     //save User to DB

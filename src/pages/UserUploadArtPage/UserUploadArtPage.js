@@ -5,6 +5,7 @@ import styles from "./UserUploadArtPage.module.css"
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import UserBioBar from "../../components/UserProfilePage/UserBioBar";
+import Navbar from "../../components/NavHeader/NavHeader"
 export default function UserUploadArtPage() {
     const navigate = useNavigate();
     const type = useRef()
@@ -36,11 +37,32 @@ export default function UserUploadArtPage() {
             <div className={styles.mainProfileWrapper}>
                 <div >
                     <div className={styles.innerProfileWrapper}>
+                        <Navbar/>
                         <UserBioBar/>
                         <div className={styles.uploadFormWrapper}>
                             <h1>Upload your art!</h1>
                             <a href="/user/DYNAMICID"><button>Back to Profile</button></a>
-                            <form onSubmit={handleSubmit}>
+                            <form className={styles.uploadForm} onSubmit={handleSubmit}>
+                            <p>What type of art is this?</p>
+                            <label> 
+                                    <select ref={type}>
+                                    <option value="WATERCOLOR">
+                                        WATERCOLOR
+                                    </option>
+                                    <option value="CANVAS">
+                                        CANVAS
+                                    </option>
+                                    <option value="QUILLING">
+                                        QUILLING
+                                    </option>
+                                    <option value="ACRYLIC">
+                                        ACRYLIC
+                                    </option>
+                                    <option value="PAPERART">
+                                        PAPER-ART
+                                    </option>
+                                    </select>
+                                </label>
                                 <p>What type of Art is this work?</p>
                                 <input placeholder='Enter art type' type="text" ref={type} />
                                 <p>What is title of this peice?</p>
