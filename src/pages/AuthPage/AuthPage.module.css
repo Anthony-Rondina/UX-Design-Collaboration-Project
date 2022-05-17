@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+html {
+    background-color: #f7f7f7;
+}
+
 .AuthPage {
     height: 100%;
     display: flex;
@@ -15,8 +19,8 @@
     position: absolute;
     width: 358px;
     height: 126px;
-    left: 144px;
-    top: 547px;
+    left: 300px;
+    top: 435px;
     font-family: 'AcuminPro';
     font-style: normal;
     font-weight: 600;
@@ -28,12 +32,12 @@
   
   .AuthPage>.SplitSide {
     position: absolute;
-    width: 626px;
-    height: 824px;
-    left: 896px;
-    top: 137px;
+    width: 575px;
+    height: 800px;
+    left: 1100px;
+    top: 95px;
     background: #FFFFFF;
-    border-radius: 35px;
+    border-radius: 10px;
   }
 
   .AuthPage > .SplitSide > h1 {
@@ -66,8 +70,9 @@
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
-  .AuthPage > .SplitSide > span {
-      font-family: 'AcuminProBold'
+  .AuthPage > .SplitSide span {
+      font-family: 'AcuminProBold';
+      cursor: pointer;
   }
 
   .AuthPage > .SplitSide > p {
@@ -77,10 +82,21 @@
       margin-top: 40px;
   }
 
-  .mediaIcon {
+  .mediaIcon1 {
       height: 69.13px;
       width: 69.13px;
-      margin-left: 10px;
+      margin-left: 45px;
+  }
+
+  .mediaIcon2 {
+      height: 69.13px;
+      width: 69.13px;
+      margin-left: 1px;
+  }
+  .mediaIcon3 {
+      height: 69.13px;
+      width: 69.13px;
+      margin-left: 1px;
   }
 
   @font-face {
