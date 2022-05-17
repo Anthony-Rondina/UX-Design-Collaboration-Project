@@ -5,6 +5,7 @@ import styles from "./UserUploadArtPage.module.css"
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import UserBioBar from "../../components/UserProfilePage/UserBioBar";
+import Navbar from "../../components/NavHeader/NavHeader"
 export default function UserUploadArtPage() {
     const navigate = useNavigate();
     const type = useRef()
@@ -36,6 +37,7 @@ export default function UserUploadArtPage() {
             <div className={styles.mainProfileWrapper}>
                 <div >
                     <div className={styles.innerProfileWrapper}>
+                        <Navbar/>
                         <UserBioBar/>
                         <div className={styles.uploadFormWrapper}>
                             <h1>Upload your art!</h1>
