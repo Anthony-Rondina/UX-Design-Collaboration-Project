@@ -21,9 +21,9 @@ export default function UserBioBar() {
                         </div>
                     </div>
                     <div className={styles.userBottomOptions}>
-                        <Link to="/"><button>Edit Profile</button></Link>
+                        <Link to="/"><button className={styles.clickButton}>Edit Profile</button></Link>
                         {/* This button will toggle a modal for additional options */}
-                        <button className={styles.userMore}>...</button>
+                        <button className={styles.clickButton}>...</button>
                     </div>
                 </div>
             </div>

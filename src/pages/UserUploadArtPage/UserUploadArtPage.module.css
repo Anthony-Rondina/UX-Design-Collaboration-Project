@@ -22,7 +22,7 @@
 }
 /* change these below */
 
-.UserUploadArtPage form {
+.uploadForm {
     display: grid;
     grid-template-columns: 1fr 3fr;
     gap: 1.25vmin;
@@ -45,7 +45,7 @@
     outline: none;
   }
 
-  .UserUploadArtPageminput:focus {
+  /* .UserUploadArtPageminput:focus {
     border-color: var(blue);
   }
   .UserUploadArtPage button,
@@ -58,28 +58,12 @@
   font-weight: bold;
   text-decoration: none;
   text-align: center;
-  /* border: .1vmin solid blue; */
   border-radius: .5vmin;
   outline: none;
   border-radius: 25px;
   cursor: pointer;
-}
+} */
 
-.UserUploadArtPage button.btn-sm {
-    font-size: 1.5vmin;
-    padding: .6vmin .8vmin;
-  }
-
-  .UserUploadArtPage button[type="submit"] {
-  cursor: not-allowed;
-  background-color: var(--tan-4);
-}
-
-.UserUploadArtPage button[type="submit"] {
-    grid-column: span 2;
-    margin: 1vmin 0 0;
-  }
-  
  .UserUploadArtPage input[type="submit"] {
     cursor: pointer;
   }
