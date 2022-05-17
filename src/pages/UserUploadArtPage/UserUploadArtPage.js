@@ -6,7 +6,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import UserBioBar from "../../components/UserProfilePage/UserBioBar";
 import Navbar from "../../components/NavHeader/NavHeader"
-export default function UserUploadArtPage() {
+export default function UserUploadArtPage({user}) {
     const navigate = useNavigate();
     const type = useRef()
     const nameOfArt = useRef()
@@ -38,7 +38,7 @@ export default function UserUploadArtPage() {
                 <div >
                     <div className={styles.innerProfileWrapper}>
                         <Navbar/>
-                        <UserBioBar/>
+                        <UserBioBar user={user}/>
                         <div className={styles.uploadFormWrapper}>
                             <h1>Upload your art!</h1>
                             <a href="/user/DYNAMICID"><button>Back to Profile</button></a>

@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom"
 import styles from "./UPPC.module.css"
 import coverImage from "./Cover-Image.jpg"
-export default function UserBioBar() {
+export default function UserBioBar({user}) {
     return (
         <div className={styles.userBioWrapper}>
             <div className={styles.userCoverImage}>
@@ -15,7 +15,8 @@ export default function UserBioBar() {
                     <div className={styles.userUpperOptions}>
                         <div className="welcome">
                             {/* replace NAME with user.name once implimented */}
-                            <p className={styles.welcomeUser}>{`Hello, NAME.`}</p>  
+                            <p className={styles.welcomeUser}>{`Hello, ${user.username}.`}</p> 
+                            {console.log(user)} 
                             {/* replace CANVAS with user.type once implimented */}
                             {/* <p className="type">{`CANVAS.`}</p>   */}
                         </div>

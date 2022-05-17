@@ -6,7 +6,8 @@ import ListBar from "../../components/UserProfilePage/ListBar"
 import UserBioBar from "../../components/UserProfilePage/UserBioBar"
 import styles from "../../components/UserProfilePage/UPPC.module.css"
 import Navbar from "../../components/NavHeader/NavHeader"
-export default function UserProfilePage() {
+
+export default function UserProfilePage({user}) {
 const [refresh, setRefresh] = useState(false)
 const [artwork, setArtWork] = useState(true)
 const [WIP, setWIP] = useState(false)
@@ -22,7 +23,7 @@ useEffect(() => {
         <div className={styles.mainProfileWrapper}>
             <div className={styles.innerProfileWrapper}>
                 <Navbar/>
-                <UserBioBar />
+                <UserBioBar user={user}/>
                 <ListBar setRefresh={setRefresh} setArtWork={setArtWork} setWIP={setWIP} setFollowing={setFollowing} setAbout={setAbout} setDisplayContent={setDisplayContent} displayContent={displayContent} about={about} WIP={WIP} artwork={artwork} following={following} />
                 <ResultBox about={about} WIP={WIP} artwork={artwork} following={following} />
             </div>

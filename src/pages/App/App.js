@@ -27,8 +27,8 @@ function App() {
       {user ?
         <Routes>
           <Route path="/" element={<HomePage/>}/>
-          <Route path="/user/:id" element={<UserProfilePage/>}/>
-          <Route path="/user/:id/upload" element={<UserUploadArtPage/>}/>
+          <Route path="/user/:id" element={<UserProfilePage user={user}/>}/>
+          <Route path="/user/:id/upload" element={<UserUploadArtPage user={user}/>}/>
         </Routes>
         :
         <AuthPage setUser={setUser}/>
