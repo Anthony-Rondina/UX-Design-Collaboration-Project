@@ -28,6 +28,10 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage/>}/>
           <Route path="/user/:id" element={<UserProfilePage user={user}/>}/>
+          <Route path="/user/:id/about" element={<UserProfilePage user={user}/>}/>
+          <Route path="/user/:id/following" element={<UserProfilePage user={user}/>}/>
+          <Route path="/user/:id/WIP" element={<UserProfilePage user={user}/>}/>
+          <Route path="/user/:id/artwork" element={<UserProfilePage user={user}/>}/>
           <Route path="/user/:id/upload" element={<UserUploadArtPage user={user}/>}/>
         </Routes>
         :

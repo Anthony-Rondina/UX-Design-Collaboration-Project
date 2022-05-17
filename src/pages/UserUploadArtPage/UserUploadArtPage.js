@@ -41,7 +41,7 @@ export default function UserUploadArtPage({user}) {
                         <UserBioBar user={user}/>
                         <div className={styles.uploadFormWrapper}>
                             <h1>Upload your art!</h1>
-                            <a href="/user/DYNAMICID"><button>Back to Profile</button></a>
+                            <a href={`/user/${user._id}`}><button>Back to Profile</button></a>
                             <form className={styles.uploadForm} onSubmit={handleSubmit}>
                             <p>What type of art is this?</p>
                             <label> 
