@@ -5,7 +5,10 @@ module.exports = {
   get,
   put,
   show,
-  destroy
+  destroy,
+  getAllUserArt,
+  getAllUserWipArt,
+  getAllFilteredArt
 };
 
 async function get(req, res) {
@@ -16,6 +19,42 @@ async function get(req, res) {
       res.status(400).json(err)
     }
   })
+}
+
+async function getAllFilteredArt(req,res) {
+
+  Art.find({type: req.params.artType }, (err, foundArt) => {
+    if (!err) {
+      res.status(200).json(foundArt)
+    } else {
+      res.status(400).json(err)
+    }
+  })
+
+}
+
+async function getAllUserArt(req,res) {
+
+  Art.find({ user: req.params.id }, (err, foundArt) => {
+    if (!err) {
+      res.status(200).json(foundArt)
+    } else {
+      res.status(400).json(err)
+    }
+  })
+
+}
+
+async function getAllUserWipArt(req,res) {
+
+  Art.find({ user: req.params.id, isDone: false}, (err, foundArt) => {
+    if (!err) {
+      res.status(200).json(foundArt)
+    } else {
+      res.status(400).json(err)
+    }
+  })
+
 }
 
 async function put(req, res) {
@@ -56,11 +95,12 @@ async function create(req, res) {
 async function show(req, res) {
 
   try {
-    Art.findById(req.params,id, (err, foundArt) => {
-      if(err) {
-        res.status(400).json(err)
-      } else {
+    const query = Art.findById(req.params.id).populate('user')
+    query.exec((err, foundArt) => {
+      if(!err) {
         res.status(200).json(foundArt)
+      } else {
+        res.status(400).json({ message: error.message })
       }
     })
   } catch (e) {
