@@ -41,6 +41,26 @@ export default function UserUploadArtPage() {
                             <h1>Upload your art!</h1>
                             <a href="/user/DYNAMICID"><button>Back to Profile</button></a>
                             <form onSubmit={handleSubmit}>
+                            <p>What type of art is this?</p>
+                            <label> 
+                                    <select ref={type}>
+                                    <option value="WATERCOLOR">
+                                        WATERCOLOR
+                                    </option>
+                                    <option value="CANVAS">
+                                        CANVAS
+                                    </option>
+                                    <option value="QUILLING">
+                                        QUILLING
+                                    </option>
+                                    <option value="ACRYLIC">
+                                        ACRYLIC
+                                    </option>
+                                    <option value="PAPERART">
+                                        PAPER-ART
+                                    </option>
+                                    </select>
+                                </label>
                                 <p>What type of Art is this work?</p>
                                 <input placeholder='Enter art type' type="text" ref={type} />
                                 <p>What is title of this peice?</p>

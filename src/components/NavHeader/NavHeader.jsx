@@ -16,7 +16,7 @@ export default function NavHeader() {
         </ul>
         <div class="search-container">
             <form>
-                <input type="text" placeholder="Search for inspiration, creatives, tutorials..." name="search"/>
+                <input type="text" placeholder="Search for inspiration, creatives, tutorials..." results="0" name="search"/>
             </form>
         </div>
         <button className={styles.signInBtn} type="submit">Sign In</button>
