@@ -49,10 +49,10 @@ render() {
       <div className={styles.formContainer1}>
           <h4>Sign up with email</h4>
         <form autoComplete="off" onSubmit={this.handleSubmit}>
-          <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
-          <input className={styles.name} type="firstName" name="firstName" value={this.state.firstName} onChange={this.handleChange} required />
-          <input className={styles.name} type="lastName" name="lastName" value={this.state.lastName} onChange={this.handleChange} required />
-          <input type="password" name="confirm" value={this.state.password} onChange={this.handleChange} required />
+          <input type="email" name="email" value={this.state.email} placeholder='Email' onChange={this.handleChange} required />
+          <input className={styles.name} type="firstName" name="firstName" value={this.state.firstName} placeholder='First Name' onChange={this.handleChange} required />
+          <input className={styles.name2} type="lastName" name="lastName" value={this.state.lastName} placeholder='Last Name' onChange={this.handleChange} required />
+          <input type="password" name="confirm" value={this.state.password} placeholder='Password' onChange={this.handleChange} required />
           <button type="submit" disabled={disable}>SIGN UP</button>
         </form>
       </div>
