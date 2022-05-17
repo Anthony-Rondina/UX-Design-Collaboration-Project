@@ -1,0 +1,89 @@
+.mainProfileWrapper{
+    background-color: rgb(232, 242, 247);
+    display: flex;
+    justify-content: center;
+    max-width: 780;
+    /* align-items: center; */
+    height: 100vh;
+  }
+  .innerProfileWrapper{
+    background-color: white;
+    width: 1280px;
+  }
+
+.uploadFormWrapper{
+    /* margin-top: 50px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 700px;
+    /* border: solid red 3px; */
+}
+/* change these below */
+
+.UserUploadArtPage form {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 1.25vmin;
+    color: black;
+  }
+
+  .UserUploadArtPage label {
+    font-size: 2vmin;
+    display: flex;
+    align-items: center;
+  }
+  .UserUploadArtPage input {
+    padding: 1vmin;
+    font-size: 2vmin;
+    border: .1vmin solid rgb(232, 242, 247);
+    border-radius: .5vmin;
+    color: black;
+    background-image: none !important;
+    /* prevent lastpass */
+    outline: none;
+  }
+
+  .UserUploadArtPageminput:focus {
+    border-color: var(blue);
+  }
+  .UserUploadArtPage button,
+  .UserUploadArtPage a.button {
+  margin: 10px;
+  padding: 10px;
+  color: black;
+  background-color: rgb(232, 242, 247);
+  font-size: 2vmin;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  /* border: .1vmin solid blue; */
+  border-radius: .5vmin;
+  outline: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.UserUploadArtPage button.btn-sm {
+    font-size: 1.5vmin;
+    padding: .6vmin .8vmin;
+  }
+
+  .UserUploadArtPage button[type="submit"] {
+  cursor: not-allowed;
+  background-color: var(--tan-4);
+}
+
+.UserUploadArtPage button[type="submit"] {
+    grid-column: span 2;
+    margin: 1vmin 0 0;
+  }
+  
+ .UserUploadArtPage input[type="submit"] {
+    cursor: pointer;
+  }
+  .largeCheckBox {
+    width: 40px;
+    height: 40px;
+  }

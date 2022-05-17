@@ -1,0 +1,99 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+.AuthPage {
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #F7F7F7;
+    size: 400px;
+  }
+  
+  .AuthPage h3 {
+    position: absolute;
+    width: 358px;
+    height: 126px;
+    left: 144px;
+    top: 547px;
+    font-family: 'AcuminPro';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 38px;
+    color: #111111;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  .AuthPage>.SplitSide {
+    position: absolute;
+    width: 626px;
+    height: 824px;
+    left: 896px;
+    top: 137px;
+    background: #FFFFFF;
+    border-radius: 35px;
+  }
+
+  .AuthPage > .SplitSide > h1 {
+    /* position: absolute; */
+    width: 450px;
+    height: 55px;
+    left: 962px;
+    top: 198px;
+    font-family: 'AcuminProBold', 'sans-serif';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+    margin-left: 50px;
+    margin-top: 50px;
+  }
+
+  .AuthPage > .SplitSide > h5 {
+    margin-left: 50px;
+    margin-top: -25px;
+    width: 425px;
+    height: 17px;
+    left: 966px;
+    font-family: 'AcuminPro';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 18px;
+    color: #000000;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .AuthPage > .SplitSide > span {
+      font-family: 'AcuminProBold'
+  }
+
+  .AuthPage > .SplitSide > p {
+      font-family: 'AcuminProSemibold';
+      font-weight: 500;
+      margin-left: 50px;
+      margin-top: 40px;
+  }
+
+  .mediaIcon {
+      height: 69.13px;
+      width: 69.13px;
+      margin-left: 10px;
+  }
+
+  @font-face {
+      font-family: 'AcuminPro';
+      src: url(../../public/fonts/acumin-pro.ttf);
+  }
+
+  @font-face {
+      font-family: 'AcuminProBold';
+      src: url(../../public/fonts/acumin-pro-bold.ttf);
+  }
+
+  @font-face {
+      font-family: 'AcuminProSemibold';
+      src: url(../../public/fonts/acumin-pro-semibold.ttf);
+  }
