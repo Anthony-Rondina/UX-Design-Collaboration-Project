@@ -63,18 +63,16 @@ export default function UserUploadArtPage() {
                                     </option>
                                     </select>
                                 </label>
-                                <p>What type of Art is this work?</p>
-                                <input placeholder='Enter art type' type="text" ref={type} />
                                 <p>What is title of this peice?</p>
-                                <input placeholder='Enter title of art' type="text" ref={nameOfArt} />
+                                <input className={styles.uploadInput} placeholder='Enter title of art' type="text" ref={nameOfArt} />
                                 <p>Is the work completed?</p>
                                 <input placeholder='Enter card number'  type="checkbox" className={styles.largeCheckBox} ref={isDone} />
                                 <p>Where is the image located?</p>
-                                <input placeholder="Enter link to art" type="text" ref={image} />
+                                <input className={styles.uploadInput} placeholder="Enter link to art" type="text" ref={image} />
                                 <p>What supplies are needed?</p>
-                                <input placeholder="Enter supply list" type="text" ref={supplies} />
+                                <input className={styles.uploadInput} placeholder="Enter supply list" type="text" ref={supplies} />
                                 <p>What do you want the viewer to know?</p>
-                                <input placeholder="Enter art prompt" type="text" ref={artPrompt} />
+                                <input className={styles.uploadInput} placeholder="Enter art prompt" type="text" ref={artPrompt} />
                                 <input type="submit" value="Upload your art!" />
                             </form>
                         </div>
