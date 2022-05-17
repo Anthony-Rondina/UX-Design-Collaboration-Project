@@ -1,0 +1,50 @@
+.NavHeader {
+    display: flex;
+    position: absolute;
+    justify-content: space-around;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 50px 0 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.NavHeader li {
+    color: black;
+    font-size: small;
+    font-weight: bold;
+    list-style: none;
+    display: inline;
+    padding: 0 0 0 20px;
+}
+a:link,
+a:visited {
+    color: black;
+    text-decoration: none;
+}
+.NavHeader input {
+    border: none;
+    border-radius: 5px;
+    background-color: lightgray;
+    height: 30px;
+    width: 30vw;
+    margin-top: 10px;
+}
+.signInBtn {
+    background-color: black;
+}
+.signUpBtn {
+    background-color: gray;
+}
+.signInBtn,
+.signUpBtn {
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 75px;
+    height: 35px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+.NavHeader button:active {
+    transform: scale(0.9);
+}
