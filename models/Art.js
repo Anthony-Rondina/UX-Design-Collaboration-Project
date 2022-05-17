@@ -12,7 +12,8 @@ const artSchema = new Schema(
         gallery: Array,
         comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
         image: { type: String, required: false },
-        cloudinaryImage: { type: String, required: false }
+        cloudinaryImage: { type: String, required: false },
+        user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 
     },
     { 
