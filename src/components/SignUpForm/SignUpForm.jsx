@@ -47,6 +47,7 @@ render() {
   return (
     <div>
       <div className={styles.formContainer1}>
+              <p>- or -</p>
           <h4>Sign up with email</h4>
         <form autoComplete="off" onSubmit={this.handleSubmit}>
           <input type="email" name="email" value={this.state.email} placeholder='Email' onChange={this.handleChange} required />
