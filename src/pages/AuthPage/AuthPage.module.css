@@ -33,9 +33,9 @@ html {
   .AuthPage>.SplitSide {
     position: absolute;
     width: 575px;
-    height: 700px;
+    height: 800px;
     left: 1100px;
-    top: 137px;
+    top: 95px;
     background: #FFFFFF;
     border-radius: 10px;
   }
