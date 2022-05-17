@@ -1,15 +1,16 @@
-.SignUpForm {
-    display: grid;
-    background-color: #FFFFFF;
-}
-
-div.FormContainer {
+.formContainer1 {
     display: block;
-}
-
-.FormContainer {
     padding: 3vmin;
     background-color: #FFFFFF;
     box-sizing: border-box;
     border-radius: 1vmin;
+}
+
+.formContainer1 input {
+    border: 0.5px solid #C4C4C4;
+    height: 60px;
+    box-sizing: border-box;
+    width: 490px;
+    background: rgba(196, 196, 196, 0.1);
+    border-radius: 10px;
 }
