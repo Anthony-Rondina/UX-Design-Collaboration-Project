@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-.AuthPage {
+.AuthPage, html {
     height: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -77,10 +77,21 @@
       margin-top: 40px;
   }
 
-  .mediaIcon {
+  .mediaIcon1 {
       height: 69.13px;
       width: 69.13px;
-      margin-left: 10px;
+      margin-left: 35px;
+  }
+
+  .mediaIcon2 {
+      height: 69.13px;
+      width: 69.13px;
+      margin-left: 1px;
+  }
+  .mediaIcon3 {
+      height: 69.13px;
+      width: 69.13px;
+      margin-left: 1px;
   }
 
   @font-face {
