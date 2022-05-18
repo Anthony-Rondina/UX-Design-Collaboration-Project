@@ -86,16 +86,18 @@ async function create(req, res) {
 }
 
 async function show(req, res) {
+
   try {
-    User.findById(req.params.id, (err, foundUser) => {
-      if(err) {
-        res.status(400).json(err)
-      } else {
+    const query = User.findById(req.params.id).populate('artCollection')
+    query.exec((err, foundUser) => {
+      if(!err) {
         res.status(200).json(foundUser)
+      } else {
+        res.status(400).json({ message: error.message })
       }
     })
   } catch (e) {
-    res.status(400).json(e)
+    res.status(400).json(e);
   }
 }
 
