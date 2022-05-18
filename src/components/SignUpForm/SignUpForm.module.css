@@ -8,7 +8,7 @@
 }
 
 .formContainer1 input {
-    border: 0.5px solid #C4C4C4;
+    border: 0.1vmin solid #C4C4C4;
     height: 60px;
     box-sizing: border-box;
     width: 490px;
@@ -19,11 +19,11 @@
 
 }
 
-.formContainer1 .name {
+.formContainer1 .pass {
     width: 230px;
 }
 
-.formContainer1 .name2 {
+.formContainer1 .confirm {
     width: 230px;
     margin-left: 30px;
 }
