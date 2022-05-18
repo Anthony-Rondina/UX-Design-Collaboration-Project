@@ -116,6 +116,8 @@ async function create(req, res) {
     art.save()
     //push art to the User's Collection
     user.artCollection.push(art._id)
+    art.user=req.user._id 
+    art.save()
     //save User to DB
     user.save()
     res.status(200).json({ message: "Worked!" })

@@ -13,6 +13,7 @@ export default function UserArtwork({setChosenWork,updatedUser, user}) {
                     <div className={styles.artFlexbox}>
                         <Link to={`/user/${user._id}/upload`}><img src="https://i.imgur.com/JoSbsoa.png" alt="" className={styles.userUpload} /></Link>
                         {updatedUser.artCollection.map((art, idx) => {
+                            console.log(art)
                             return (
                                 <Link to={`/art/${art._id}`} onClick={() => { setChosenWork(art) }}><div 
                                 key={idx} 
