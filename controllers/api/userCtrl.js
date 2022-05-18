@@ -18,14 +18,35 @@ function checkToken(req, res) {
 }
 
 async function get(req, res) {
-  User.find({}, (err, foundUser) => {
-    if (!err) {
-      res.status(200).json(foundUser)
-    } else {
-      res.status(400).json(err)
-    }
-  })
+
+  try {
+    const query = User.find({}).populate('artCollection')
+    query.exec((err, foundUser) => {
+      if(!err) {
+        res.status(200).json(foundUser)
+      } else {
+        res.status(400).json({ message: error.message })
+      }
+    })
+  } catch (e) {
+    res.status(400).json(e);
+  }
+
+
+
+
+
+
+  // User.find({}, (err, foundUser) => {
+  //   if (!err) {
+  //     res.status(200).json(foundUser)
+  //   } else {
+  //     res.status(400).json(err)
+  //   }
+  // })
+
 }
+
 async function put(req, res) {
   const { body } = req
 
