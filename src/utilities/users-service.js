@@ -33,7 +33,6 @@ export async function getToken() {
 export async function getUser() {
     const token = await getToken();
     // console.log("token is ", token)
-    //v CODE BREAKS HERE v
     return token ? JSON.parse(window.atob(token.split(".")[1])).user : null
 }
 

@@ -14,7 +14,7 @@ export default function NavHeader() {
                 <Link to="#" className="nav-link">Tutorials</Link>
             </li>
         </ul>
-        <div class="search-container">
+        <div className="search-container">
             <form>
                 <input type="text" placeholder="&#x1F50D; Search for inspiration, creatives, tutorials..." name="search" results="0"/>
             </form>
