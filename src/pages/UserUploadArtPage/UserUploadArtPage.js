@@ -27,7 +27,7 @@ export default function UserUploadArtPage({user}) {
                 }
             })
             console.log(`test2`)
-            navigate("/user/IDGOESHERE!")
+            navigate(`/user/${user._id}`)
         } catch (err) {
             console.log(err)
         }

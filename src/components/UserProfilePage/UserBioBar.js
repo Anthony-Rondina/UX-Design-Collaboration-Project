@@ -10,14 +10,14 @@ export default function UserBioBar({user}) {
             </div>
             <div className={styles.userInfo}>
                 {/* Change User.avatar to actual props once implimented */}
-                {console.log(user.avatar)}
-                <img className={styles.profilePic}src="https://ctorthopaedic.com/wp-content/uploads/2017/01/profile-silhouette.jpg" alt="" />
+                {/* {console.log(user.avatar)} */}
+                <img className={styles.profilePic}src={user.avatar} alt="" />
                 <div className={styles.rightHalf}>
                     <div className={styles.userUpperOptions}>
                         <div className="welcome">
                             {/* replace NAME with user.name once implimented */}
-                            <p className={styles.welcomeUser}>{`Hello, ${user.username}.`}</p> 
-                            {console.log(user)} 
+                            <p className={styles.welcomeUser}>{`Hello, ${user.firstName}.`}</p> 
+                            {/* {console.log(user)}  */}
                             {/* replace CANVAS with user.type once implimented */}
                             {/* <p className="type">{`CANVAS.`}</p>   */}
                         </div>
