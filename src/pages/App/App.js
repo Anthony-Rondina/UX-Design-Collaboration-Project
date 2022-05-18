@@ -9,7 +9,7 @@ import { getUser } from '../../utilities/users-service';
 import UserWIPPage from '../UserProfilePage/UserWIPPage';
 import UserFollowingListPage from "../UserProfilePage/UserFollowingListPage"
 import UserAboutMePage from "../UserProfilePage/UserAboutMePage"
-import ProductPage from '../ProjectPage/ProjectPage';
+import ProductPage from '../ProductPage/ProductPage';
 function App() {
   const [user, setUser] = useState(getUser());
   const [chosenUser, setChosenUser] = useState({})
