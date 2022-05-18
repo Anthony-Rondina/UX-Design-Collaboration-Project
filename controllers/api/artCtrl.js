@@ -8,30 +8,48 @@ module.exports = {
   destroy,
   getAllUserArt,
   getAllUserWipArt,
-  getAllFilteredArt
+  // getAllFilteredArt
 };
 
 async function get(req, res) {
-  Art.find({}, (err, foundArt) => {
-    if (!err) {
-      res.status(200).json(foundArt)
-    } else {
-      res.status(400).json(err)
-    }
-  })
+
+  try {
+    const query = Art.find({}).populate('user')
+    query.exec((err, foundArt) => {
+      if(!err) {
+        res.status(200).json(foundArt)
+      } else {
+        res.status(400).json({ message: error.message })
+      }
+    })
+  } catch (e) {
+    res.status(400).json(e);
+  }
+
+
+
+
+  // Art.find({}, (err, foundArt) => {
+  //   if (!err) {
+  //     res.status(200).json(foundArt)
+  //   } else {
+  //     res.status(400).json(err)
+  //   }
+  // })
+
 }
 
-async function getAllFilteredArt(req,res) {
+// async function getAllFilteredArt(req,res) {
 
-  Art.find({type: req.params.artType }, (err, foundArt) => {
-    if (!err) {
-      res.status(200).json(foundArt)
-    } else {
-      res.status(400).json(err)
-    }
-  })
+//   Art.find({ type: {$eq: req.params.artType.toUpperCase() } }, (err, foundArt) => {
+//     if (!err) {
+//       res.status(200).json(foundArt)
+//     } else {
+//       res.status(400).json(err)
+//     }
+//   })
 
-}
+// }
 
 async function getAllUserArt(req,res) {
 
@@ -79,9 +97,6 @@ async function create(req, res) {
     const art = new Art(body)
     //save art to DB
     art.save()
-    console.log("art saved to DB")
-    //assigning the user to the art
-    art.user = req.user._id
     //push art to the User's Collection
     user.artCollection.push(art._id)
     //save User to DB
@@ -111,12 +126,17 @@ async function show(req, res) {
 
 async function destroy(req, res) {
 
+  const user = await User.findById(req.user._id)
   try {
     Art.findByIdAndDelete(req.params.id, (err) => {
       if(err) {
         res.status(400).json(err)
       } else {
-        res.status(200).json({message: "Deleted Art"})
+
+        user.artCollection.pull(req.params.id);
+        user.save();
+        res.status(200).json({message: "Deleted Art"});
+
       }
     })
   } catch (e) {
