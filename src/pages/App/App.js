@@ -26,9 +26,13 @@ function App() {
     <div className="App">
       {user ?
         <Routes>
-          <Route path="/" element={<HomePage user={user} />} />
-          <Route path="/user/:id" element={<UserProfilePage user={user} />} />
-          <Route path="/user/:id/upload" element={<UserUploadArtPage user={user} />} />
+          <Route path="/" element={<HomePage user={user}/>}/>
+          <Route path="/user/:id" element={<UserProfilePage user={user}/>}/>
+          <Route path="/user/:id/about" element={<UserProfilePage user={user}/>}/>
+          <Route path="/user/:id/following" element={<UserProfilePage user={user}/>}/>
+          <Route path="/user/:id/WIP" element={<UserProfilePage user={user}/>}/>
+          <Route path="/user/:id/artwork" element={<UserProfilePage user={user}/>}/>
+          <Route path="/user/:id/upload" element={<UserUploadArtPage user={user}/>}/>
         </Routes>
         :
         <AuthPage setUser={setUser} />

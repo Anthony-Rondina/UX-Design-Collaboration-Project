@@ -1,13 +1,13 @@
 
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react"
-import UserArtwork from "../../components/UserProfilePage/UserArtwork"
+import UserFollowingPage from "../../components/UserProfilePage/UserFollowingList"
 import ListBar from "../../components/UserProfilePage/ListBar"
 import UserBioBar from "../../components/UserProfilePage/UserBioBar"
 import styles from "../../components/UserProfilePage/UPPC.module.css"
 import Navbar from "../../components/NavHeader/NavHeader"
 
-export default function UserProfilePage({user}) {
+export default function UserFollowingListPage({user}) {
 const [refresh, setRefresh] = useState(false)
 const [artwork, setArtWork] = useState(true)
 const [WIP, setWIP] = useState(false)
@@ -25,7 +25,7 @@ useEffect(() => {
                 <Navbar/>
                 <UserBioBar user={user}/>
                 <ListBar setRefresh={setRefresh} setArtWork={setArtWork} setWIP={setWIP} setFollowing={setFollowing} setAbout={setAbout} setDisplayContent={setDisplayContent} displayContent={displayContent} about={about} WIP={WIP} artwork={artwork} following={following} />
-                <UserArtwork user={user}about={about} WIP={WIP} artwork={artwork} following={following} />
+                <UserFollowingPage about={about} WIP={WIP} artwork={artwork} following={following} />
             </div>
         </div>
     )

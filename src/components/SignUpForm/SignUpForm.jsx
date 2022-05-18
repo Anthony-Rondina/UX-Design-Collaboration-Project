@@ -35,8 +35,7 @@ handleSubmit = async (event) => {
     } catch (err) {
         this.setState({ error: "Sign up failed" })
     }
-    // event.preventDefault();
-    // alert(JSON.stringify(this.state));
+    event.preventDefault();
 }
 
 // We must override the render method
@@ -45,17 +44,17 @@ handleSubmit = async (event) => {
 render() {
   const disable = this.state.password !== this.state.confirm;
   return (
-    <div className={styles.SignUpForm}>
-      <div className={styles.FormContainer}>
+    <div>
+      <div className={styles.formContainer1}>
+              <p>- or -</p>
+          <h4>Sign up with email</h4>
         <form autoComplete="off" onSubmit={this.handleSubmit}>
-          <label>Name</label>
-          <input type="text" name="username" value={this.state.name} onChange={this.handleChange} required />
-          <label>Email</label>
-          <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
-          <label>Password</label>
-          <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
-          <label>Confirm</label>
-          <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
+          <input type='text' name='username' value={this.state.username} placeholder='Username' onChange={this.handleChange} required />
+          <input type="email" name="email" value={this.state.email} placeholder='Email' onChange={this.handleChange} required />
+          <input className={styles.name} type="firstName" name="firstName" value={this.state.firstName} placeholder='First Name' onChange={this.handleChange} required />
+          <input className={styles.name2} type="lastName" name="lastName" value={this.state.lastName} placeholder='Last Name' onChange={this.handleChange} required />
+          <input type="password" name="password" value={this.state.password} placeholder='Password' onChange={this.handleChange} required />
+          <input type="password" name="confirm" value={this.state.confirm} placeholder='Confirm Password' onChange={this.handleChange} required />
           <button type="submit" disabled={disable}>SIGN UP</button>
         </form>
       </div>
