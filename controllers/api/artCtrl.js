@@ -53,13 +53,18 @@ async function get(req, res) {
 
 async function getAllUserArt(req,res) {
 
-  Art.find({ user: req.params.id }, (err, foundArt) => {
-    if (!err) {
-      res.status(200).json(foundArt)
-    } else {
-      res.status(400).json(err)
-    }
-  })
+  try {
+    const query = Art.find({ user: req.params.id }).populate('user')
+    query.exec((err, foundArt) => {
+      if(!err) {
+        res.status(200).json(foundArt)
+      } else {
+        res.status(400).json({ message: error.message })
+      }
+    })
+  } catch (e) {
+    res.status(400).json(e);
+  }
 
 }
 
