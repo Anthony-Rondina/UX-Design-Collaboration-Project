@@ -1,5 +1,11 @@
-export default function Homepage(props) {
+import { Link } from "react-router-dom"
+
+export default function Homepage({ user }) {
     return (
-    <h1>This is the Homepage</h1>
+        <div>
+            <h1>This is the Homepage</h1>
+            <Link to={`/user/${user._id}`}> <p>Link to User Page</p></Link>
+        </div>
+
     )
 };
