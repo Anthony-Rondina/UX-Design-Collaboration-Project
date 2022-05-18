@@ -4,7 +4,7 @@ import { signUp } from '../../utilities/users-service';
 
 export default class SignUpForm extends Component {
   state = {
-    // username: '',
+    username: '',
     email: '',
     password: '',
     confirm: '',
@@ -36,7 +36,6 @@ handleSubmit = async (event) => {
         this.setState({ error: "Sign up failed" })
     }
     event.preventDefault();
-    alert(JSON.stringify(this.state));
 }
 
 // We must override the render method
@@ -50,7 +49,7 @@ render() {
               <p>- or -</p>
           <h4>Sign up with email</h4>
         <form autoComplete="off" onSubmit={this.handleSubmit}>
-          {/* <input type='text' name='username' value={this.state.username} placeholder='Username' onChange={this.handleChange} required /> */}
+          <input type='text' name='username' value={this.state.username} placeholder='Username' onChange={this.handleChange} required />
           <input type="email" name="email" value={this.state.email} placeholder='Email' onChange={this.handleChange} required />
           <input className={styles.name} type="firstName" name="firstName" value={this.state.firstName} placeholder='First Name' onChange={this.handleChange} required />
           <input className={styles.name2} type="lastName" name="lastName" value={this.state.lastName} placeholder='Last Name' onChange={this.handleChange} required />
