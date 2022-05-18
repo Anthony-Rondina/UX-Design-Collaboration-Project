@@ -1,6 +1,6 @@
 // import UserProfile from "../../components/ProjectPage/UserProfile"
 // import ArtPrompt from "../../components/ProjectPage/ArtPrompt"
-import Videos from "../../components/ProjectPage/Videos"
+import Videos from "../../components/ProductPage/Videos"
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import axios from "axios"
