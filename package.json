@@ -1,5 +1,5 @@
 {
-  "proxy": "http://localhost:3001",
+  "proxy": "http://localhost:5081",
   "name": "atelier-collab",
   "version": "0.1.0",
   "private": true,
@@ -24,7 +24,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "start:dev": "react-scripts start",
+    "start:dev": "PORT=5080 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
