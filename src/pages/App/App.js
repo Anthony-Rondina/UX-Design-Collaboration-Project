@@ -32,11 +32,11 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage user={user}/>}/>
           <Route path="/user/:id" element={<UserProfilePage user={user}/>}/>
-          <Route path="/art/:id" element={<ProductPage/>}/>
+          <Route path="/art/:id" element={<ProductPage chosenWork={chosenWork}/>}/>
           <Route path="/user/:id/about" element={<UserAboutMePage user={user}/>}/>
           <Route path="/user/:id/following" element={<UserFollowingListPage user={user}/>}/>
           <Route path="/user/:id/WIP" element={<UserWIPPage user={user}/>}/>
-          <Route path="/user/:id/artwork" element={<UserProfilePage user={user}/>}/>
+          <Route path="/user/:id/artwork" element={<UserProfilePage setChosenWork={setChosenWork} user={user}/>}/>
           <Route path="/user/:id/upload" element={<UserUploadArtPage user={user}/>}/>
         </Routes>
         :
