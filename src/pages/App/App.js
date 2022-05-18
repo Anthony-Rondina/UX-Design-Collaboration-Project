@@ -10,6 +10,7 @@ import UserWIPPage from '../UserProfilePage/UserWIPPage';
 import UserFollowingListPage from "../UserProfilePage/UserFollowingListPage"
 import UserAboutMePage from "../UserProfilePage/UserAboutMePage"
 import ProductPage from '../ProductPage/ProductPage';
+import NavHeader from '../../components/NavHeader/NavHeader';
 function App() {
   const [user, setUser] = useState(getUser());
   const [chosenUser, setChosenUser] = useState({})

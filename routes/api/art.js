@@ -13,10 +13,12 @@ router.post('/', artCtrl.create);
 
 router.delete('/:id', artCtrl.destroy);
 
-router.get('/:id/', artCtrl.getAllUserArt);
+router.get(`/chosenart/:id`, artCtrl.show);
 
-router.get(`/:id/:id`, artCtrl.show);
+router.get('/wip/:id', artCtrl.getAllUserWipArt);
 
-router.get('/:id/wip', artCtrl.getAllUserWipArt);
+router.get('/:id', artCtrl.getAllUserArt);
+
+
 
 module.exports = router;
