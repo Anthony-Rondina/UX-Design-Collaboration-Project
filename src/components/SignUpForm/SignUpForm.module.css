@@ -1,5 +1,6 @@
 .formContainer1 {
     display: grid;
+    grid-template-columns: auto;
     padding: 25px;
     background-color: #FFFFFF;
     box-sizing: border-box;
