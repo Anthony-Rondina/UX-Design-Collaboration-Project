@@ -55,7 +55,7 @@ render() {
           <input className={styles.name2} type="lastName" name="lastName" value={this.state.lastName} placeholder='Last Name' onChange={this.handleChange} required /> */}
           <input type="password" name="password" value={this.state.password} placeholder='Password' onChange={this.handleChange} required />
           <input type="password" name="confirm" value={this.state.confirm} placeholder='Confirm Password' onChange={this.handleChange} required />
-          <button type="submit" disabled={disable}>SIGN UP</button>
+          <button type="submit" disabled={disable}>Sign Up</button>
         </form>
       </div>
       <p className="error-message">&nbsp;{this.state.error}</p>
