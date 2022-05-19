@@ -1,0 +1,47 @@
+.Footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 50px;
+    box-shadow: 0px -4px 4px #E5E5E5;
+    background-color: white;
+}
+
+.Footer li {
+    color: black;
+    font-size: small;
+    font-weight: bold;
+    /* list-style: none; */
+    display: inline;
+    padding: 0 0 0 20px;
+}
+
+.footerForm {
+    display: grid;
+    border: 1px solid black;
+}
+
+.Footer label {
+    font-size: small;
+    font-weight: bold;
+}
+
+.Footer input {
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: #E5E5E5;
+    height: 30px;
+}
+
+.Footer .submitBtn {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 75px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.Footer button:active {
+    transform: scale(0.9);
+}
