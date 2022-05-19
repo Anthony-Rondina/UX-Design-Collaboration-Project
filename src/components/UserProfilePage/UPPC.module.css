@@ -132,7 +132,7 @@
 
   .filterResults{
     /* background-color: white; */
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     padding: 70px;
@@ -168,9 +168,6 @@
     width: 1280px;
   }
 
-  .userMore{
-    /* font-size: 1.5em; */
-  }
 
  .userUpload{
   cursor:pointer;
@@ -195,4 +192,6 @@
    /* border: solid blue 2px; */
    display: flex;
    flex-wrap: wrap;
+   height: 100%;
+   /* border: solid blue 2px; */
  }
