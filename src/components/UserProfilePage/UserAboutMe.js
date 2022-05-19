@@ -4,9 +4,11 @@ export default function UserAboutMe({updatedUser}) {
     
     const loaded = () => {
         return (
-            <div className={styles.filterResults}>
-                    <div className={styles.contentBox}>
+            <div className={styles.aboutResults}>
+                    <div className={styles.aboutBox}>
+                        <hr className={styles.line1} />
                         <p>{updatedUser.bio}</p>
+                        <hr className={styles.line2} />
                     </div>
             </div>
         )

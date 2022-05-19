@@ -18,9 +18,9 @@ export default function ProductPage({chosenWork}) {
             try {
                 console.log(id)
                 const response = await axios.get(`/api/art/chosenart/${input}`)
-                console.log("response is",response)
+                console.log("response is",response.data)
                 setArt(response.data)
-                // console.log("updated user is",response.data)
+                console.log("art  is", art)
                 if (response.status === 200) {
                     setRefresh(!refresh)
                 } else {
