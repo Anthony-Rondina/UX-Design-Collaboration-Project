@@ -4,7 +4,7 @@ export default function ListBar({updatedUser, user, setArtWork, setWIP, setAbout
 const loaded = () => {
     return (
         <div className={styles.userSortOptions}>
-            {console.log("updateduser is",updatedUser)}
+            {/* {console.log("updateduser is",updatedUser)} */}
             <ul className={styles.listBarItems}>
                 <Link to={`/user/${updatedUser._id}`}><li className={styles.sortOption} style={artwork ? {background: "white"} : {background: "#F7F7F7"}}>Artwork</li></Link>
                 <Link to={`/user/${updatedUser._id}/wip`}><li  className="sortOption" style={WIP ? {background: "white"} : {background: "#F7F7F7"}}>WIP</li></Link>

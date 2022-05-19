@@ -3,9 +3,10 @@ import { Link } from "react-router-dom"
 import { useState, useEffect, useRef } from "react"
 import styles from "./UserUploadArtPage.module.css"
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import UserBioBar from "../../components/UserProfilePage/UserBioBar";
 import Navbar from "../../components/NavHeader/NavHeader"
+import Footer from "../../components/Footer/Footer";
 export default function UserUploadArtPage({user}) {
     const navigate = useNavigate();
     const type = useRef()
@@ -14,6 +15,10 @@ export default function UserUploadArtPage({user}) {
     const image = useRef()
     const artPrompt = useRef()
     const supplies = useRef()
+    const [updatedUser, setUpdatedUser]=useState({})
+    const [refresh, setRefresh] = useState(false)
+    const { id } = useParams()
+
     let token = localStorage.getItem("token")
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -32,19 +37,43 @@ export default function UserUploadArtPage({user}) {
             console.log(err)
         }
     }
+    const getData = (input) => {
+        (async () => {
+            try {
+                // console.log(id)
+                const response = await axios.get(`/api/users/${input}`)
+                // console.log("response is",response)
+                setUpdatedUser(response.data)
+                // console.log("updated user is",response.data)
+                if (response.status === 200) {
+                    setRefresh(!refresh)
+                } else {
+                    console.log('Something went wrong')
+                }
+
+            } catch (err) {
+                console.log(err)
+                // console.log(`cards is ${cards}`)
+            }
+        })()
+    }
+
+    useEffect(() => {
+        getData(id)
+    },[])
     return (
         <div className={styles.UserUploadArtPage}>
             <div className={styles.mainProfileWrapper}>
                 <div >
                     <div className={styles.innerProfileWrapper}>
                         <Navbar/>
-                        <UserBioBar user={user}/>
+                        <UserBioBar updatedUser={updatedUser} id={id} user={user}/>
                         <div className={styles.uploadFormWrapper}>
                             <h1>Upload your art!</h1>
                             <a href={`/user/${user._id}`}><button>Back to Profile</button></a>
                             <form className={styles.uploadForm} onSubmit={handleSubmit}>
                             <p>What type of art is this?</p>
-                            <label> 
+                            <label className={styles.inputLabel}> 
                                     <select ref={type}>
                                     <option value="WATERCOLOR">
                                         WATERCOLOR
@@ -77,6 +106,7 @@ export default function UserUploadArtPage({user}) {
                             </form>
                         </div>
                     </div>
+                    <Footer/>
                 </div>
             </div>
         </div>
