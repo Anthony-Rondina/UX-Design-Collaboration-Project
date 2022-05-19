@@ -17,7 +17,8 @@ router.get(`/chosenart/:id`, artCtrl.show);
 
 router.get('/wip/:id', artCtrl.getAllUserWipArt);
 
-router.get('/:id', artCtrl.getAllUserArt);
+//THIS IS THE SHOW ROUTE FOR ART AND NEEDS TO BE LAST!
+// router.get('/:id', artCtrl.getAllUserArt);
 
 
 

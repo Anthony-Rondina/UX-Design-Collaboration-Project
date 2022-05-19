@@ -71,7 +71,7 @@ async function getAllUserArt(req,res) {
 async function getAllUserWipArt(req,res) {
 
   try {
-    const query = Art.find({ user: req.user._id, isDone: false }).populate('user')
+    const query = Art.find({ user: req.user._id, isDone: false }).populate('artCollection')
     query.exec((err, foundArt) => {
       if(!err) {
         res.status(200).json(foundArt)
@@ -116,8 +116,8 @@ async function create(req, res) {
     art.save()
     //push art to the User's Collection
     user.artCollection.push(art._id)
-    art.user=req.user._id 
-    art.save()
+    // art.user=req.user._id 
+    // art.save()
     //save User to DB
     user.save()
     res.status(200).json({ message: "Worked!" })

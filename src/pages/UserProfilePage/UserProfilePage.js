@@ -53,6 +53,7 @@ const choice =  (input) => {
     const getData = (input) => {
         (async () => {
             try {
+                console.log(id)
                 const response = await axios.get(`/api/users/${input}`)
                 console.log("response is",response)
                 setUpdatedUser(response.data)
