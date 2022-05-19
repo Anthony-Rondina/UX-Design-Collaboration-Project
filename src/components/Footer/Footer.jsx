@@ -6,10 +6,10 @@ import styles from "./Footer.module.css";
 export default function Footer() {
     return (
     <footer className={styles.Footer}>
-        <div className="footer-logo">
+        <div className={styles.footerLogo}>
             <img src={logo} style={{ width: '8rem' }} id="logo" alt="footer logo"></img>
-            <ul>
-                <li>
+            <ul style={{ padding: '0', margin: '5px' }}>
+                <li style={{ padding: '0' }}>
                 <i class="fa-brands fa-twitter"></i>
                 </li>
                 <li>
@@ -45,10 +45,8 @@ export default function Footer() {
         </ul>
         <form className={styles.footerForm} action="" method="get">
             <div>
-                <label for="email">Subscribe to atelier newsletter</label>
+                <label for="email">Subscribe to atelier newsletter</label><br></br>
                 <input type="email" name="email" id="email" required/>
-            </div>
-            <div class="form-example">
                 <input className={styles.submitBtn} type="submit" value="Submit"/>
             </div>
         </form>

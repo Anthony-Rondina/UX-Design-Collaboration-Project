@@ -6,6 +6,12 @@
     background-color: white;
 }
 
+.footerLogo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .Footer li {
     color: black;
     font-size: small;
@@ -17,7 +23,7 @@
 
 .footerForm {
     display: grid;
-    border: 1px solid black;
+    width: 350px;
 }
 
 .Footer label {
@@ -40,6 +46,7 @@
     width: 75px;
     height: 35px;
     cursor: pointer;
+    margin-left: 10px;
 }
 
 .Footer button:active {
