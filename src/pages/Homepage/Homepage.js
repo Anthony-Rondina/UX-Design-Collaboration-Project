@@ -1,8 +1,9 @@
 import ArtistCard from "../../components/ArtistCard/ArtistCard"
 import { useState, useEffect } from "react"
 import axios from "axios"
+import { Link } from "react-router-dom"
 
-export default function Homepage(props) {
+export default function Homepage({ user }) {
     const [artArr, setArtArr] = useState([])
     const [refresh, setRefresh] = useState(false)
     const getData = () => {
@@ -33,9 +34,11 @@ export default function Homepage(props) {
             <div>
                 <h1>This is the Homepage</h1>
                 <Link to={`/user/${user._id}`}> <p>Link to User Page</p></Link>
-                <div>
-                    <ArtistCard />
-                </div>
+                {artArr.map((artData, idx) => {
+                    return (
+                        <ArtistCard artData={artData} key={idx} />
+                    )
+                })}
             </div>
         )
     }

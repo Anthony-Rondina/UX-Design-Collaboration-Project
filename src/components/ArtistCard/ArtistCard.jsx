@@ -1,20 +1,23 @@
 import styles from "./ArtistCard.module.css";
 
-export default function ArtistCard() {
+export default function ArtistCard({ artData }) {
     return (
-        <div className="artCard">
+        <div className={styles.ArtistCard}>
             <div className="image">
-                <img src="http://saschristian.com/wp-content/uploads/2014/04/Fever-18x24-oil-on-board-20101.jpg" />
+                <img src={artData.image} />
             </div>
-            <div className="artText">
-                <p stye={{ fontWeight: 'bold' }}>Artist Name
-                    <br>Art Title</br>
-                </p>
-            </div>
-            <div className="views">
-                <p>
-                    Test Views
-                </p>
+            <div className="btTextBox">
+                {/*justify content spaace between */}
+                <div className="artText">
+                    {/* <p stye={{ fontWeight: 'bold' }}>{artData.user.firstName} {artData.user.lastName}</p> */}
+                    {/* ternary if name length <0 then blah */}
+                    <p> {artData.title}</p>
+                </div>
+                <div className="views">
+                    <p>
+                        {artData.views}
+                    </p>
+                </div>
 
             </div>
         </div>
