@@ -9,7 +9,7 @@
 .UserProfileText {
     font-weight: bold;
 }
-.ProgressDiv {
+.CreatePostDiv {
     display: flex;
     flex-direction: column;
 }
