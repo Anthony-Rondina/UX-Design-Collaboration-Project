@@ -5,7 +5,7 @@ import styles from "./NavHeader.module.css";
 export default function NavHeader() {
     return (
     <div className={styles.NavHeader}>
-        <Link to="#" className="nav-logo"><img src={logo} style={{ width: '8rem' }} id="logo" alt="nav logo"></img></Link>
+        <Link to="/" className="nav-logo"><img src={logo} style={{ width: '8rem' }} id="logo" alt="nav logo"></img></Link>
         <ul>
             <li>
                 <Link to="#" className="nav-link">Discover</Link>

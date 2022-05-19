@@ -84,8 +84,8 @@ const choice =  (input) => {
             <div className={styles.innerProfileWrapper}>
                 {/* {console.log("PP updated user is", updatedUser.artCollection)} */}
                 <Navbar/>
-                <UserBioBar user={user}/>
-                <ListBar user={user}setRefresh={setRefresh} setArtWork={setArtWork} setWIP={setWIP} setFollowing={setFollowing} setAbout={setAbout} setDisplayContent={setDisplayContent} displayContent={displayContent} about={about} WIP={WIP} artwork={artwork} following={following} />
+                <UserBioBar updatedUser={updatedUser} id={id} user={user}/>
+                <ListBar updatedUser={updatedUser} user={user}setRefresh={setRefresh} setArtWork={setArtWork} setWIP={setWIP} setFollowing={setFollowing} setAbout={setAbout} setDisplayContent={setDisplayContent} displayContent={displayContent} about={about} WIP={WIP} artwork={artwork} following={following} />
                 <UserArtwork setChosenWork={setChosenWork} choice={choice} updatedUser={updatedUser} user={user}about={about} WIP={WIP} artwork={artwork} following={following} />
                 <Footer/>
             </div>

@@ -8,7 +8,8 @@ import styles from "../../components/UserProfilePage/UPPC.module.css"
 import Navbar from "../../components/NavHeader/NavHeader"
 import axios from "axios"
 import { useParams } from "react-router-dom"
-export default function UserWIPPage({chosenUser, user}) {
+import Footer from "../../components/Footer/Footer"
+export default function UserWIPPage({setChosenWork,chosenUser, user}) {
 const [refresh, setRefresh] = useState(false)
 const [artwork, setArtWork] = useState(true)
 const [WIP, setWIP] = useState(false)
@@ -53,10 +54,10 @@ const choice =  (input) => {
     const getData = (input) => {
         (async () => {
             try {
-                const response = await axios.get(`/api/art/${input}/false`)
+                const response = await axios.get(`/api/users/${input}`)
                 // console.log("response is",response)
                 setUpdatedUser(response.data)
-                console.log("updated user is",response)
+                console.log("updated user is",response.data)
                 if (response.status === 200) {
                     setRefresh(!refresh)
                 } else {
@@ -83,10 +84,10 @@ const choice =  (input) => {
             <div className={styles.innerProfileWrapper}>
                 {/* {console.log("PP updated user is", updatedUser.artCollection)} */}
                 <Navbar/>
-                <UserBioBar user={user}/>
-                <ListBar user={user}setRefresh={setRefresh} setArtWork={setArtWork} setWIP={setWIP} setFollowing={setFollowing} setAbout={setAbout} setDisplayContent={setDisplayContent} displayContent={displayContent} about={about} WIP={WIP} artwork={artwork} following={following} />
-                <h1>About</h1>
-                <UserArtwork updatedUser={updatedUser} user={user}about={about} WIP={WIP} artwork={artwork} following={following} />
+                <UserBioBar updatedUser={updatedUser} id={id} user={user}/>
+                <ListBar updatedUser={updatedUser} user={user}setRefresh={setRefresh} setArtWork={setArtWork} setWIP={setWIP} setFollowing={setFollowing} setAbout={setAbout} setDisplayContent={setDisplayContent} displayContent={displayContent} about={about} WIP={WIP} artwork={artwork} following={following} />
+                <UserArtwork setChosenWork={setChosenWork} choice={choice} updatedUser={updatedUser} user={user}about={about} WIP={WIP} artwork={artwork} following={following} />
+                <Footer/>
             </div>
         </div>
         )
