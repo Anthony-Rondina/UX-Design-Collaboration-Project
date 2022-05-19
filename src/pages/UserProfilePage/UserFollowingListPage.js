@@ -8,7 +8,7 @@ import styles from "../../components/UserProfilePage/UPPC.module.css"
 import Navbar from "../../components/NavHeader/NavHeader"
 import axios from "axios"
 import { useParams } from "react-router-dom"
-export default function UserProfilePage({setChosenWork,chosenUser, user}) {
+export default function UserWIPPage({chosenUser, user}) {
 const [refresh, setRefresh] = useState(false)
 const [artwork, setArtWork] = useState(true)
 const [WIP, setWIP] = useState(false)
@@ -53,11 +53,10 @@ const choice =  (input) => {
     const getData = (input) => {
         (async () => {
             try {
-                console.log(id)
-                const response = await axios.get(`/api/users/${input}`)
-                console.log("response is",response)
+                const response = await axios.get(`/api/art/${input}/false`)
+                // console.log("response is",response)
                 setUpdatedUser(response.data)
-                console.log("updated user is",response.data)
+                console.log("updated user is",response)
                 if (response.status === 200) {
                     setRefresh(!refresh)
                 } else {
@@ -73,7 +72,8 @@ const choice =  (input) => {
 
     useEffect(() => {
         getData(id)
-        choice("art")
+        choice("follow")
+        console.log(WIP)
     },[])
 
     const loaded = () => {
@@ -85,7 +85,8 @@ const choice =  (input) => {
                 <Navbar/>
                 <UserBioBar user={user}/>
                 <ListBar user={user}setRefresh={setRefresh} setArtWork={setArtWork} setWIP={setWIP} setFollowing={setFollowing} setAbout={setAbout} setDisplayContent={setDisplayContent} displayContent={displayContent} about={about} WIP={WIP} artwork={artwork} following={following} />
-                <UserArtwork setChosenWork={setChosenWork} choice={choice} updatedUser={updatedUser} user={user}about={about} WIP={WIP} artwork={artwork} following={following} />
+                <h1>Following</h1>
+                <UserArtwork updatedUser={updatedUser} user={user}about={about} WIP={WIP} artwork={artwork} following={following} />
             </div>
         </div>
         )

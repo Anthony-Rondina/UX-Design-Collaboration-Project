@@ -32,6 +32,7 @@ export default function Homepage(props) {
         return (
             <div>
                 <h1>This is the Homepage</h1>
+                <Link to={`/user/${user._id}`}> <p>Link to User Page</p></Link>
                 <div>
                     <ArtistCard />
                 </div>

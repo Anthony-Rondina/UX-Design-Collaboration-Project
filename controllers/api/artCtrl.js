@@ -12,18 +12,36 @@ module.exports = {
 };
 
 async function get(req, res) {
-  Art.find({}, (err, foundArt) => {
-    if (!err) {
-      res.status(200).json(foundArt)
-    } else {
-      res.status(400).json(err)
-    }
-  })
+
+  try {
+    const query = Art.find({}).populate('user')
+    query.exec((err, foundArt) => {
+      if(!err) {
+        res.status(200).json(foundArt)
+      } else {
+        res.status(400).json({ message: error.message })
+      }
+    })
+  } catch (e) {
+    res.status(400).json(e);
+  }
+
+
+
+
+  // Art.find({}, (err, foundArt) => {
+  //   if (!err) {
+  //     res.status(200).json(foundArt)
+  //   } else {
+  //     res.status(400).json(err)
+  //   }
+  // })
+
 }
 
 async function getAllFilteredArt(req,res) {
 
-  Art.find({type: req.params.artType }, (err, foundArt) => {
+  Art.find({ type: {$eq: req.params.artType.toUpperCase() } }, (err, foundArt) => {
     if (!err) {
       res.status(200).json(foundArt)
     } else {
@@ -35,26 +53,43 @@ async function getAllFilteredArt(req,res) {
 
 async function getAllUserArt(req,res) {
 
-  Art.find({ user: req.params.id }, (err, foundArt) => {
-    if (!err) {
-      res.status(200).json(foundArt)
-    } else {
-      res.status(400).json(err)
-    }
-  })
+  try {
+    const query = Art.find({ user: req.params.id }).populate('user')
+    query.exec((err, foundArt) => {
+      if(!err) {
+        res.status(200).json(foundArt)
+      } else {
+        res.status(400).json({ message: error.message })
+      }
+    })
+  } catch (e) {
+    res.status(400).json(e);
+  }
 
 }
 
 async function getAllUserWipArt(req,res) {
 
-  Art.find({ user: req.params.id, isDone: false}, (err, foundArt) => {
-    if (!err) {
-      res.status(200).json(foundArt)
-    } else {
-      res.status(400).json(err)
-    }
-  })
+  try {
+    const query = Art.find({ user: req.user._id, isDone: false }).populate('artCollection')
+    query.exec((err, foundArt) => {
+      if(!err) {
+        res.status(200).json(foundArt)
+      } else {
+        res.status(400).json({ message: error.message })
+      }
+    })
+  } catch (e) {
+    res.status(400).json(e);
+  }
 
+  // Art.find({ user: req.params.id, isDone: false}, (err, foundArt) => {
+  //   if (!err) {
+  //     res.status(200).json(foundArt)
+  //   } else {
+  //     res.status(400).json(err)
+  //   }
+  // })
 }
 
 async function put(req, res) {
@@ -79,11 +114,10 @@ async function create(req, res) {
     const art = new Art(body)
     //save art to DB
     art.save()
-    console.log("art saved to DB")
-    //assigning the user to the art
-    art.user = req.user._id
     //push art to the User's Collection
     user.artCollection.push(art._id)
+    // art.user=req.user._id 
+    // art.save()
     //save User to DB
     user.save()
     res.status(200).json({ message: "Worked!" })
@@ -111,12 +145,17 @@ async function show(req, res) {
 
 async function destroy(req, res) {
 
+  const user = await User.findById(req.user._id)
   try {
     Art.findByIdAndDelete(req.params.id, (err) => {
       if(err) {
         res.status(400).json(err)
       } else {
-        res.status(200).json({message: "Deleted Art"})
+
+        user.artCollection.pull(req.params.id);
+        user.save();
+        res.status(200).json({message: "Deleted Art"});
+
       }
     })
   } catch (e) {

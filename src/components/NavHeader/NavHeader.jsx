@@ -14,9 +14,9 @@ export default function NavHeader() {
                 <Link to="#" className="nav-link">Tutorials</Link>
             </li>
         </ul>
-        <div class="search-container">
+        <div className="search-container">
             <form>
-                <input type="text" placeholder="&#x1F50D; Search for inspiration, creatives, tutorials..." name="search" results="0"/>
+            <i class="fa-solid fa-magnifying-glass"><input type="text" placeholder="Search for inspiration, creatives, tutorials..." name="search"></input></i>
             </form>
         </div>
         <button className={styles.signInBtn} type="submit">Sign In</button>

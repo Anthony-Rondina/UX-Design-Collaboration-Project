@@ -37,6 +37,7 @@ const userSchema = new Schema({
 },
   avatar: {
     type: String,
+    default: "https://ctorthopaedic.com/wp-content/uploads/2017/01/profile-silhouette.jpg",
     required: false
 },
   location: {

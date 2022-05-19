@@ -1,15 +1,54 @@
-.SignUpForm {
+.formContainer1 {
     display: grid;
-    background-color: #FFFFFF;
-}
-
-div.FormContainer {
-    display: block;
-}
-
-.FormContainer {
-    padding: 3vmin;
+    grid-template-columns: auto;
+    padding: 25px;
     background-color: #FFFFFF;
     box-sizing: border-box;
     border-radius: 1vmin;
+}
+
+.formContainer1 input {
+    border: 0.5px solid #C4C4C4;
+    height: 60px;
+    box-sizing: border-box;
+    width: 490px;
+    background: rgba(196, 196, 196, 0.1);
+    border-radius: 10px;
+    margin-top: 25px;
+    margin-left: 10px;
+
+}
+
+.formContainer1 .name {
+    width: 230px;
+}
+
+.formContainer1 .name2 {
+    width: 230px;
+    margin-left: 30px;
+}
+
+.formContainer1 > h4 {
+    margin-left: 25px;
+}
+
+.formContainer1 p {
+    font-family: 'AcuminPro';
+    text-align: center;
+}
+
+.formContainer1 button {
+    width: 154px;
+    height: 40px;
+    margin-left: 350px;
+    margin-top: 50px;
+    background-color: #111111;
+    color: #FFFFFF;
+    border-radius: 10px;
+    border: 0.5px solid #111111;
+}
+
+@font-face {
+    font-family: 'AcuminPro';
+    src: url(../../public/fonts/acumin-pro.ttf);
 }

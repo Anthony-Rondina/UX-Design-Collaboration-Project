@@ -115,10 +115,10 @@
   }
 
   .contentBox{
-    border: solid black 2px;
+    /* border: solid black 2px; */
     height: 100%;
-    width: 96%;
-    padding: 30px;
+    width: 100%;
+    padding: 10px;
   }
 
   .mainProfileWrapper{
@@ -139,5 +139,25 @@
 
  .userUpload{
   cursor:pointer;
-  width: 300px;
+  width: 351px;
+   height: 264px;
+   margin-left: 10px;
+   margin-right: 10px;
+ }
+
+ .mappedArt {
+    object-fit: contain;
+    background-size: cover;
+   width: 351px;
+   height: 264px;
+   border-radius: 10px;
+   margin-left: 10px;
+   margin-right: 10px;
+   margin-bottom: 30px;
+ }
+
+ .artFlexbox{
+   /* border: solid blue 2px; */
+   display: flex;
+   flex-wrap: wrap;
  }
