@@ -5,7 +5,7 @@ import styles from "./NavHeader.module.css";
 export default function NavHeader() {
     return (
     <div className={styles.NavHeader}>
-        <Link to="#" className="nav-logo"><img src={logo} style={{ width: '8rem' }} id="logo" alt="nav logo"></img></Link>
+        <Link to="/" className="nav-logo"><img src={logo} style={{ width: '8rem' }} id="logo" alt="nav logo"></img></Link>
         <ul>
             <li>
                 <Link to="#" className="nav-link">Discover</Link>
@@ -16,7 +16,7 @@ export default function NavHeader() {
         </ul>
         <div className="search-container">
             <form>
-                <input type="text" placeholder="&#x1F50D; Search for inspiration, creatives, tutorials..." name="search" results="0"/>
+            <i class="fa-solid fa-magnifying-glass"><input type="text" placeholder="Search for inspiration, creatives, tutorials..." name="search"></input></i>
             </form>
         </div>
         <button className={styles.signInBtn} type="submit">Sign In</button>

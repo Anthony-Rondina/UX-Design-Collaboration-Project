@@ -2,33 +2,50 @@
 import { Link } from "react-router-dom"
 import styles from "./UPPC.module.css"
 import coverImage from "./Cover-Image.jpg"
-export default function UserBioBar({user}) {
-    return (
-        <div className={styles.userBioWrapper}>
-            <div className={styles.userCoverImage}>
-                <img className={styles.coverImage} src={coverImage} alt="user cover image" />
-            </div>
-            <div className={styles.userInfo}>
-                {/* Change User.avatar to actual props once implimented */}
-                {/* {console.log(user.avatar)} */}
-                <img className={styles.profilePic}src={user.avatar} alt="" />
-                <div className={styles.rightHalf}>
-                    <div className={styles.userUpperOptions}>
-                        <div className="welcome">
-                            {/* replace NAME with user.name once implimented */}
-                            <p className={styles.welcomeUser}>{`Hello, ${user.firstName}.`}</p> 
-                            {/* {console.log(user)}  */}
-                            {/* replace CANVAS with user.type once implimented */}
-                            {/* <p className="type">{`CANVAS.`}</p>   */}
+export default function UserBioBar({updatedUser,user, id}) {
+
+    const loaded = () => {
+        return (
+            <div className={styles.userBioWrapper}>
+                <div className={styles.userCoverImage}>
+                    <img className={styles.coverImage} src={coverImage} alt="user cover image" />
+                </div>
+                <div className={styles.userInfo}>
+                    {/* Change User.avatar to actual props once implimented */}
+                    {/* {console.log(user.avatar)} */}
+                    <img className={styles.profilePic}src={user.avatar} alt="" />
+                    <div className={styles.rightHalf}>
+                        <div className={styles.userUpperOptions}>
+                            <div className="welcome">
+                                {/* replace NAME with user.name once implimented */}
+                                <p className={styles.welcomeUser}>{`Hello, ${updatedUser.firstName}.`}</p> 
+                            </div>
                         </div>
-                    </div>
-                    <div className={styles.userBottomOptions}>
-                        <Link to="/"><button className={styles.clickButton}>Edit Profile</button></Link>
-                        {/* This button will toggle a modal for additional options */}
-                        <button className={styles.clickButton}>...</button>
+                        <div className={styles.userBottomOptions}>
+                        {user._id === id ?
+                            <Link to="/"><button className={styles.clickButton}>Edit Profile</button></Link>
+                            :
+                            <Link to="/"><button className={styles.clickButton}>Follow User</button></Link>
+                        }
+                        {user._id === id ?
+                             <button className={styles.clickButton}>...</button>
+                            :
+                            ""
+                        }
+                           
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        )
+    }
+
+    const loading = () => {
+        return <h1>Loading</h1>
+    }
+    return (
+     updatedUser && updatedUser.username ? loaded() : loading()
     )
+
+    
 }

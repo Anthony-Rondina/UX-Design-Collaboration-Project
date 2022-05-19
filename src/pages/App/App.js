@@ -6,6 +6,11 @@ import { useState, useEffect } from 'react';
 import HomePage from "../Homepage/Homepage"
 import UserUploadArtPage from '../UserUploadArtPage/UserUploadArtPage';
 import { getUser } from '../../utilities/users-service';
+import UserWIPPage from '../UserProfilePage/UserWIPPage';
+import UserFollowingListPage from "../UserProfilePage/UserFollowingListPage"
+import UserAboutMePage from "../UserProfilePage/UserAboutMePage"
+import ProductPage from '../ProductPage/ProductPage';
+import NavHeader from '../../components/NavHeader/NavHeader';
 function App() {
   const [user, setUser] = useState(getUser());
   const [chosenUser, setChosenUser] = useState({})
@@ -28,10 +33,11 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage user={user}/>}/>
           <Route path="/user/:id" element={<UserProfilePage user={user}/>}/>
-          <Route path="/user/:id/about" element={<UserProfilePage user={user}/>}/>
-          <Route path="/user/:id/following" element={<UserProfilePage user={user}/>}/>
-          <Route path="/user/:id/WIP" element={<UserProfilePage user={user}/>}/>
-          <Route path="/user/:id/artwork" element={<UserProfilePage user={user}/>}/>
+          <Route path="/art/:id" element={<ProductPage chosenWork={chosenWork}/>}/>
+          <Route path="/user/:id/about" element={<UserAboutMePage user={user}/>}/>
+          <Route path="/user/:id/following" element={<UserFollowingListPage user={user}/>}/>
+          <Route path="/user/:id/WIP" element={<UserWIPPage user={user}/>}/>
+          <Route path="/user/:id/artwork" element={<UserProfilePage setChosenWork={setChosenWork} user={user}/>}/>
           <Route path="/user/:id/upload" element={<UserUploadArtPage user={user}/>}/>
         </Routes>
         :
