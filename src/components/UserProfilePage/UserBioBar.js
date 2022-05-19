@@ -13,7 +13,7 @@ export default function UserBioBar({updatedUser,user, id}) {
                 <div className={styles.userInfo}>
                     {/* Change User.avatar to actual props once implimented */}
                     {/* {console.log(user.avatar)} */}
-                    <img className={styles.profilePic}src={user.avatar} alt="" />
+                    <div style={{backgroundImage: `url(${updatedUser.avatar})`}} className={styles.profilePic}></div>
                     <div className={styles.rightHalf}>
                         <div className={styles.userUpperOptions}>
                             <div className="welcome">
@@ -23,14 +23,9 @@ export default function UserBioBar({updatedUser,user, id}) {
                         </div>
                         <div className={styles.userBottomOptions}>
                         {user._id === id ?
-                            <Link to="/"><button className={styles.clickButton}>Edit Profile</button></Link>
+                            <Link to={`/user/edit/${updatedUser._id}`}><button className={styles.clickButton}>Edit Profile</button></Link>
                             :
                             <Link to="/"><button className={styles.clickButton}>Follow User</button></Link>
-                        }
-                        {user._id === id ?
-                             <button className={styles.clickButton}>...</button>
-                            :
-                            ""
                         }
                            
                         </div>

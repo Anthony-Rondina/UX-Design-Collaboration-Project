@@ -54,11 +54,11 @@ const choice =  (input) => {
     const getData = (input) => {
         (async () => {
             try {
-                console.log(id)
+                // console.log(id)
                 const response = await axios.get(`/api/users/${input}`)
-                console.log("response is",response)
+                // console.log("response is",response)
                 setUpdatedUser(response.data)
-                console.log("updated user is",response.data)
+                // console.log("updated user is",response.data)
                 if (response.status === 200) {
                     setRefresh(!refresh)
                 } else {

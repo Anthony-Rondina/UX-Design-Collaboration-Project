@@ -26,10 +26,12 @@
     filter: drop-shadow(0 0 .1rem black);
   }
   .profilePic{
+    background-size: cover;
     width: 170px;
     height: 180px;
     border-radius: 50%;
     margin-left: 50px;
+    background-position: center;
   }
   .userUpperOptions{
     display: flex;
@@ -48,6 +50,7 @@
     /* border: solid purple 2px; */
   }
   .rightHalf {
+    margin-top: -25px;
     display: flex;
     flex-direction: column;
     /* border: red solid 1px; */

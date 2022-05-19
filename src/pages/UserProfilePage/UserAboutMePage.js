@@ -9,6 +9,8 @@ import Navbar from "../../components/NavHeader/NavHeader"
 import axios from "axios"
 import { useParams } from "react-router-dom"
 import Footer from "../../components/Footer/Footer"
+import UserAboutMe from "../../components/UserProfilePage/UserAboutMe"
+
 export default function UserWIPPage({setChosenWork,chosenUser, user}) {
 const [refresh, setRefresh] = useState(false)
 const [artwork, setArtWork] = useState(true)
@@ -18,7 +20,6 @@ const [about, setAbout]=useState(false)
 const [displayContent, setDisplayContent]=useState([])
 const [updatedUser, setUpdatedUser]=useState({})
 const { id } = useParams()
-
 const choice =  (input) => {
     switch (input) {
         case "art" :
@@ -86,7 +87,7 @@ const choice =  (input) => {
                 <Navbar/>
                 <UserBioBar updatedUser={updatedUser} id={id} user={user}/>
                 <ListBar updatedUser={updatedUser} user={user}setRefresh={setRefresh} setArtWork={setArtWork} setWIP={setWIP} setFollowing={setFollowing} setAbout={setAbout} setDisplayContent={setDisplayContent} displayContent={displayContent} about={about} WIP={WIP} artwork={artwork} following={following} />
-                <UserArtwork setChosenWork={setChosenWork} choice={choice} updatedUser={updatedUser} user={user}about={about} WIP={WIP} artwork={artwork} following={following} />
+                <UserAboutMe updatedUser={updatedUser}/>
                 <Footer/>
             </div>
         </div>

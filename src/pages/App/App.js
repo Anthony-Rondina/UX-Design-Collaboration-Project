@@ -11,6 +11,7 @@ import UserFollowingListPage from "../UserProfilePage/UserFollowingListPage"
 import UserAboutMePage from "../UserProfilePage/UserAboutMePage"
 import ProductPage from '../ProductPage/ProductPage';
 import NavHeader from '../../components/NavHeader/NavHeader';
+import EditUserProfilePage from '../EditUserProfilePage/EditUserProfilePage';
 function App() {
   const [user, setUser] = useState(getUser());
   const [chosenUser, setChosenUser] = useState({})
@@ -39,6 +40,7 @@ function App() {
           <Route path="/user/:id/WIP" element={<UserWIPPage user={user}/>}/>
           <Route path="/user/:id/artwork" element={<UserProfilePage setChosenWork={setChosenWork} user={user}/>}/>
           <Route path="/user/:id/upload" element={<UserUploadArtPage user={user}/>}/>
+          <Route path="/user/edit/:id" element={<EditUserProfilePage user={user}/>}/>
         </Routes>
         :
         <AuthPage setUser={setUser} />
