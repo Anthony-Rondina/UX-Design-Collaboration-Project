@@ -13,9 +13,9 @@ router.post('/', artCtrl.create);
 
 router.delete('/:id', artCtrl.destroy);
 
-router.get('/wip', artCtrl.getAllUserWipArt);
-
 router.get(`/chosenart/:id`, artCtrl.show);
+
+router.get('/wip/:id', artCtrl.getAllUserWipArt);
 
 
 //THIS IS THE SHOW ROUTE FOR ART AND NEEDS TO BE LAST!
