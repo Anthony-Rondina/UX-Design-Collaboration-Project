@@ -44,6 +44,7 @@ export default function ProductPage({chosenWork}) {
             <img className={styles.ChosenImage} src={art.image} alt=''></img>
             {/* <ArtPrompt /> */}
             <Videos />
+            <Link to={`/user/chosenart/edt/${art._id}/${art.user._id}`}><p>Click me to Edit Art!</p></Link>
         </div>
         )
     }
