@@ -48,6 +48,12 @@
     border: 0.5px solid #111111;
 }
 
+.formContainer1 .checkbox {
+    height: 15px;
+    width: 15px;
+    border-radius: 0px !important;
+}
+
 @font-face {
     font-family: 'AcuminPro';
     src: url(../../public/fonts/acumin-pro.ttf);

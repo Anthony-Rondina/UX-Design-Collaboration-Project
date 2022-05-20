@@ -55,7 +55,7 @@ render() {
           <input className={styles.name2} type="lastName" name="lastName" value={this.state.lastName} placeholder='Last Name' onChange={this.handleChange} required /> */}
           <input className={styles.pass} type="password" name="password" value={this.state.password} placeholder='Password' onChange={this.handleChange} required />
           <input className={styles.confirm} type="password" name="confirm" value={this.state.confirm} placeholder='Confirm Password' onChange={this.handleChange} required />
-          <input className={styles.checkbox} type='checkbox'/>
+          <input className={styles.checkbox} type='checkbox'/><span className={styles.checkText}>Creating an account means you're okay with our <span className={styles.textBold}>Terms of Service</span> and <span className={styles.textBold}>Privacy Policy.</span></span>
           <button type="submit" disabled={disable}>Sign Up</button>
         </form>
       </div>
