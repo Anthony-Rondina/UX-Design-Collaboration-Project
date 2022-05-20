@@ -49,8 +49,8 @@ render() {
               <p>- or -</p>
           <h4>Sign up with email</h4>
         <form autoComplete="off" onSubmit={this.handleSubmit}>
-          <input type='email' name='email' value={this.state.username} placeholder='Email' onChange={this.handleChange} required />
-          <input type="text" name="username" value={this.state.email} placeholder='Username' onChange={this.handleChange} required />
+          <input type='email' name='email' value={this.state.email} placeholder='Email' onChange={this.handleChange} required />
+          <input type="text" name="username" value={this.state.username} placeholder='Username' onChange={this.handleChange} required />
           {/* <input className={styles.name} type="firstName" name="firstName" value={this.state.firstName} placeholder='First Name' onChange={this.handleChange} required />
           <input className={styles.name2} type="lastName" name="lastName" value={this.state.lastName} placeholder='Last Name' onChange={this.handleChange} required /> */}
           <input className={styles.pass} type="password" name="password" value={this.state.password} placeholder='Password' onChange={this.handleChange} required />
