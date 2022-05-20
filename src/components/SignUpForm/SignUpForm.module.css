@@ -54,6 +54,10 @@
     border-radius: 0px !important;
 }
 
+.formContainer1 .checkText {
+    font-family: sans-serif;
+}
+
 @font-face {
     font-family: 'AcuminPro';
     src: url(../../public/fonts/acumin-pro.ttf);
