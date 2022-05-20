@@ -10,16 +10,16 @@ export default function Footer() {
             <img src={logo} style={{ width: '8rem' }} id="logo" alt="footer logo"></img>
             <ul style={{ padding: '0', margin: '5px' }}>
                 <li style={{ padding: '0' }}>
-                <i class="fa-brands fa-twitter"></i>
+                <i className="fa-brands fa-twitter"></i>
                 </li>
                 <li>
-                <i class="fa-brands fa-facebook"></i>
+                <i className="fa-brands fa-facebook"></i>
                 </li>
                 <li>
-                <i class="fa-brands fa-instagram"></i>
+                <i className="fa-brands fa-instagram"></i>
                 </li>
                 <li>
-                <i class="fa-brands fa-youtube"></i>
+                <i className="fa-brands fa-youtube"></i>
                 </li>
             </ul>
         </div>

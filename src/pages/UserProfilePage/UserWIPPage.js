@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom"
 import { useState, useEffect, usepar } from "react"
-import UserArtwork from "../../components/UserProfilePage/UserArtwork"
+import UserWIP from "../../components/UserProfilePage/UserWIP"
 import ListBar from "../../components/UserProfilePage/ListBar"
 import UserBioBar from "../../components/UserProfilePage/UserBioBar"
 import styles from "../../components/UserProfilePage/UPPC.module.css"
@@ -18,6 +18,7 @@ const [about, setAbout]=useState(false)
 const [displayContent, setDisplayContent]=useState([])
 const [updatedUser, setUpdatedUser]=useState({})
 const { id } = useParams()
+const [workInProgress,setWorkInProgress]=useState([])
 
 const choice =  (input) => {
     switch (input) {
@@ -54,10 +55,10 @@ const choice =  (input) => {
     const getData = (input) => {
         (async () => {
             try {
-                const response = await axios.get(`/api/users/${input}`)
-                // console.log("response is",response)
-                setUpdatedUser(response.data)
-                console.log("updated user is",response.data)
+                console.log(`/api/art/wip/${input}`)
+                const response = await axios.get(`/api/art/wip/${input}`)
+                console.log("response is",response)
+                setWorkInProgress(response.data)
                 if (response.status === 200) {
                     setRefresh(!refresh)
                 } else {
@@ -72,9 +73,9 @@ const choice =  (input) => {
     }
 
     useEffect(() => {
+        console.log(id)
         getData(id)
         choice("inProgress")
-        console.log(WIP)
     },[])
 
     const loaded = () => {
@@ -86,7 +87,7 @@ const choice =  (input) => {
                 <Navbar/>
                 <UserBioBar updatedUser={updatedUser} id={id} user={user}/>
                 <ListBar updatedUser={updatedUser} user={user}setRefresh={setRefresh} setArtWork={setArtWork} setWIP={setWIP} setFollowing={setFollowing} setAbout={setAbout} setDisplayContent={setDisplayContent} displayContent={displayContent} about={about} WIP={WIP} artwork={artwork} following={following} />
-                <UserArtwork setChosenWork={setChosenWork} choice={choice} updatedUser={updatedUser} user={user}about={about} WIP={WIP} artwork={artwork} following={following} />
+                <UserWIP workInProgress={workInProgress} setChosenWork={setChosenWork} choice={choice} updatedUser={updatedUser} user={user}about={about} WIP={WIP} artwork={artwork} following={following} />
                 <Footer/>
             </div>
         </div>
@@ -97,6 +98,6 @@ const choice =  (input) => {
         return <h1>Loading</h1>
     }
     return (
-     user && user.artCollection ? loaded() : loading()
+     user && user._id ? loaded() : loading()
     )
 }

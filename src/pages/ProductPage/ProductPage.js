@@ -39,8 +39,9 @@ export default function ProductPage({chosenWork}) {
     const loaded = () => {
         return (
             <div>
+                {console.log("now art is",art)}
             <UserProfile art={art} />
-            <img className={styles.ChosenImage} src={art.image} atl=''></img>
+            <img className={styles.ChosenImage} src={art.image} alt=''></img>
             {/* <ArtPrompt /> */}
             <Videos />
         </div>

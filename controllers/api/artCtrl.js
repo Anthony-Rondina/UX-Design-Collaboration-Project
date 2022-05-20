@@ -112,12 +112,12 @@ async function create(req, res) {
     const user = await User.findById(req.user._id)
     //Make the art from the form's body
     const art = new Art(body)
-    //save art to DB
-    art.save()
     //push art to the User's Collection
     user.artCollection.push(art._id)
-    // art.user=req.user._id 
-    // art.save()
+    console.log(req.user)
+    art.user=req.user._id 
+    //save art to DB
+    art.save()
     //save User to DB
     user.save()
     res.status(200).json({ message: "Worked!" })
