@@ -19,7 +19,7 @@ const [displayContent, setDisplayContent]=useState([])
 const [updatedUser, setUpdatedUser]=useState({})
 const { id } = useParams()
 const [workInProgress,setWorkInProgress]=useState([])
-
+let token = localStorage.getItem("token")
 const choice =  (input) => {
     switch (input) {
         case "art" :
@@ -55,12 +55,17 @@ const choice =  (input) => {
     const getData = (input) => {
         (async () => {
             try {
-                console.log(`/api/art/wip/${input}`)
-                const response = await axios.get(`/api/art/wip/${input}`)
+                // console.log(`/api/art/wip/${input}`)
+                const response = await axios.get(`/api/art/wip/${input}`, {
+                    headers: {
+                        "Authorization": `Bearer ${token}`
+                    }
+                })
                 // test hard code
                 // /api/art/wip/6285006f443553fb6c25a87b
                 // test getting all the art
                 // const response = await axios.get(`/api/users/${input}`)
+
                 console.log("response is",response)
                 setWorkInProgress(response.data)
                 console.log("WIP is",workInProgress )
