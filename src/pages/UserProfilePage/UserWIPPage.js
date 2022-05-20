@@ -56,7 +56,7 @@ const getData = (input) => {
         (async () => {
             try {
                 // console.log(`/api/art/wip/${input}`)
-                const response = await axios.get(`/api/art`, {
+                const response = await axios.get(`/api/art/wip/${input}`, {
                     headers: {
                         "Authorization": `Bearer ${token}`
                     }
