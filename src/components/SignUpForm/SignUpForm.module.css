@@ -45,7 +45,18 @@
     background-color: #111111;
     color: #FFFFFF;
     border-radius: 10px;
-    border: 0.5px solid #111111;
+    border: 0.5px solid transparent;
+}
+
+.formContainer1 button:disabled, form:invalid button[type='submit'] {
+    cursor: not-allowed;
+    color: #111111;
+    background-color: #7C7C7C;
+}
+
+.formContainer1 button[type='submit'] {
+    background-color: #111111;
+    color: #FFFFFF;
 }
 
 .formContainer1 .checkbox {
