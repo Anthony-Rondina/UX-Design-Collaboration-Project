@@ -52,23 +52,21 @@ const choice =  (input) => {
             break;
     }
 }
-    const getData = (input) => {
+const getData = (input) => {
         (async () => {
             try {
                 // console.log(`/api/art/wip/${input}`)
-                const response = await axios.get(`/api/art/wip/${input}`, {
+                const response = await axios.get(`/api/art`, {
                     headers: {
                         "Authorization": `Bearer ${token}`
                     }
                 })
-                // test hard code
-                // /api/art/wip/6285006f443553fb6c25a87b
                 // test getting all the art
                 // const response = await axios.get(`/api/users/${input}`)
 
-                console.log("response is",response)
+                // console.log("response data is",response.data)
                 setWorkInProgress(response.data)
-                console.log("WIP is",workInProgress )
+                // console.log("WIP is",workInProgress )
                 if (response.status === 200) {
                     setRefresh(!refresh)
                 } else {
@@ -81,10 +79,32 @@ const choice =  (input) => {
             }
         })()
     }
+const getUser = (input) => {
+    (async () => {
+        try {
+            // console.log(id)
+            const response = await axios.get(`/api/users/${input}`)
+            // console.log("response is",response)
+            setUpdatedUser(response.data)
+            // console.log("updated user is",updatedUser)
+            if (response.status === 200) {
+                setRefresh(!refresh)
+            } else {
+                console.log('Something went wrong')
+            }
+
+        } catch (err) {
+            console.log(err)
+            // console.log(`cards is ${cards}`)
+        }
+    })()
+}
+    
 
     useEffect(() => {
         // console.log(id)
         getData(id)
+        getUser(id)
         choice("inProgress")
     },[])
 
@@ -108,6 +128,6 @@ const choice =  (input) => {
         return <h1>Loading</h1>
     }
     return (
-     user && user._id ? loaded() : loading()
+     user && workInProgress ? loaded() : loading()
     )
 }
