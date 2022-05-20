@@ -55,10 +55,21 @@
 }
 
 .formContainer1 .checkText {
-    font-family: sans-serif;
+    font-family: 'AcuminPro';
+    font-size: 13px;
+    color: #7C7C7C;
+}
+
+.formContainer1 .textBold {
+    font-family: 'AcuminProSemibold'
 }
 
 @font-face {
     font-family: 'AcuminPro';
     src: url(../../public/fonts/acumin-pro.ttf);
+}
+
+@font-face {
+    font-family: 'AcuminProSemibold';
+    src: url(../../public/fonts/acumin-pro-semibold.ttf);
 }
