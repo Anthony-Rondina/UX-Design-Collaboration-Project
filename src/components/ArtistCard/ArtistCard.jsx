@@ -1,5 +1,5 @@
 import styles from "./ArtistCard.module.css";
-import SaveBtn from "../SaveBtn/SaveBtn";
+import SaveBtn from "./Save Button.png";
 
 export default function ArtistCard({ artData }) {
     return (
