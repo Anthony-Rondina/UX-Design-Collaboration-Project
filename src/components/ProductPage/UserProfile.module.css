@@ -1,10 +1,15 @@
 .UserProfile {
     display: flex;
+    width: 300px;
+    justify-content: space-around;
+    align-items: center;
 }
 .CircleImg {
-    width: 170px;
-    height: 180px;
-    border-radius: 100%;
+    background-size: cover;
+    background-position: center;
+    width: 120px;
+    height: 110px;
+    border-radius: 50%;
 }
 .UserProfileText {
     font-weight: bold;
@@ -16,3 +21,20 @@
 .VideosDiv {
     display: flex;
 }
+.UserNameText {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+}
+.UserFollowDiv {
+    display: flex;
+    justify-content: space-between;
+}
+.userUpload{
+    cursor:pointer;
+    width: 351px;
+     height: 264px;
+     margin-left: 10px;
+     margin-right: 10px;
+   }
