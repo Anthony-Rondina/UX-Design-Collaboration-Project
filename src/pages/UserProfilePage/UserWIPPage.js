@@ -57,8 +57,13 @@ const choice =  (input) => {
             try {
                 console.log(`/api/art/wip/${input}`)
                 const response = await axios.get(`/api/art/wip/${input}`)
+                // test hard code
+                // /api/art/wip/6285006f443553fb6c25a87b
+                // test getting all the art
+                // const response = await axios.get(`/api/users/${input}`)
                 console.log("response is",response)
                 setWorkInProgress(response.data)
+                console.log("WIP is",workInProgress )
                 if (response.status === 200) {
                     setRefresh(!refresh)
                 } else {
@@ -73,7 +78,7 @@ const choice =  (input) => {
     }
 
     useEffect(() => {
-        console.log(id)
+        // console.log(id)
         getData(id)
         choice("inProgress")
     },[])

@@ -8,7 +8,8 @@ export default function UserWIP({setChosenWork,workInProgress, user, id}) {
                     {/* <h1>{updatedUser.username}</h1> */}
                     {/* {console.log("user id is", updatedUser._id)} */}
                     <div className={styles.artFlexbox}>
-                        {workInProgress.map((art, idx) => {
+                        {/* {console.log} */}
+                        {/* {workInProgress.artCollection.map((art, idx) => {
                             // console.log(art)
                             return (
                                 <Link to={`/art/${art._id}`} onClick={() => { setChosenWork(art) }}><div 
@@ -17,7 +18,7 @@ export default function UserWIP({setChosenWork,workInProgress, user, id}) {
                                 style={{backgroundImage: `url(${art.image})`}}>   
                                 </div></Link>
                                 )
-                        })}
+                        })} */}
                     </div>
                 </div>
         </div>
