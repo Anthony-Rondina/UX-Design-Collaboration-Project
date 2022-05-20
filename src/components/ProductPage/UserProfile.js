@@ -1,9 +1,9 @@
 import styles from './UserProfile.module.css';
-
+import { Link } from 'react-router-dom';
 export default function UserProfile({art}) {
     const loaded = () => {
         return (
-            <div className={styles.UserProfile}>
+            <Link to={`/user/${art.user._id}`}><div className={styles.UserProfile}>
             <div>
                 <img className={styles.CircleImg} src={art.user.avatar}/>
             </div>
@@ -11,7 +11,7 @@ export default function UserProfile({art}) {
                 <h1>{art.nameOfArt}</h1>
                 <h2>{art.user.username}</h2>
             </div>
-            </div>
+            </div></Link>
         )
     }
 
