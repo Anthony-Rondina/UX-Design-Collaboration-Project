@@ -76,6 +76,11 @@
     font-family: 'AcuminProSemibold'
 }
 
+.formContainer2 .forgotDiv {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
 @font-face {
     font-family: 'AcuminPro';
     src: url(../../public/fonts/acumin-pro.ttf);

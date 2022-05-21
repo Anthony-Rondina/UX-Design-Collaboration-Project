@@ -37,7 +37,7 @@ return (
       <form autoComplete="off" onSubmit={handleSubmit}>
         <input type="text" name="email" value={credentials.email} placeholder='Email' onChange={handleChange} required />
         <input type="password" name="password" value={credentials.password} placeholder='Password' onChange={handleChange} required />
-        <a href='#'><span className={styles.forgot}>Forgot Password?</span></a>
+        <div className={styles.forgotDiv}><a href='#'><span className={styles.forgot}>Forgot Password?</span></a></div>
         <button type="submit">Login</button>
       </form>
     </div>
