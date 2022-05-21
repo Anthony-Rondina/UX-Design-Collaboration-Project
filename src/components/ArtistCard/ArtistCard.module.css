@@ -1,4 +1,9 @@
 .artCard {
+    width: 400px;
+    height: 400px;
+}
+
+.artImage {
     object-fit: contain;
     background-size: cover;
     width: 351px;
@@ -7,5 +12,4 @@
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 30px;
-
 }

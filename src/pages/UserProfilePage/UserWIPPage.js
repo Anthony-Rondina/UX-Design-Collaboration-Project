@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom"
 import { useState, useEffect, usepar } from "react"
-import UserArtwork from "../../components/UserProfilePage/UserArtwork"
+import UserWIP from "../../components/UserProfilePage/UserWIP"
 import ListBar from "../../components/UserProfilePage/ListBar"
 import UserBioBar from "../../components/UserProfilePage/UserBioBar"
 import styles from "../../components/UserProfilePage/UPPC.module.css"
@@ -18,7 +18,8 @@ const [about, setAbout]=useState(false)
 const [displayContent, setDisplayContent]=useState([])
 const [updatedUser, setUpdatedUser]=useState({})
 const { id } = useParams()
-
+const [workInProgress,setWorkInProgress]=useState([])
+let token = localStorage.getItem("token")
 const choice =  (input) => {
     switch (input) {
         case "art" :
@@ -51,13 +52,21 @@ const choice =  (input) => {
             break;
     }
 }
-    const getData = (input) => {
+const getData = (input) => {
         (async () => {
             try {
-                const response = await axios.get(`/api/users/${input}`)
-                // console.log("response is",response)
-                setUpdatedUser(response.data)
-                console.log("updated user is",response.data)
+                // console.log(`/api/art/wip/${input}`)
+                const response = await axios.get(`/api/art/wip/${input}`, {
+                    headers: {
+                        "Authorization": `Bearer ${token}`
+                    }
+                })
+                // test getting all the art
+                // const response = await axios.get(`/api/users/${input}`)
+
+                // console.log("response data is",response.data)
+                setWorkInProgress(response.data)
+                // console.log("WIP is",workInProgress )
                 if (response.status === 200) {
                     setRefresh(!refresh)
                 } else {
@@ -70,11 +79,33 @@ const choice =  (input) => {
             }
         })()
     }
+const getUser = (input) => {
+    (async () => {
+        try {
+            // console.log(id)
+            const response = await axios.get(`/api/users/${input}`)
+            // console.log("response is",response)
+            setUpdatedUser(response.data)
+            // console.log("updated user is",updatedUser)
+            if (response.status === 200) {
+                setRefresh(!refresh)
+            } else {
+                console.log('Something went wrong')
+            }
+
+        } catch (err) {
+            console.log(err)
+            // console.log(`cards is ${cards}`)
+        }
+    })()
+}
+    
 
     useEffect(() => {
+        // console.log(id)
         getData(id)
+        getUser(id)
         choice("inProgress")
-        console.log(WIP)
     },[])
 
     const loaded = () => {
@@ -86,7 +117,7 @@ const choice =  (input) => {
                 <Navbar/>
                 <UserBioBar updatedUser={updatedUser} id={id} user={user}/>
                 <ListBar updatedUser={updatedUser} user={user}setRefresh={setRefresh} setArtWork={setArtWork} setWIP={setWIP} setFollowing={setFollowing} setAbout={setAbout} setDisplayContent={setDisplayContent} displayContent={displayContent} about={about} WIP={WIP} artwork={artwork} following={following} />
-                <UserArtwork setChosenWork={setChosenWork} choice={choice} updatedUser={updatedUser} user={user}about={about} WIP={WIP} artwork={artwork} following={following} />
+                <UserWIP workInProgress={workInProgress} setChosenWork={setChosenWork} choice={choice} updatedUser={updatedUser} user={user}about={about} WIP={WIP} artwork={artwork} following={following} />
                 <Footer/>
             </div>
         </div>
@@ -97,6 +128,6 @@ const choice =  (input) => {
         return <h1>Loading</h1>
     }
     return (
-     user && user.artCollection ? loaded() : loading()
+     user && workInProgress ? loaded() : loading()
     )
 }

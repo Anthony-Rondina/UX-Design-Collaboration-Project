@@ -56,9 +56,9 @@ const choice =  (input) => {
             try {
                 // console.log(id)
                 const response = await axios.get(`/api/users/${input}`)
-                // console.log("response is",response)
+                console.log("response is",response)
                 setUpdatedUser(response.data)
-                // console.log("updated user is",response.data)
+                console.log("updated user is",updatedUser)
                 if (response.status === 200) {
                     setRefresh(!refresh)
                 } else {

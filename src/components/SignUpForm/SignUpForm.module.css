@@ -8,7 +8,7 @@
 }
 
 .formContainer1 input {
-    border: 0.5px solid #C4C4C4;
+    border: 0.1vmin solid #C4C4C4;
     height: 60px;
     box-sizing: border-box;
     width: 490px;
@@ -16,14 +16,14 @@
     border-radius: 10px;
     margin-top: 25px;
     margin-left: 10px;
-
+    text-align: center;
 }
 
-.formContainer1 .name {
+.formContainer1 .pass {
     width: 230px;
 }
 
-.formContainer1 .name2 {
+.formContainer1 .confirm {
     width: 230px;
     margin-left: 30px;
 }
@@ -45,10 +45,42 @@
     background-color: #111111;
     color: #FFFFFF;
     border-radius: 10px;
-    border: 0.5px solid #111111;
+    border: 0.5px solid transparent;
+}
+
+.formContainer1 button:disabled, form:invalid button[type='submit'] {
+    cursor: not-allowed;
+    color: #111111;
+    background-color: #7C7C7C;
+}
+
+.formContainer1 button[type='submit'] {
+    background-color: #111111;
+    color: #FFFFFF;
+}
+
+.formContainer1 .checkbox {
+    height: 15px;
+    width: 15px;
+    border-radius: 0px !important;
+}
+
+.formContainer1 .checkText {
+    font-family: 'AcuminPro';
+    font-size: 13px;
+    color: #7C7C7C;
+}
+
+.formContainer1 .textBold {
+    font-family: 'AcuminProSemibold'
 }
 
 @font-face {
     font-family: 'AcuminPro';
     src: url(../../public/fonts/acumin-pro.ttf);
+}
+
+@font-face {
+    font-family: 'AcuminProSemibold';
+    src: url(../../public/fonts/acumin-pro-semibold.ttf);
 }

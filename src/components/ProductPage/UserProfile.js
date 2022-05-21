@@ -1,17 +1,21 @@
 import styles from './UserProfile.module.css';
-
+import { Link } from 'react-router-dom';
 export default function UserProfile({art}) {
     const loaded = () => {
         return (
-            <div className={styles.UserProfile}>
-            <div>
-                <img className={styles.CircleImg} src={art.user.avatar}/>
-            </div>
-            <div className='UserNameText'>
+            <Link to={`/user/${art.user._id}`}>
+                <div className={styles.UserProfile}>
+                <div className={styles.CircleImg} style={{backgroundImage: `url(${art.user.avatar})`}}></div>
+            
+            <div className={styles.UserNameText}>
                 <h1>{art.nameOfArt}</h1>
-                <h2>{art.user.username}</h2>
+                <div className={styles.UserFollowDiv}>
+                    <h2>{art.user.username}</h2>
+                    <button>Follow</button>
+                </div>
             </div>
             </div>
+            </Link>
         )
     }
 

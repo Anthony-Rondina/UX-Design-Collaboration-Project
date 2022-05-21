@@ -10,16 +10,16 @@ export default function Footer() {
             <img src={logo} style={{ width: '8rem' }} id="logo" alt="footer logo"></img>
             <ul style={{ padding: '0', margin: '5px' }}>
                 <li style={{ padding: '0' }}>
-                <i class="fa-brands fa-twitter"></i>
+                <i className="fa-brands fa-twitter"></i>
                 </li>
-                <li>
-                <i class="fa-brands fa-facebook"></i>
+                <li >
+                <i className="fa-brands fa-facebook"></i>
                 </li>
-                <li>
-                <i class="fa-brands fa-instagram"></i>
+                <li >
+                <i className="fa-brands fa-instagram"></i>
                 </li>
-                <li>
-                <i class="fa-brands fa-youtube"></i>
+                <li >
+                <i className="fa-brands fa-youtube"></i>
                 </li>
             </ul>
         </div>
@@ -45,7 +45,7 @@ export default function Footer() {
         </ul>
         <form className={styles.footerForm} action="" method="get">
             <div>
-                <label for="email">Subscribe to atelier newsletter</label><br></br>
+                <label type="email">Subscribe to atelier newsletter</label><br></br>
                 <input type="email" name="email" id="email" required/>
                 <input className={styles.submitBtn} type="submit" value="Submit"/>
             </div>

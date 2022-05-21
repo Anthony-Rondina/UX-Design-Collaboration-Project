@@ -20,7 +20,7 @@ export default function UserArtwork({id, setChosenWork,updatedUser, user}) {
                         {updatedUser.artCollection.map((art, idx) => {
                             // console.log(art)
                             return (
-                                <Link to={`/art/${art._id}`} onClick={() => { setChosenWork(art) }}><div 
+                                <Link key={idx}  to={`/art/${art._id}`} onClick={() => { setChosenWork(art) }}><div 
                                 key={idx} 
                                 className={styles.mappedArt} 
                                 style={{backgroundImage: `url(${art.image})`}}>   

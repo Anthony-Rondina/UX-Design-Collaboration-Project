@@ -1,12 +1,13 @@
-// import UserProfile from "../../components/ProjectPage/UserProfile"
-// import ArtPrompt from "../../components/ProjectPage/ArtPrompt"
-import Videos from "../../components/ProductPage/Videos"
+import ArtPrompt from "../../components/ProductPage/ArtPrompt"
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { Link } from "react-router-dom"
 import styles from "./ProductPage.module.css"
 import UserProfile from "../../components/ProductPage/UserProfile"
+import NavHeader from "../../components/NavHeader/NavHeader"
+import Footer from "../../components/Footer/Footer"
+import Gallery from "../../components/ProductPage/Gallery"
 
 
 export default function ProductPage({chosenWork}) {
@@ -38,12 +39,23 @@ export default function ProductPage({chosenWork}) {
     },[])
     const loaded = () => {
         return (
-            <div>
-            <UserProfile art={art} />
-            <img className={styles.ChosenImage} src={art.image} atl=''></img>
-            {/* <ArtPrompt /> */}
-            <Videos />
-        </div>
+            <>
+            < NavHeader />
+            <div className={styles.OutterWraper}>
+                <div className={styles.InnerWraper}>
+                    <UserProfile art={art} />
+                    {/* <div className={styles.ChosenImage} style={{backgroundImage: `url(${art.image})`}}></div> */}
+                    <div className={styles.EditButton}>
+                        <Link to={`/user/chosenart/edt/${art._id}/${art.user._id}`}><p>Click me to Edit Art!</p></Link>
+                    </div>
+                    <img className={styles.ChosenImage} src={art.image}></img>
+                    <ArtPrompt  art={art}/>
+                    <Gallery />
+                    
+                </div>
+            </div>
+            <Footer />
+            </>
         )
     }
 
