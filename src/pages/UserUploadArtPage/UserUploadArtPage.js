@@ -66,7 +66,7 @@ export default function UserUploadArtPage({user}) {
             <div className={styles.mainProfileWrapper}>
                 <div >
                     <div className={styles.innerProfileWrapper}>
-                        <Navbar/>
+                        <Navbar user={user}/>
                         <UserBioBar updatedUser={updatedUser} id={id} user={user}/>
                         <div className={styles.uploadFormWrapper}>
                             <h1>Upload your art!</h1>
