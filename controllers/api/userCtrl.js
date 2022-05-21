@@ -9,7 +9,8 @@ module.exports = {
   get,
   put,
   destroy,
-  show
+  show,
+  addUserFollowing
 };
 
 function checkToken(req, res) {
@@ -31,12 +32,6 @@ async function get(req, res) {
   } catch (e) {
     res.status(400).json(e);
   }
-
-
-
-
-
-
   // User.find({}, (err, foundUser) => {
   //   if (!err) {
   //     res.status(200).json(foundUser)
@@ -45,6 +40,20 @@ async function get(req, res) {
   //   }
   // })
 
+}
+
+async function addUserFollowing (req, res) {
+  try {
+    const userId = req.user._id;
+    const userFollowedId = req.params.id;
+
+    const updatedUser = await User.updateOne( { _id: userId}, { $push: { following: userFollowedId }} );
+    res.status(200).json({ msg: updatedUser });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ msg: err.message });
+  }
 }
 
 async function put(req, res) {
