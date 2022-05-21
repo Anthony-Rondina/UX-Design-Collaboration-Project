@@ -9,6 +9,8 @@ router.put('/:id', usersCtrl.put)
 
 router.put('/follow/:id', usersCtrl.addUserFollowing);
 
+router.put('/unfollow/:id', usersCtrl.removeUserFollowing);
+
 // POST /api/users
 router.post('/', usersCtrl.create);
 // POST /api/users/login
