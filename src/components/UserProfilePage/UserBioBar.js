@@ -6,7 +6,9 @@ export default function UserBioBar({updatedUser,user, id}) {
 
     const loaded = () => {
         return (
+            
             <div className={styles.userBioWrapper}>
+                {/* {console.log("user is",user.avatar)} */}
                 <div className={styles.userCoverImage}>
                     <img className={styles.coverImage} src={coverImage} alt="user cover image" />
                 </div>

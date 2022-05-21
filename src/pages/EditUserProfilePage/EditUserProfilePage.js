@@ -7,7 +7,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import UserBioBar from "../../components/UserProfilePage/UserBioBar";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/NavHeader/NavHeader"
-export default function EditUserProfilePage({user}) {
+export default function EditUserProfilePage({toggle, setToggle, user}) {
     const navigate = useNavigate();
     const username = useRef()
     const avatar = useRef()
@@ -18,6 +18,7 @@ export default function EditUserProfilePage({user}) {
     const [updatedUser, setUpdatedUser] = useState({})
     const [refresh, setRefresh] = useState({})
     const {id} = useParams()
+    const [loggedeinUser, setLoggedinUser] = useState({})
     let token = localStorage.getItem("token")
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -31,6 +32,7 @@ export default function EditUserProfilePage({user}) {
                 }
             })
             console.log(`test2`)
+
             navigate(`/user/${updatedUser._id}`)
         } catch (err) {
             console.log(err)
@@ -57,8 +59,30 @@ export default function EditUserProfilePage({user}) {
         })()
     }
 
+    const getLoggedinUser = (input) => {
+        (async () => {
+            try {
+                // console.log(id)
+                const response = await axios.get(`/api/users/${input}`)
+                // console.log("response is",response)
+                setLoggedinUser(response.data)
+                // console.log("updated user is",response.data)
+                if (response.status === 200) {
+                    setRefresh(!refresh)
+                } else {
+                    console.log('Something went wrong')
+                }
+
+            } catch (err) {
+                console.log(err)
+                // console.log(`cards is ${cards}`)
+            }
+        })()
+    }
+
     useEffect(() => {
         getData(id)
+        getLoggedinUser(user._id)
     },[])
     return (
         <div className={styles.UserUploadArtPage}>

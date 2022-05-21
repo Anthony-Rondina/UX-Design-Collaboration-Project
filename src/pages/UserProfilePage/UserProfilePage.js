@@ -9,7 +9,7 @@ import Navbar from "../../components/NavHeader/NavHeader"
 import axios from "axios"
 import { useParams } from "react-router-dom"
 import Footer from "../../components/Footer/Footer"
-export default function UserProfilePage({setChosenWork,chosenUser, user}) {
+export default function UserProfilePage({toggle, setToggle,setChosenWork,chosenUser, user}) {
 const [refresh, setRefresh] = useState(false)
 const [artwork, setArtWork] = useState(true)
 const [WIP, setWIP] = useState(false)
@@ -84,7 +84,7 @@ const choice =  (input) => {
             <div className={styles.innerProfileWrapper}>
                 {/* {console.log("PP updated user is", updatedUser.artCollection)} */}
                 <Navbar/>
-                <UserBioBar updatedUser={updatedUser} id={id} user={user}/>
+                <UserBioBar toggle={toggle} setToggle={setToggle} updatedUser={updatedUser} id={id} user={user}/>
                 <ListBar updatedUser={updatedUser} user={user}setRefresh={setRefresh} setArtWork={setArtWork} setWIP={setWIP} setFollowing={setFollowing} setAbout={setAbout} setDisplayContent={setDisplayContent} displayContent={displayContent} about={about} WIP={WIP} artwork={artwork} following={following} />
                 <UserArtwork id={id} setChosenWork={setChosenWork} choice={choice} updatedUser={updatedUser} user={user}about={about} WIP={WIP} artwork={artwork} following={following} />
                 <Footer/>
