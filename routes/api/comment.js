@@ -4,3 +4,5 @@ const commentCtrl = require('../../controllers/api/commentCtrl');
 
 
 router.post('/:id', commentCtrl.createComment);
+
+module.exports = router;
