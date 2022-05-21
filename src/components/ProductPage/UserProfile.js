@@ -11,7 +11,6 @@ export default function UserProfile({art}) {
                 <h1>{art.nameOfArt}</h1>
                 <div className={styles.UserFollowDiv}>
                     <h2>{art.user.username}</h2>
-                    <button>Follow</button>
                 </div>
             </div>
             </div>

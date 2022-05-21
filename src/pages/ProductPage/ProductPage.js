@@ -64,6 +64,9 @@ export default function ProductPage({chosenWork, user}) {
         return (
             <>
             < NavHeader loggedInUser={loggedInUser} user={user} />
+            <div className={styles.mainProfileWrapper}>
+            
+            <div className={styles.innerProfileWrapper}>
             <div className={styles.OutterWraper}>
                 <div className={styles.InnerWraper}>
                     <UserProfile art={art} />
@@ -76,6 +79,8 @@ export default function ProductPage({chosenWork, user}) {
                     <Gallery />
                     
                 </div>
+            </div>
+            </div>
             </div>
             <Footer />
             </>
