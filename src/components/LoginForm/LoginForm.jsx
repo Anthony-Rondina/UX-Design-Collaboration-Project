@@ -35,10 +35,9 @@ return (
             <p>- or -</p>
           <h4>Sign in with email</h4>
       <form autoComplete="off" onSubmit={handleSubmit}>
-        <label>Email</label>
-        <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
-        <label>Password</label>
-        <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
+        <input type="text" name="email" value={credentials.email} placeholder='Email' onChange={handleChange} required />
+        <input type="password" name="password" value={credentials.password} placeholder='Password' onChange={handleChange} required />
+        <a href='#'><span className={styles.forgot}>Forgot Password?</span></a>
         <button type="submit">Login</button>
       </form>
     </div>
