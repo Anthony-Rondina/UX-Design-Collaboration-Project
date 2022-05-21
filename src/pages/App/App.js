@@ -18,17 +18,36 @@ function App() {
   const [chosenUser, setChosenUser] = useState({})
   const [chosenWork, setChosenWork] = useState({})
   const [toggle, setToggle] = useState(false)
+  const [resolvedUser, setResolvedUser]= useState({})
+  // const [dummyUser, setDummyUser]= useState({})
+  // let contUser = ''
+
+// function testDummyUser(input) {
+//   const p = Promise.resolve(input);
+//         p.then(value => {
+//           setResolvedUser(value);
+//           console.log("dummyUser is",dummyUser)
+//         }).catch(err => {
+//           console.log(err);
+//         });
+      
+// }
+
   useEffect(() => {
     (async () => {
       try {
         const currentUser = await getUser()
         setUser(currentUser)
-        console.log(user)
+        // contUser = user ? user : dummyUser
+        // console.log("constUser is", contUser)
+        console.log("APP.js user is", user)
+        // testDummyUser(contUser)
       } catch (err) {
         console.log(err)
       }
+
     })()
-  },[toggle])
+  },[])
 
   return (
     <div className="App">
