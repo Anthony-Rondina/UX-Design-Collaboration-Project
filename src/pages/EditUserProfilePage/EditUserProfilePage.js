@@ -89,7 +89,7 @@ export default function EditUserProfilePage({toggle, setToggle, user}) {
             <div className={styles.mainProfileWrapper}>
                 <div >
                     <div className={styles.innerProfileWrapper}>
-                        <Navbar/>
+                        <Navbar user={user}/>
                         <UserBioBar id={id}updatedUser={updatedUser} user={user}/>
                         <div className={styles.uploadFormWrapper}>
                         <Link to={`/user/${updatedUser._id}`}><button>Back to profile</button></Link>
