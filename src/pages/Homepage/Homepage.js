@@ -2,6 +2,7 @@ import ArtistCard from "../../components/ArtistCard/ArtistCard"
 import { useState, useEffect } from "react"
 import axios from "axios"
 import { Link } from "react-router-dom"
+import styles from "./Homepage.module.css"
 
 export default function Homepage({ user }) {
     const [artArr, setArtArr] = useState([])
@@ -34,11 +35,13 @@ export default function Homepage({ user }) {
             <div>
                 <h1>This is the Homepage</h1>
                 <Link to={`/user/${user._id}`}> <p>Link to User Page</p></Link>
-                {artArr.map((artData, idx) => {
-                    return (
-                        <ArtistCard artData={artData} key={idx} />
-                    )
-                })}
+                <div style={{ display: "flex", flexWrap: "wrap" }}>
+                    {artArr.map((artData, idx) => {
+                        return (
+                            <ArtistCard user={user} artData={artData} key={idx} className={styles.artistCard} />
+                        )
+                    })}
+                </div>
             </div>
         )
     }
