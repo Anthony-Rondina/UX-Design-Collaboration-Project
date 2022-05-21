@@ -7,6 +7,7 @@ const fileUpload = require('express-fileupload')
 const app = express();
 const userController = require("./routes/api/users")
 const artController = require("./routes/api/art")
+const commentController = require("./routes/api/comment")
 
 
 require('dotenv').config();
@@ -25,6 +26,7 @@ app.use(fileUpload({
 app.use(require('./config/checkToken'));
 app.use("/api/users", userController)
 app.use("/api/art", artController)
+app.use("/api/comment", commentController)
 app.use('/api', require('./routes/api/upload'))
 
 
