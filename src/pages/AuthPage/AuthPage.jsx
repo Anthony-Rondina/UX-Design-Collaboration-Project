@@ -22,7 +22,7 @@ export default function AuthPage({ setUser }) {
       <div className={styles.SplitSide}>
           <h1 onChange={() => setShowH1(!showLogin)}> {showLogin ? 'Sign in' : 'Create an account'}</h1>
           <h5 onChange={() => setShowH5(!showLogin)}> {showLogin ? 'New user?' : 'Already have an account?'}<span className={styles.spanText} onClick={() => setShowLogin(!showLogin)}> {showLogin ? 'Create an account' : 'Sign In'}</span></h5>
-          <p onChange={() => setShowP(!showLogin)}>{showLogin ? 'Sign up with social' : 'Sign in with social'}</p>
+          <p onChange={() => setShowP(!showLogin)}>{showLogin ? 'Sign in with social' : 'Sign up with social'}</p>
           <a href='https://facebook.com' target='_blank'><img className={styles.mediaIcon1} alt='social-logo' src={fb}/></a>
           <a href='https://accounts.google.com/' target='_blank'><img className={styles.mediaIcon2} alt='social-logo' src={goog}/></a>
           <a href='https://apple.com' target='_blank'><img className={styles.mediaIcon3} alt='social-logo' src={apple}/></a>
