@@ -10,7 +10,8 @@ module.exports = {
   put,
   destroy,
   show,
-  addUserFollowing
+  addUserFollowing,
+  removeUserFollowing
 };
 
 function checkToken(req, res) {
@@ -48,6 +49,20 @@ async function addUserFollowing (req, res) {
     const userFollowedId = req.params.id;
 
     const updatedUser = await User.updateOne( { _id: userId}, { $push: { following: userFollowedId }} );
+    res.status(200).json({ msg: updatedUser });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ msg: err.message });
+  }
+}
+
+async function removeUserFollowing (req, res){
+  try {
+    const userId = req.user._id;
+    const userFollowedId = req.params.id;
+
+    const updatedUser = await User.updateOne( { _id: userId}, { $pull: { following: userFollowedId }} );
     res.status(200).json({ msg: updatedUser });
 
   } catch (err) {
