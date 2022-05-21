@@ -38,6 +38,7 @@ function App() {
       try {
         const currentUser = await getUser()
         setUser(currentUser)
+        
         // contUser = user ? user : dummyUser
         // console.log("constUser is", contUser)
         console.log("APP.js user is", user)
@@ -49,13 +50,17 @@ function App() {
     })()
   },[])
 
+  useEffect(()=> {
+    user ? localStorage.setItem("userID", user._id) : console.log("no user")
+  })
+
   return (
     <div className="App">
       {user ?
         <Routes>
           <Route path="/" element={<HomePage user={user}/>}/>
           <Route path="/user/:id" element={<UserProfilePage user={user}/>}/>
-          <Route path="/art/:id" element={<ProductPage chosenWork={chosenWork}/>}/>
+          <Route path="/art/:id" element={<ProductPage chosenWork={chosenWork} user={user}/>}/>
           <Route path="/user/:id/about" element={<UserAboutMePage toggle={toggle} setToggle={setToggle} user={user}/>}/>
           <Route path="/user/:id/following" element={<UserFollowingListPage user={user}/>}/>
           <Route path="/user/wip/:id" element={<UserWIPPage user={user}/>}/>

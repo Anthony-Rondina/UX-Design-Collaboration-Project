@@ -22,7 +22,7 @@ export default function NavHeader({loggedInUser,user}) {
         </div>
         {user ? 
         <>
-        <div className={styles.profilePicture} style={{backgroundImage: `url(${user.avatar})`}}/>
+        <div className={styles.profilePicture} style={{backgroundImage: `url(${loggedInUser.avatar})`}}/>
         <div className={styles.logOutDiv}></div>
         </>
         :

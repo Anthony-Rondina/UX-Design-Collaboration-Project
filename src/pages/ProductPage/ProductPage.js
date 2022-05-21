@@ -10,10 +10,12 @@ import Footer from "../../components/Footer/Footer"
 import Gallery from "../../components/ProductPage/Gallery"
 
 
-export default function ProductPage({chosenWork}) {
+export default function ProductPage({chosenWork, user}) {
     const { id } = useParams()
     const [art,setArt]= useState({})
     const [refresh, setRefresh] = useState(false)
+    let userId = localStorage.getItem("userID")
+    const [loggedInUser, setLoggedInUser]=useState({})
     const getData = (input) => {
         (async () => {
             try {
@@ -34,13 +36,34 @@ export default function ProductPage({chosenWork}) {
             }
         })()
     }
+    const getLoggedInUser = (input) => {
+        (async () => {
+            try {
+                // console.log(id)
+                const response = await axios.get(`/api/users/${input}`)
+                // console.log("response is",response)
+                setLoggedInUser(response.data)
+                // console.log("updated user is",updatedUser)
+                if (response.status === 200) {
+                    setRefresh(!refresh)
+                } else {
+                    console.log('Something went wrong')
+                }
+
+            } catch (err) {
+                console.log(err)
+                // console.log(`cards is ${cards}`)
+            }
+        })()
+    }
     useEffect(() => {
         getData(id)
+        getLoggedInUser(userId)
     },[])
     const loaded = () => {
         return (
             <>
-            < NavHeader />
+            < NavHeader loggedInUser={loggedInUser} user={user} />
             <div className={styles.OutterWraper}>
                 <div className={styles.InnerWraper}>
                     <UserProfile art={art} />

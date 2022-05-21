@@ -18,7 +18,8 @@ const [about, setAbout]=useState(false)
 const [displayContent, setDisplayContent]=useState([])
 const [updatedUser, setUpdatedUser]=useState({})
 const { id } = useParams()
-
+let userId = localStorage.getItem("userID")
+const [loggedInUser, setLoggedInUser]=useState({})
 const choice =  (input) => {
     switch (input) {
         case "art" :
@@ -51,31 +52,55 @@ const choice =  (input) => {
             break;
     }
 }
-    const getData = (input) => {
-        (async () => {
-            try {
-                const response = await axios.get(`/api/users/${input}`)
-                // console.log("response is",response)
-                setUpdatedUser(response.data)
-                console.log("updated user is",response)
-                if (response.status === 200) {
-                    setRefresh(!refresh)
-                } else {
-                    console.log('Something went wrong')
-                }
-
-            } catch (err) {
-                console.log(err)
-                // console.log(`cards is ${cards}`)
+const getData = (input) => {
+    (async () => {
+        try {
+            // console.log(id)
+            const response = await axios.get(`/api/users/${input}`)
+            // console.log("response is",response)
+            setUpdatedUser(response.data)
+            // console.log("updated user is",updatedUser)
+            if (response.status === 200) {
+                setRefresh(!refresh)
+            } else {
+                console.log('Something went wrong')
             }
-        })()
-    }
 
-    useEffect(() => {
-        getData(id)
-        choice("follow")
-        console.log(WIP)
-    },[])
+        } catch (err) {
+            console.log(err)
+            // console.log(`cards is ${cards}`)
+        }
+    })()
+}
+
+const getLoggedInUser = (input) => {
+    (async () => {
+        try {
+            // console.log(id)
+            const response = await axios.get(`/api/users/${input}`)
+            // console.log("response is",response)
+            setLoggedInUser(response.data)
+            // console.log("updated user is",updatedUser)
+            if (response.status === 200) {
+                setRefresh(!refresh)
+            } else {
+                console.log('Something went wrong')
+            }
+
+        } catch (err) {
+            console.log(err)
+            // console.log(`cards is ${cards}`)
+        }
+    })()
+}
+
+useEffect(() => {
+    console.log("LSID is", userId)
+    getData(id)
+    console.log("user._id is",user)
+    getLoggedInUser(userId)
+    choice("follow")
+},[])
 
     const loaded = () => {
         return (
@@ -83,7 +108,7 @@ const choice =  (input) => {
             
             <div className={styles.innerProfileWrapper}>
                 {/* {console.log("PP updated user is", updatedUser.artCollection)} */}
-                <Navbar user={user}/>
+                <Navbar loggedInUser={loggedInUser} user={user}/>
                 <UserBioBar updatedUser={updatedUser} id={id} user={user}/>
                 <ListBar updatedUser={updatedUser} user={user}setRefresh={setRefresh} setArtWork={setArtWork} setWIP={setWIP} setFollowing={setFollowing} setAbout={setAbout} setDisplayContent={setDisplayContent} displayContent={displayContent} about={about} WIP={WIP} artwork={artwork} following={following} />
                 <UserArtwork setChosenWork={setChosenWork} choice={choice} updatedUser={updatedUser} user={user}about={about} WIP={WIP} artwork={artwork} following={following} />

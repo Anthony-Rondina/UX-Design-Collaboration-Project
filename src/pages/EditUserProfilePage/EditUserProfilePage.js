@@ -18,8 +18,9 @@ export default function EditUserProfilePage({toggle, setToggle, user}) {
     const [updatedUser, setUpdatedUser] = useState({})
     const [refresh, setRefresh] = useState({})
     const {id} = useParams()
-    const [loggedeinUser, setLoggedinUser] = useState({})
+    const [loggedInUser, setLoggedInUser]=useState({})
     let token = localStorage.getItem("token")
+    let userId = localStorage.getItem("userID")
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
@@ -59,14 +60,14 @@ export default function EditUserProfilePage({toggle, setToggle, user}) {
         })()
     }
 
-    const getLoggedinUser = (input) => {
+    const getLoggedInUser = (input) => {
         (async () => {
             try {
                 // console.log(id)
                 const response = await axios.get(`/api/users/${input}`)
                 // console.log("response is",response)
-                setLoggedinUser(response.data)
-                // console.log("updated user is",response.data)
+                setLoggedInUser(response.data)
+                // console.log("updated user is",updatedUser)
                 if (response.status === 200) {
                     setRefresh(!refresh)
                 } else {
@@ -81,15 +82,17 @@ export default function EditUserProfilePage({toggle, setToggle, user}) {
     }
 
     useEffect(() => {
+        console.log("LSID is", userId)
         getData(id)
-        getLoggedinUser(user._id)
+        console.log("user._id is",user)
+        getLoggedInUser(userId)
     },[])
     return (
         <div className={styles.UserUploadArtPage}>
             <div className={styles.mainProfileWrapper}>
                 <div >
                     <div className={styles.innerProfileWrapper}>
-                        <Navbar user={user}/>
+                        <Navbar loggedInUser={loggedInUser} user={user}/>
                         <UserBioBar id={id}updatedUser={updatedUser} user={user}/>
                         <div className={styles.uploadFormWrapper}>
                         <Link to={`/user/${updatedUser._id}`}><button>Back to profile</button></Link>

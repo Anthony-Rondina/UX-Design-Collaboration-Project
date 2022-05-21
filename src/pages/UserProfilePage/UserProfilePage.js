@@ -17,9 +17,9 @@ const [following, setFollowing] = useState(false)
 const [about, setAbout]=useState(false)
 const [displayContent, setDisplayContent]=useState([])
 const [updatedUser, setUpdatedUser]=useState({})
-const [loggedInUser, setLoggedInUser]=useState(user)
+const [loggedInUser, setLoggedInUser]=useState({})
 const { id } = useParams()
-
+let userId = localStorage.getItem("userID")
 const choice =  (input) => {
     switch (input) {
         case "art" :
@@ -95,10 +95,10 @@ const choice =  (input) => {
     }
 
     useEffect(() => {
-        console.log("id is",id)
+        console.log("LSID is", userId)
         getData(id)
         console.log("user._id is",user)
-        // getLoggedInUser(user._id)
+        getLoggedInUser(userId)
         choice("art")
     },[])
 
