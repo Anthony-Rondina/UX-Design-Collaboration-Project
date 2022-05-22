@@ -39,6 +39,7 @@ export async function getUser() {
 // Logout
 
 export function logout() {
+    localStorage.removeItem('userID')
     localStorage.removeItem('token')
 }
 
