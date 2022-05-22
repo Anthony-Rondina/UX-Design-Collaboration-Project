@@ -18,6 +18,8 @@ export default function UserUploadArtPage({user}) {
     const [updatedUser, setUpdatedUser]=useState({})
     const [refresh, setRefresh] = useState(false)
     const { id } = useParams()
+    const [loggedInUser, setLoggedInUser]=useState({})
+    let userId = localStorage.getItem("userID")
 
     let token = localStorage.getItem("token")
     const handleSubmit = async (e) => {
@@ -57,16 +59,37 @@ export default function UserUploadArtPage({user}) {
             }
         })()
     }
+    const getLoggedInUser = (input) => {
+        (async () => {
+            try {
+                // console.log(id)
+                const response = await axios.get(`/api/users/${input}`)
+                // console.log("response is",response)
+                setLoggedInUser(response.data)
+                // console.log("updated user is",updatedUser)
+                if (response.status === 200) {
+                    setRefresh(!refresh)
+                } else {
+                    console.log('Something went wrong')
+                }
+    
+            } catch (err) {
+                console.log(err)
+                // console.log(`cards is ${cards}`)
+            }
+        })()
+    }
 
     useEffect(() => {
         getData(id)
+        getLoggedInUser(userId)
     },[])
     return (
         <div className={styles.UserUploadArtPage}>
             <div className={styles.mainProfileWrapper}>
                 <div >
                     <div className={styles.innerProfileWrapper}>
-                        <Navbar user={user}/>
+                        <Navbar loggedInUser={loggedInUser} user={user}/>
                         <UserBioBar updatedUser={updatedUser} id={id} user={user}/>
                         <div className={styles.uploadFormWrapper}>
                             <h1>Upload your art!</h1>
