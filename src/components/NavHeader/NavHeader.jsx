@@ -5,7 +5,7 @@ import styles from "./NavHeader.module.css";
 export default function NavHeader({loggedInUser,user}) {
     return (
     <div className={styles.NavHeader}>
-        {console.log('user is ', user)}
+        {/* {console.log('user is ', user)} */}
         <Link to="/" className="nav-logo"><img src={logo} style={{ width: '8rem' }} id="logo" alt="nav logo"></img></Link>
         <ul>
             <li>

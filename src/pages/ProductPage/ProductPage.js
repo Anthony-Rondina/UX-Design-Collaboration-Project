@@ -8,7 +8,7 @@ import UserProfile from "../../components/ProductPage/UserProfile"
 import NavHeader from "../../components/NavHeader/NavHeader"
 import Footer from "../../components/Footer/Footer"
 import Gallery from "../../components/ProductPage/Gallery"
-
+import Comments from "../../components/ProductPage/Comments"
 
 export default function ProductPage({chosenWork, user}) {
     const { id } = useParams()
@@ -19,11 +19,11 @@ export default function ProductPage({chosenWork, user}) {
     const getData = (input) => {
         (async () => {
             try {
-                console.log(id)
+                // console.log(id)
                 const response = await axios.get(`/api/art/chosenart/${input}`)
                 console.log("response is",response.data)
                 setArt(response.data)
-                console.log("art  is", art)
+                // console.log("art  is", art)
                 if (response.status === 200) {
                     setRefresh(!refresh)
                 } else {
@@ -59,7 +59,7 @@ export default function ProductPage({chosenWork, user}) {
     useEffect(() => {
         getData(id)
         getLoggedInUser(userId)
-    },[])
+    },[refresh])
     const loaded = () => {
         return (
             <>
@@ -77,7 +77,7 @@ export default function ProductPage({chosenWork, user}) {
                     <img className={styles.ChosenImage} src={art.image}></img>
                     <ArtPrompt  art={art}/>
                     <Gallery />
-                    
+                    <Comments refresh={refresh} setRefresh={setRefresh} user={user} art={art}/>
                 </div>
             </div>
             </div>

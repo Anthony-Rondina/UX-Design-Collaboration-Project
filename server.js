@@ -26,7 +26,7 @@ app.use(fileUpload({
 app.use(require('./config/checkToken'));
 app.use("/api/users", userController)
 app.use("/api/art", artController)
-app.use("/api/comment", commentController)
+app.use("/api/comments", commentController)
 app.use('/api', require('./routes/api/upload'))
 
 

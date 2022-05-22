@@ -15,6 +15,7 @@ async function createComment(req,res) {
         const art = await Art.findById(req.params.id)
         const comment = new Comment(body)
         art.comments.push(comment._id)
+        comment.user = user
         comment.save()
         art.save()
         res.status(200).json({ message: "Worked!" })

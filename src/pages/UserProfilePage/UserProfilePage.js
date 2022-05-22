@@ -19,6 +19,7 @@ const [displayContent, setDisplayContent]=useState([])
 const [updatedUser, setUpdatedUser]=useState({})
 const [loggedInUser, setLoggedInUser]=useState({})
 const { id } = useParams()
+let token = localStorage.getItem("token")
 let userId = localStorage.getItem("userID")
 const choice =  (input) => {
     switch (input) {
@@ -51,6 +52,28 @@ const choice =  (input) => {
             setRefresh(!refresh)
             break;
     }
+}
+
+const followUser = (input) => {
+    (async () => {
+        try {
+            // console.log(id)
+            const response = await axios.put(`/api/users/follow/${input}`, {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            })
+            if (response.status === 200) {
+                setRefresh(!refresh)
+            } else {
+                console.log('Something went wrong')
+            }
+
+        } catch (err) {
+            console.log(err)
+            // console.log(`cards is ${cards}`)
+        }
+    })()
 }
     const getData = (input) => {
         (async () => {
@@ -109,7 +132,7 @@ const choice =  (input) => {
             <div className={styles.innerProfileWrapper}>
                 {/* {console.log("PP updated user is", updatedUser.artCollection)} */}
                 <Navbar loggedInUser={loggedInUser} user={user}/>
-                <UserBioBar updatedUser={updatedUser} id={id} user={user}/>
+                <UserBioBar followUser={followUser} updatedUser={updatedUser} id={id} user={user}/>
                 <ListBar updatedUser={updatedUser} user={user}setRefresh={setRefresh} setArtWork={setArtWork} setWIP={setWIP} setFollowing={setFollowing} setAbout={setAbout} setDisplayContent={setDisplayContent} displayContent={displayContent} about={about} WIP={WIP} artwork={artwork} following={following} />
                 <UserArtwork id={id} setChosenWork={setChosenWork} choice={choice} updatedUser={updatedUser} user={user}about={about} WIP={WIP} artwork={artwork} following={following} />
                 <Footer/>

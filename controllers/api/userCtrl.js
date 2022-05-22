@@ -45,7 +45,7 @@ async function get(req, res) {
 
 async function addUserFollowing (req, res) {
   try {
-    const userId = req.user._id;
+    const userId = req.user._id
     const userFollowedId = req.params.id;
 
     const updatedUser = await User.updateOne( { _id: userId}, { $push: { following: userFollowedId }} );
