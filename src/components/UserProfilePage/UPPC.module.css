@@ -132,13 +132,16 @@
 
   .filterResults{
     /* background-color: white; */
+    /* border: solid 1px blue; */
     height: 100%;
+    min-height: 600px;
     display: flex;
     justify-content: center;
     padding: 70px;
   }
   .aboutResults {
     height: 70%;
+    min-height: 600px;
     display: flex;
     justify-content: center;
     padding: 70px;
