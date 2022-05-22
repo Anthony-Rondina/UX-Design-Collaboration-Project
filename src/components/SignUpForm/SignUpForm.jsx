@@ -7,7 +7,7 @@ export default class SignUpForm extends Component {
     username: '',
     email: '',
     password: '',
-    confirm: '',
+    // confirm: '',
     error: ''
 };
 
@@ -42,7 +42,7 @@ handleSubmit = async (event) => {
 // The render method is the equivalent to a function-based component
 // (its job is to return the UI)
 render() {
-  const disable = this.state.password !== this.state.confirm;
+//   const disable = this.state.password !== this.state.confirm;
   return (
     <div>
       <div className={styles.formContainer1}>
@@ -51,12 +51,12 @@ render() {
         <form autoComplete="off" onSubmit={this.handleSubmit}>
           <input type='email' name='email' value={this.state.email} placeholder='Email' onChange={this.handleChange} required />
           <input type="text" name="username" value={this.state.username} placeholder='Username' onChange={this.handleChange} required />
-          {/* <input className={styles.name} type="firstName" name="firstName" value={this.state.firstName} placeholder='First Name' onChange={this.handleChange} required />
-          <input className={styles.name2} type="lastName" name="lastName" value={this.state.lastName} placeholder='Last Name' onChange={this.handleChange} required /> */}
-          <input className={styles.pass} type="password" name="password" value={this.state.password} placeholder='Password' onChange={this.handleChange} required />
-          <input className={styles.confirm} type="password" name="confirm" value={this.state.confirm} placeholder='Confirm Password' onChange={this.handleChange} required />
+          <input className={styles.name} type="firstName" name="firstName" value={this.state.firstName} placeholder='First Name' onChange={this.handleChange} required />
+          <input className={styles.name2} type="lastName" name="lastName" value={this.state.lastName} placeholder='Last Name' onChange={this.handleChange} required />
+          <input className='' type="password" name="password" value={this.state.password} placeholder='Password' onChange={this.handleChange} required />
+          {/* <input className='' type="password" name="confirm" value={this.state.confirm} placeholder='Confirm Password' onChange={this.handleChange} required /> */}
           <input className={styles.checkbox} type='checkbox'/><span className={styles.checkText}>Creating an account means you're okay with our <span className={styles.textBold}>Terms of Service</span> and <span className={styles.textBold}>Privacy Policy.</span></span>
-          <button type="submit" disabled={disable}>Sign Up</button>
+          <button type="submit">Sign Up</button>
         </form>
       </div>
       <p className="error-message">&nbsp;{this.state.error}</p>
