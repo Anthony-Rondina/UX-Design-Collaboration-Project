@@ -8,23 +8,23 @@ export default function Footer() {
     <footer className={styles.Footer}>
         <div className={styles.footerLogo}>
             <img src={logo} style={{ width: '8rem' }} id="logo" alt="footer logo"></img>
-            <ul style={{ padding: '0', margin: '5px' }}>
+            <ul style={{ padding: '5px', margin: '5px', marginRight: '8px' }}>
                 <li style={{ padding: '0' }}>
-                <i className="fa-brands fa-twitter"></i>
+                <i className="fa-brands fa-twitter fa-lg"></i>
                 </li>
                 <li >
-                <i className="fa-brands fa-facebook"></i>
+                <i className="fa-brands fa-facebook fa-lg"></i>
                 </li>
                 <li >
-                <i className="fa-brands fa-instagram"></i>
+                <i className="fa-brands fa-instagram fa-lg"></i>
                 </li>
                 <li >
-                <i className="fa-brands fa-youtube"></i>
+                <i className="fa-brands fa-youtube fa-lg"></i>
                 </li>
             </ul>
         </div>
-        <ul>
-            <li>
+        <ul style={{ padding: '0' }}>
+            <li style={{ padding: '0' }}>
                 <Link to="/" className="footer-link">About Us</Link>
             </li>
             <li>

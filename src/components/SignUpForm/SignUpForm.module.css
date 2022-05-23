@@ -19,11 +19,11 @@
     text-align: center;
 }
 
-.formContainer1 .pass {
+.formContainer1 .pass, .formContainer1 .name {
     width: 230px;
 }
 
-.formContainer1 .confirm {
+.formContainer1 .confirm, .formContainer1 .name2 {
     width: 230px;
     margin-left: 30px;
 }
@@ -46,6 +46,7 @@
     color: #FFFFFF;
     border-radius: 10px;
     border: 0.5px solid transparent;
+    font-family: 'AcuminProSemiBold'
 }
 
 .formContainer1 button:disabled, form:invalid button[type='submit'] {

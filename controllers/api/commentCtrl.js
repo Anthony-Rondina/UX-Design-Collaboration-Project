@@ -3,7 +3,8 @@ const Art = require('../../models/Art');
 const User = require('../../models/User');
 
 module.exports = {
-  createComment
+  createComment,
+  deleteComment
 };
 
 async function createComment(req,res) {
@@ -15,9 +16,23 @@ async function createComment(req,res) {
         const art = await Art.findById(req.params.id)
         const comment = new Comment(body)
         art.comments.push(comment._id)
+        comment.user = user
         comment.save()
         art.save()
         res.status(200).json({ message: "Worked!" })
+
+    } catch (e) {
+        res.status(400).json(e);
+    }
+
+}
+
+async function deleteComment(req,res) {
+
+    try {
+
+        Comment.findByIdAndDelete(req.params.id)
+        res.status(200).json({ message: "Comment Deleted!" })
 
     } catch (e) {
         res.status(400).json(e);

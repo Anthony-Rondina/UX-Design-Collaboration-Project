@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from '../../public/atelier-1.png';
 import styles from "./NavHeader.module.css";
-export default function NavHeader({user}) {
+export default function NavHeader({loggedInUser,user}) {
     return (
     <div className={styles.NavHeader}>
-        {console.log('user is ', user)}
+        {/* {console.log('user is ', user)} */}
         <Link to="/" className="nav-logo"><img src={logo} style={{ width: '8rem' }} id="logo" alt="nav logo"></img></Link>
         <ul>
             <li>
@@ -22,7 +22,7 @@ export default function NavHeader({user}) {
         </div>
         {user ? 
         <>
-        <div className={styles.profilePicture} style={{backgroundImage: `url(${user.avatar})`}}/>
+        <div className={styles.profilePicture} style={{backgroundImage: `url(${loggedInUser.avatar})`}}/>
         <div className={styles.logOutDiv}></div>
         </>
         :

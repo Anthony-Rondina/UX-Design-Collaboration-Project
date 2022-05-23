@@ -71,7 +71,7 @@ async function getAllUserArt(req,res) {
 async function getAllUserWipArt(req,res) {
 
   try {
-    const query = Art.find({ user: req.user._id, isDone: false })
+    const query = Art.find({ user: req.params.id, isDone: false })
      query.exec((err, foundArt) => {
        if(!err) {
          res.status(200).json(foundArt)
@@ -128,7 +128,14 @@ async function create(req, res) {
 async function show(req, res) {
 
   try {
-    const query = Art.findById(req.params.id).populate('user')
+    const query = Art.findById(req.params.id).populate([{
+      path: 'comments',
+      populate:
+          { path: "user"
+         }
+  },{
+    path: 'user',
+  }])
     query.exec((err, foundArt) => {
       if(!err) {
         res.status(200).json(foundArt)

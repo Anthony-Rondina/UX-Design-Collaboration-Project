@@ -10,8 +10,7 @@ export default function UserProfile({art}) {
             <div className={styles.UserNameText}>
                 <h1>{art.nameOfArt}</h1>
                 <div className={styles.UserFollowDiv}>
-                    <h2>{art.user.username}</h2>
-                    <button>Follow</button>
+                    <h2>{art.user.firstName}</h2>
                 </div>
             </div>
             </div>
