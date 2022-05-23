@@ -1,19 +1,31 @@
 import styles from "./UPPC.module.css"
 import { Link } from "react-router-dom"
-export default function UserFollowingList({user}) {
+export default function UserFollowingList({loggedInUser,followUser, unfollowUser, updatedUser,user, id}) {
+    
+    const loaded = () => {
+        return (
+            <div className={styles.filterResults}>
+                    <div className={styles.contentBox}>
+                        <h1>Users I'm Following</h1>
+                        {loggedInUser.following.map((followedUser) => {
+                            return(
+                                
+                            <Link to={`/user/${followedUser._id}`}><div>
+                                {console.log(loggedInUser)}
+                            <img src={followedUser.avatar} alt="" style={{ width: 170, height: 170, borderRadius: 90}} />
+                            <p>{followedUser.username}</p>
+                        </div></Link>
+                            )
+                        })}  
+                    </div>
+            </div>
+        )
+    }
+
+    const loading = () => {
+        return <h1>Loading</h1>
+    }
     return (
-        <div className={styles.filterResults}>
-                <div className={styles.contentBox}>
-                    <h1>Users I'm Following</h1>
-                    {user.following.map((followedUser) => {
-                        return(
-                        <Link to={`/user/${user._id}`}><div>
-                        <img src="https://i.imgur.com/JoSbsoa.png" alt="" className={styles.userUpload} />
-                        <p>{}</p>
-                    </div></Link>
-                        )
-                    })}  
-                </div>
-        </div>
+     updatedUser && loggedInUser.following ? loaded() : loading()
     )
 }

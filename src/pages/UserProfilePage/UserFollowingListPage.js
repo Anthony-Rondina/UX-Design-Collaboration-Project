@@ -9,6 +9,7 @@ import Navbar from "../../components/NavHeader/NavHeader"
 import axios from "axios"
 import { useParams } from "react-router-dom"
 import Footer from "../../components/Footer/Footer"
+import UserFollowingList from "../../components/UserProfilePage/UserFollowingList"
 export default function UserWIPPage({setChosenWork,chosenUser, user}) {
 const [refresh, setRefresh] = useState(false)
 const [artwork, setArtWork] = useState(true)
@@ -164,7 +165,7 @@ useEffect(() => {
                 <Navbar loggedInUser={loggedInUser} user={user}/>
                 <UserBioBar followUser={followUser} unfollowUser={unfollowUser} loggedInUser={loggedInUser} updatedUser={updatedUser} id={id} user={user}/>
                 <ListBar updatedUser={updatedUser} user={user}setRefresh={setRefresh} setArtWork={setArtWork} setWIP={setWIP} setFollowing={setFollowing} setAbout={setAbout} setDisplayContent={setDisplayContent} displayContent={displayContent} about={about} WIP={WIP} artwork={artwork} following={following} />
-                <UserArtwork setChosenWork={setChosenWork} choice={choice} updatedUser={updatedUser} user={user}about={about} WIP={WIP} artwork={artwork} following={following} />
+                <UserFollowingList loggedInUser={loggedInUser} setChosenWork={setChosenWork} choice={choice} updatedUser={updatedUser} user={user}about={about} WIP={WIP} artwork={artwork} following={following} />
                 <Footer/>
             </div>
         </div>

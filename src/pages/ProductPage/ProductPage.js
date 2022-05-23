@@ -76,7 +76,7 @@ export default function ProductPage({chosenWork, user}) {
                     </div>
                     <img className={styles.ChosenImage} src={art.image}></img>
                     <ArtPrompt  art={art}/>
-                    <Gallery />
+                    {/* <Gallery /> */}
                     <Comments refresh={refresh} setRefresh={setRefresh} user={user} art={art}/>
                 </div>
             </div>
