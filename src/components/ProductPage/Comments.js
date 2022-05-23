@@ -11,7 +11,6 @@ export default function Comments({refresh, setRefresh,art, user}) {
     const handleSubmit = async (e) => {
         // e.preventDefault()
         try {
-            console.log("test")
             const response = await axios.post(`/api/comments/${art._id}`, {
                 text: text.current.value
             }, {
@@ -25,12 +24,11 @@ export default function Comments({refresh, setRefresh,art, user}) {
             console.log(err)
         }
     }
-    const handleDelete = async (id) => {
+    const handleDelete = async (input) => {
         // e.preventDefault()
         try {
-            // console.log(token)
-            const response = await axios.delete(`/api/comments/${art._id}`)
-            setRefresh(!refresh)
+            console.log("tried")
+            const response = await axios.delete(`/api/comments/${input}`)
             navigate(`/art/${art._id}`)
         } catch (err) {
             console.log(err)
@@ -57,14 +55,13 @@ export default function Comments({refresh, setRefresh,art, user}) {
                         return (
                             
                             <div key={idx} className="comment">
-                                {console.log("comment is",comment)}
                                 <div className="comment-content">
                                     <p>{comment.text}</p>
                                 </div>
                                 <div className="comment-user">
                                     <p>{`Posted by: ${comment.user.firstName}`}</p>
                                     
-                                    {user.email === comment.user.email || user.admin ?
+                                    {user.email === comment.user.email || user.email === art.user.email ?
                                         <button className="delete-button" onClick={() => { handleDelete(comment._id) }}>Delete Comment</button>
                                         : ''}
                                 </div>

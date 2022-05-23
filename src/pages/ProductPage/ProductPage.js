@@ -63,29 +63,30 @@ export default function ProductPage({chosenWork, user}) {
     const loaded = () => {
         return (
             <>
-            < NavHeader loggedInUser={loggedInUser} user={user} />
+    
             <div className={styles.mainProfileWrapper}>
             
-            <div className={styles.innerProfileWrapper}>
-            <div className={styles.OutterWraper}>
-                <div className={styles.InnerWraper}>
-                    <UserProfile art={art} />
-                    {/* <div className={styles.ChosenImage} style={{backgroundImage: `url(${art.image})`}}></div> */}
-                    {loggedInUser._id === art.user._id ? 
-                        <div className={styles.EditButton}>
-                        <Link to={`/user/chosenart/edt/${art._id}/${art.user._id}`}><p>Click me to Edit Art!</p></Link>
+                <div className={styles.innerProfileWrapper}>
+                < NavHeader loggedInUser={loggedInUser} user={user} />
+                    <div className={styles.OutterWraper}>
+                        <div className={styles.InnerWraper}>
+                            <UserProfile art={art} />
+                            {/* <div className={styles.ChosenImage} style={{backgroundImage: `url(${art.image})`}}></div> */}
+                            {loggedInUser._id === art.user._id ? 
+                                <div className={styles.EditButton}>
+                                <Link to={`/user/chosenart/edt/${art._id}/${art.user._id}`}><p>Click me to Edit Art!</p></Link>
+                                </div>
+                                : 
+                                ""
+                            }
+                            
+                            <img className={styles.ChosenImage} src={art.image}></img>
+                            <ArtPrompt  art={art}/>
+                            {/* <Gallery /> */}
+                            <Comments refresh={refresh} setRefresh={setRefresh} user={user} art={art}/>
                         </div>
-                        : 
-                        ""
-                    }
-                    
-                    <img className={styles.ChosenImage} src={art.image}></img>
-                    <ArtPrompt  art={art}/>
-                    {/* <Gallery /> */}
-                    <Comments refresh={refresh} setRefresh={setRefresh} user={user} art={art}/>
+                    </div>
                 </div>
-            </div>
-            </div>
             </div>
             <Footer />
             </>
