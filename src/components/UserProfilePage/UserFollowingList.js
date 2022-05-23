@@ -8,16 +8,30 @@ export default function UserFollowingList({loggedInUser,followUser, unfollowUser
                     <div className={styles.contentBox}>
                         <h1>Users I'm Following</h1>
                         <div className={styles.followBox}>
-                        {loggedInUser.following.map((followedUser) => {
-                            return(
-                                
-                            <Link to={`/user/${followedUser._id}`}><div>
-                                {console.log(loggedInUser)}
-                            <img src={followedUser.avatar} alt="" style={{ width: 170, height: 170, borderRadius: 90,margin: "5px 20px 3px 20px"}} />
-                            <p>{followedUser.username}</p>
-                        </div></Link>
-                            )
-                        })}  
+                            {loggedInUser._id === id ? 
+                            loggedInUser.following.map((followedUser) => {
+                                return(
+                                    
+                                <Link to={`/user/${followedUser._id}`}><div>
+                                    {console.log(loggedInUser)}
+                                <img src={followedUser.avatar} alt="" style={{ width: 170, height: 170, borderRadius: 90,margin: "5px 20px 3px 20px"}} />
+                                <p>{followedUser.username}</p>
+                            </div></Link>
+                                )
+                            }) 
+                            :
+                            updatedUser.following.map((followedUser) => {
+                                return(
+                                    
+                                <Link to={`/user/${followedUser._id}`}><div>
+                                    {console.log(loggedInUser)}
+                                <img src={followedUser.avatar} alt="" style={{ width: 170, height: 170, borderRadius: 90,margin: "5px 20px 3px 20px"}} />
+                                <p>{followedUser.username}</p>
+                            </div></Link>
+                                )
+                            }) 
+                        }
+                        
                         </div>
                     </div>
             </div>
