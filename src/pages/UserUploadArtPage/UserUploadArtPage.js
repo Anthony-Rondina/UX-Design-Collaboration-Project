@@ -90,7 +90,7 @@ export default function UserUploadArtPage({user}) {
                 <div >
                     <div className={styles.innerProfileWrapper}>
                         <Navbar loggedInUser={loggedInUser} user={user}/>
-                        <UserBioBar updatedUser={updatedUser} id={id} user={user}/>
+                        <UserBioBar loggedInUser={loggedInUser} updatedUser={updatedUser} id={id} user={user}/>
                         <div className={styles.uploadFormWrapper}>
                             <h1>Upload your art!</h1>
                             <a href={`/user/${user._id}`}><button>Back to Profile</button></a>
