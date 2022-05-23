@@ -65,7 +65,7 @@ function App() {
           <Route path="/user/:id/following" element={<UserFollowingListPage user={user}/>}/>
           <Route path="/user/wip/:id" element={<UserWIPPage user={user}/>}/>
           <Route path="/user/chosenart/edt/:id/:userId" element={<UpdateArtPage user={user}/>}/>
-          <Route path="/user/:id/artwork" element={<UserProfilePage setChosenWork={setChosenWork} user={user}/>}/>
+          <Route path="/user/:id/artwork" element={<UserProfilePage setToggle={setToggle} toggle={toggle} setChosenWork={setChosenWork} user={user}/>}/>
           <Route path="/user/:id/upload" element={<UserUploadArtPage user={user}/>}/>
           <Route path="/user/edit/:id" element={<EditUserProfilePage toggle={toggle} setToggle={setToggle} user={user}/>}/>
         </Routes>

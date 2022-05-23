@@ -59,7 +59,7 @@ export default function ProductPage({chosenWork, user}) {
     useEffect(() => {
         getData(id)
         getLoggedInUser(userId)
-    },[refresh])
+    },[])
     const loaded = () => {
         return (
             <>
