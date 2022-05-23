@@ -8,7 +8,7 @@ export default function UserBioBar({loggedInUser,followUser, unfollowUser, updat
         return (
             
             <div className={styles.userBioWrapper}>
-                {/* {console.log("following is",loggedInUser.following)} */}
+                {console.log("following is",loggedInUser.following)}
                 <div className={styles.userCoverImage}>
                     <img className={styles.coverImage} src={coverImage} alt="user cover image" />
                 </div>
@@ -27,7 +27,7 @@ export default function UserBioBar({loggedInUser,followUser, unfollowUser, updat
                         {user._id === id ?
                             <Link to={`/user/edit/${updatedUser._id}`}><button className={styles.clickButton}>Edit Profile</button></Link>
                             //check if current user has id in their following array
-                            : loggedInUser.following.includes(id) ?
+                            : loggedInUser.following.some(follower => follower._id === id) ?
                             <button onClick={()=> {unfollowUser(id,user._id)}} className={styles.clickButton}>Unfollow User</button>
                             :
                             <button onClick={()=> {followUser(id,user._id)}} className={styles.clickButton}>Follow User</button>

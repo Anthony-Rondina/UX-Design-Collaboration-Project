@@ -48,7 +48,7 @@ function App() {
       }
 
     })()
-  },[])
+  },[toggle])
 
   useEffect(()=> {
     user ? localStorage.setItem("userID", user._id) : console.log("no user")
