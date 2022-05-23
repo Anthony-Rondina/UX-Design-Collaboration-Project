@@ -3,6 +3,8 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 import { Link } from "react-router-dom"
 import styles from "./Homepage.module.css"
+import NavHeader from "../../components/NavHeader/NavHeader"
+import Footer from "../../components/Footer/Footer"
 
 export default function Homepage({ user }) {
     const [artArr, setArtArr] = useState([])
@@ -22,7 +24,6 @@ export default function Homepage({ user }) {
 
             } catch (err) {
                 console.log(err)
-                // console.log(`cards is ${cards}`)
             }
         })()
     }
@@ -33,15 +34,27 @@ export default function Homepage({ user }) {
     const loaded = () => {
         return (
             <div>
-                <h1>This is the Homepage</h1>
                 <Link to={`/user/${user._id}`}> <p>Link to User Page</p></Link>
-                <div style={{ display: "flex", flexWrap: "wrap" }}>
+                <NavHeader />
+                <div className={styles.discoverArt}>
+                    {artArr.map((artData, idx) => {
+                        return (
+                            <div>
+                                <Link to={`/art/${artData._id}`}> <img src={artData.user.avatar} style={{ width: 69, height: 69, borderRadius: 40, margin: "5px 140px 3px 140px" }} /></Link>
+                                <div className={styles.artText} >{artData.user.username}</div>
+                            </div>
+                        )
+                    })}
+
+                </div>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
                     {artArr.map((artData, idx) => {
                         return (
                             <ArtistCard user={user} artData={artData} key={idx} className={styles.artistCard} />
                         )
                     })}
                 </div>
+                <Footer />
             </div>
         )
     }
@@ -53,15 +66,4 @@ export default function Homepage({ user }) {
         user && user.artCollection ? loaded() : loading()
     )
 };
-
-// const [ArtCard, setArtCard] = useState({
-// });
-// const getArtCard = (input) => {
-//     (async () => {
-//         try {
-//             const response = await axios.get(`/api/artCtrl/`)
-//             setArtCard()
-//         }
-// })
-// }
 
