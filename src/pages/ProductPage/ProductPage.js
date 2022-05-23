@@ -86,9 +86,10 @@ export default function ProductPage({chosenWork, user}) {
                             <Comments refresh={refresh} setRefresh={setRefresh} user={user} art={art}/>
                         </div>
                     </div>
+                    <Footer />
                 </div>
             </div>
-            <Footer />
+            
             </>
         )
     }
