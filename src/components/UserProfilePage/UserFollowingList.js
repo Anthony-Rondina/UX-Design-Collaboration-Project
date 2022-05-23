@@ -42,6 +42,6 @@ export default function UserFollowingList({loggedInUser,followUser, unfollowUser
         return <h1>Loading</h1>
     }
     return (
-     updatedUser && loggedInUser.following ? loaded() : loading()
+     updatedUser.following && loggedInUser.following ? loaded() : loading()
     )
 }
