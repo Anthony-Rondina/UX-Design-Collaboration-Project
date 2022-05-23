@@ -22,7 +22,7 @@ function checkToken(req, res) {
 async function get(req, res) {
 
   try {
-    const query = User.find({}).populate('artCollection')
+    const query = User.find({}).populate('artCollection following')
     query.exec((err, foundUser) => {
       if(!err) {
         res.status(200).json(foundUser)
@@ -43,32 +43,42 @@ async function get(req, res) {
 
 }
 
-async function addUserFollowing (req, res) {
+async function addUserFollowing(req,res) {
+
   try {
-    const userId = req.user._id
-    const userFollowedId = req.params.id;
 
-    const updatedUser = await User.updateOne( { _id: userId}, { $push: { following: userFollowedId }} );
-    res.status(200).json({ msg: updatedUser });
+    User.findByIdAndUpdate(req.params.userID, {$addToSet: {following: req.params.id}}, {returnDocument: 'after'}, (err, updatedUser) => {
+        if(err){
+            res.status(400).json(err);
+        } else {
+            console.log(updatedUser)
+            res.status(200).json(updatedUser);
+        }
+    })
 
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ msg: err.message });
+  } catch(e) {
+    res.status(400).json(e)
   }
+
 }
 
-async function removeUserFollowing (req, res){
+async function removeUserFollowing(req,res) {
+
   try {
-    const userId = req.user._id;
-    const userFollowedId = req.params.id;
 
-    const updatedUser = await User.updateOne( { _id: userId}, { $pull: { following: userFollowedId }} );
-    res.status(200).json({ msg: updatedUser });
+    User.findByIdAndUpdate(req.params.userID, {$pull: {following: req.params.id}}, {returnDocument: 'after'}, (err, updatedUser) => {
+        if(err){
+            res.status(400).json(err);
+        } else {
+            console.log(updatedUser)
+            res.status(200).json(updatedUser);
+        }
+    })
 
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ msg: err.message });
+  } catch(e) {
+    res.status(400).json(e)
   }
+
 }
 
 async function put(req, res) {

@@ -54,15 +54,45 @@ const choice =  (input) => {
     }
 }
 
-const followUser = (input) => {
+const followUser = (id,user_id) => {
     (async () => {
         try {
-            // console.log(id)
-            const response = await axios.put(`/api/users/follow/${input}`, {
+
+            const response = await axios.patch(`/api/users/${user_id}/follow/${id}`, {
                 headers: {
                     "Authorization": `Bearer ${token}`
                 }
             })
+
+            console.log(response)
+
+
+            if (response.status === 200) {
+                setRefresh(!refresh)
+            } else {
+                console.log('Something went wrong')
+            }
+
+        } catch (err) {
+            console.log(err)
+            // console.log(`cards is ${cards}`)
+        }
+    })()
+}
+
+const unfollowUser = (id,user_id) => {
+    (async () => {
+        try {
+
+            const response = await axios.patch(`/api/users/${user_id}/unfollow/${id}`, {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            })
+
+            console.log(response)
+
+
             if (response.status === 200) {
                 setRefresh(!refresh)
             } else {
@@ -132,7 +162,7 @@ const followUser = (input) => {
             <div className={styles.innerProfileWrapper}>
                 {/* {console.log("PP updated user is", updatedUser.artCollection)} */}
                 <Navbar loggedInUser={loggedInUser} user={user}/>
-                <UserBioBar followUser={followUser} updatedUser={updatedUser} id={id} user={user}/>
+                <UserBioBar followUser={followUser} unfollowUser={unfollowUser} updatedUser={updatedUser} id={id} user={user}/>
                 <ListBar updatedUser={updatedUser} user={user}setRefresh={setRefresh} setArtWork={setArtWork} setWIP={setWIP} setFollowing={setFollowing} setAbout={setAbout} setDisplayContent={setDisplayContent} displayContent={displayContent} about={about} WIP={WIP} artwork={artwork} following={following} />
                 <UserArtwork id={id} setChosenWork={setChosenWork} choice={choice} updatedUser={updatedUser} user={user}about={about} WIP={WIP} artwork={artwork} following={following} />
                 <Footer/>
