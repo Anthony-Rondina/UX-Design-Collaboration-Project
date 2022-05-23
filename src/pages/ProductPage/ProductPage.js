@@ -71,9 +71,14 @@ export default function ProductPage({chosenWork, user}) {
                 <div className={styles.InnerWraper}>
                     <UserProfile art={art} />
                     {/* <div className={styles.ChosenImage} style={{backgroundImage: `url(${art.image})`}}></div> */}
-                    <div className={styles.EditButton}>
+                    {loggedInUser._id === art.user._id ? 
+                        <div className={styles.EditButton}>
                         <Link to={`/user/chosenart/edt/${art._id}/${art.user._id}`}><p>Click me to Edit Art!</p></Link>
-                    </div>
+                        </div>
+                        : 
+                        ""
+                    }
+                    
                     <img className={styles.ChosenImage} src={art.image}></img>
                     <ArtPrompt  art={art}/>
                     {/* <Gallery /> */}
