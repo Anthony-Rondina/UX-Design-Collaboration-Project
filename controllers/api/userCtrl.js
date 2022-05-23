@@ -122,7 +122,7 @@ async function create(req, res) {
 async function show(req, res) {
 
   try {
-    const query = User.findById(req.params.id).populate('artCollection')
+    const query = User.findById(req.params.id).populate('artCollection following')
     query.exec((err, foundUser) => {
       if(!err) {
         res.status(200).json(foundUser)
