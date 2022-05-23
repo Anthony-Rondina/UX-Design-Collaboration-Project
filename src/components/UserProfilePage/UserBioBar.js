@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom"
 import styles from "./UPPC.module.css"
 import coverImage from "./Cover-Image.jpg"
-export default function UserBioBar({followUser, updatedUser,user, id}) {
+export default function UserBioBar({followUser, unfollowUser, updatedUser,user, id}) {
 
     const loaded = () => {
         return (
@@ -28,9 +28,9 @@ export default function UserBioBar({followUser, updatedUser,user, id}) {
                             <Link to={`/user/edit/${updatedUser._id}`}><button className={styles.clickButton}>Edit Profile</button></Link>
                             //check if current user has id in their following array
                             : user.following.includes(id) ?
-                            <button onClick={()=> {followUser(id)}} className={styles.clickButton}>Unfollow User</button>
+                            <button onClick={()=> {followUser(id,user._id)}} className={styles.clickButton}>Follow User</button>
                             :
-                            <button onClick={()=> {followUser(id)}} className={styles.clickButton}>Follow User</button>
+                            <button onClick={()=> {unfollowUser(id,user._id)}} className={styles.clickButton}>Unfollow User</button>
                         }
                            
                         </div>
