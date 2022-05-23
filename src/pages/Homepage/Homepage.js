@@ -40,7 +40,7 @@ export default function Homepage({ user }) {
                     {artArr.map((artData, idx) => {
                         return (
                             <div>
-                                <Link to={`/art/${artData._id}`}> <img src={artData.user.avatar} style={{ width: 69, height: 69, borderRadius: 40, margin: "5px 140px 3px 140px" }} /></Link>
+                                <Link to={`/user/${artData.user._id}`}> <img src={artData.user.avatar} style={{ width: 69, height: 69, borderRadius: 40, margin: "5px 140px 3px 140px" }} /></Link>
                                 <div className={styles.artText} >{artData.user.username}</div>
                             </div>
                         )
