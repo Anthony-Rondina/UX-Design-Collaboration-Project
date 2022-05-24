@@ -1,8 +1,8 @@
-// import styles from './UserProfile.module.css';
+
 import { useRef,useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
-
+import styles from './UserProfile.module.css';
 export default function Comments({refresh, setRefresh,art, user}) {
     const text =useRef()
     const navigate = useNavigate();
@@ -36,11 +36,11 @@ export default function Comments({refresh, setRefresh,art, user}) {
     }
     return (
         <div>
-            <div className="form-outter-wrapper">
+            <div className={styles.formOutterWrapper}>
                 <div className="form-wrapper">
                     <form onSubmit={handleSubmit}>
                         <p>Leave a Comment!</p>
-                        <textarea className="enter-comment-content" placeholder='Enter comment' type="text" ref={text} />
+                        <textarea className={styles.commentsbox} placeholder='Enter comment' type="text" ref={text} />
                         <div className="submit-button">
                             <input type="submit" value="Add Comment" />
                         </div>
@@ -55,13 +55,14 @@ export default function Comments({refresh, setRefresh,art, user}) {
                         return (
                             
                             <div key={idx} className="comment">
+                                {console.log("comment is",comment)}
                                 <div className="comment-content">
                                     <p>{comment.text}</p>
                                 </div>
                                 <div className="comment-user">
                                     <p>{`Posted by: ${comment.user.firstName}`}</p>
                                     
-                                    {user.email === comment.user.email || user.email === art.user.email ?
+                                    {user.email === comment.user.email || user.admin ?
                                         <button className="delete-button" onClick={() => { handleDelete(comment._id) }}>Delete Comment</button>
                                         : ''}
                                 </div>
