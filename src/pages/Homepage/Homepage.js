@@ -5,6 +5,7 @@ import { Link, useParams } from "react-router-dom"
 import styles from "./Homepage.module.css"
 import NavHeader from "../../components/NavHeader/NavHeader"
 import Footer from "../../components/Footer/Footer"
+import FilterBtn from "../../components/FilterBtn/FilterBtn"
 
 export default function Homepage({ user, setUser, toggle, setToggle }) {
     const [artArr, setArtArr] = useState([])
@@ -69,9 +70,11 @@ export default function Homepage({ user, setUser, toggle, setToggle }) {
                             </div>
                         )
                     })}
-
                 </div>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+                <div className={styles.filterBar}>
+                    <FilterBtn />
+                </div>
+                <div>
                     {artArr.map((artData, idx) => {
                         return (
                             <ArtistCard user={user} artData={artData} key={idx} className={styles.artistCard} />
