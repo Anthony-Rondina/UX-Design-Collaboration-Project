@@ -92,10 +92,10 @@ export default function EditUserProfilePage({toggle, setToggle, user}) {
             <div className={styles.mainProfileWrapper}>
                 <div >
                     <div className={styles.innerProfileWrapper}>
-                        <Navbar loggedInUser={loggedInUser} user={user} toggle={toggle} setToggle={setToggle}/>
+                        <Navbar toggle={toggle} setToggle={setToggle} loggedInUser={loggedInUser} user={user}/>
                         <UserBioBar loggedInUser={loggedInUser} id={id}updatedUser={updatedUser} user={user}/>
                         <div className={styles.uploadFormWrapper}>
-                        <Link to={`/user/${updatedUser._id}`}><button>Back to profile</button></Link>
+                        <Link to={`/user/${updatedUser._id}`}><button className={styles.clickMe}>Back to profile</button></Link>
                             <form className={styles.uploadForm} onSubmit={handleSubmit}>
                             <p>UserName:</p>
                             <input defaultValue={updatedUser.username} className={styles.uploadInput} placeholder='Enter username' type="text" ref={username} />
@@ -109,7 +109,7 @@ export default function EditUserProfilePage({toggle, setToggle, user}) {
                                 <input defaultValue={updatedUser.email} className={styles.uploadInput} placeholder="Enter updated email" type="text" ref={email} />
                                 <p>Bio</p>
                                 <textarea defaultValue={updatedUser.bio} className={styles.uploadInput} placeholder="Tell us about yourself" type="text" ref={bio} />
-                                <input type="submit" value="Update Your Profile!" />
+                                <input className={styles.clickMe} type="submit" value="Update Your Profile!" />
                             </form>
                             
                         </div>

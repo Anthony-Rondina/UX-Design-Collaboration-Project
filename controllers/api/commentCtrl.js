@@ -30,7 +30,13 @@ async function createComment(req,res) {
 async function deleteComment(req,res) {
 
     try {
-
+        Art.findByIdAndUpdate(req.params.artid, {$pull: {comments: req.params.id}}, {returnDocument: 'after'}, (err, updatedArt) => {
+            if(err){
+                res.status(400).json(err);
+            } else {
+                console.log("updated art is",updatedArt)
+                updatedArt            }
+        })
         Comment.findByIdAndDelete(req.params.id)
         res.status(200).json({ message: "Comment Deleted!" })
 

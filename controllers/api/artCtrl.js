@@ -151,15 +151,15 @@ async function show(req, res) {
 
 async function destroy(req, res) {
 
-  const user = await User.findById(req.user._id)
+  // const user = await User.findById(req.user._id)
   try {
     Art.findByIdAndDelete(req.params.id, (err) => {
       if(err) {
         res.status(400).json(err)
       } else {
 
-        user.artCollection.pull(req.params.id);
-        user.save();
+        // user.artCollection.pull(req.params.id);
+        // user.save();
         res.status(200).json({message: "Deleted Art"});
 
       }
