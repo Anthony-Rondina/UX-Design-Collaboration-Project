@@ -9,7 +9,7 @@ import Navbar from "../../components/NavHeader/NavHeader"
 import axios from "axios"
 import { useParams } from "react-router-dom"
 import Footer from "../../components/Footer/Footer"
-export default function UserWIPPage({setChosenWork,chosenUser, user}) {
+export default function UserWIPPage({setChosenWork,chosenUser, user, setUser, toggle, setToggle}) {
 const [refresh, setRefresh] = useState(false)
 const [artwork, setArtWork] = useState(true)
 const [WIP, setWIP] = useState(false)
@@ -19,7 +19,6 @@ const [displayContent, setDisplayContent]=useState([])
 const [updatedUser, setUpdatedUser]=useState({})
 const [loggedInUser, setLoggedInUser]=useState({})
 const { id } = useParams()
-const [toggle, setToggle] = useState(false)
 
 let userId = localStorage.getItem("userID")
 const [workInProgress,setWorkInProgress]=useState([])
@@ -190,7 +189,7 @@ const getData = (input) => {
             
             <div className={styles.innerProfileWrapper}>
                 {/* {console.log("PP updated user is", updatedUser.artCollection)} */}
-                <Navbar loggedInUser={loggedInUser}user={user}/>
+                <Navbar loggedInUser={loggedInUser}user={user} setUser={setUser} toggle={toggle} setToggle={setToggle}/>
                 <UserBioBar followUser={followUser} unfollowUser={unfollowUser} loggedInUser={loggedInUser} updatedUser={updatedUser} id={id} user={user}/>
                 <ListBar updatedUser={updatedUser} user={user}setRefresh={setRefresh} setArtWork={setArtWork} setWIP={setWIP} setFollowing={setFollowing} setAbout={setAbout} setDisplayContent={setDisplayContent} displayContent={displayContent} about={about} WIP={WIP} artwork={artwork} following={following} />
                 <UserWIP workInProgress={workInProgress} setChosenWork={setChosenWork} choice={choice} updatedUser={updatedUser} user={user}about={about} WIP={WIP} artwork={artwork} following={following} />

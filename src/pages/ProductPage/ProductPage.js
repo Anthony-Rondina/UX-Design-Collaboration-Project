@@ -10,7 +10,7 @@ import Footer from "../../components/Footer/Footer"
 import Gallery from "../../components/ProductPage/Gallery"
 import Comments from "../../components/ProductPage/Comments"
 
-export default function ProductPage({chosenWork, user}) {
+export default function ProductPage({chosenWork, user, setUser, toggle, setToggle}) {
     const { id } = useParams()
     const [art,setArt]= useState({})
     const [refresh, setRefresh] = useState(false)
@@ -67,7 +67,7 @@ export default function ProductPage({chosenWork, user}) {
             <div className={styles.mainProfileWrapper}>
             
                 <div className={styles.innerProfileWrapper}>
-                < NavHeader loggedInUser={loggedInUser} user={user} />
+                < NavHeader loggedInUser={loggedInUser} user={user} setUser={setUser} toggle={toggle} setToggle={setToggle}/>
                     <div className={styles.OutterWraper}>
                         <div className={styles.InnerWraper}>
                             <UserProfile art={art} />

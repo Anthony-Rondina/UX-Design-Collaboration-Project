@@ -1,14 +1,17 @@
 import ArtistCard from "../../components/ArtistCard/ArtistCard"
 import { useState, useEffect } from "react"
 import axios from "axios"
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import styles from "./Homepage.module.css"
 import NavHeader from "../../components/NavHeader/NavHeader"
 import Footer from "../../components/Footer/Footer"
 
-export default function Homepage({ user }) {
+export default function Homepage({ user, setUser, toggle, setToggle }) {
     const [artArr, setArtArr] = useState([])
     const [refresh, setRefresh] = useState(false)
+    const [loggedInUser, setLoggedInUser]=useState({})
+    const { id } = useParams()
+    let userId = localStorage.getItem("userID")
     const getData = () => {
         (async () => {
             try {
@@ -28,14 +31,35 @@ export default function Homepage({ user }) {
         })()
     }
 
+    const getLoggedInUser = (input) => {
+        (async () => {
+            try {
+                // console.log(id)
+                const response = await axios.get(`/api/users/${input}`)
+                // console.log("response is",response)
+                setLoggedInUser(response.data)
+                // console.log("updated user is",updatedUser)
+                if (response.status === 200) {
+                    
+                } else {
+                    console.log('Something went wrong')
+                }
+
+            } catch (err) {
+                console.log(err)
+                // console.log(`cards is ${cards}`)
+            }
+        })()
+    }
+
     useEffect(() => {
-        getData()
+        getLoggedInUser(userId)
+        getData(id)
     }, [])
     const loaded = () => {
         return (
             <div>
-                <Link to={`/user/${user._id}`}> <p>Link to User Page</p></Link>
-                <NavHeader />
+                <NavHeader user={user} setUser={setUser} loggedInUser={loggedInUser} toggle={toggle} setToggle={setToggle}/>
                 <div className={styles.discoverArt}>
                     {artArr.map((artData, idx) => {
                         return (
