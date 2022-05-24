@@ -57,10 +57,3 @@ a:visited {
     background-position: center;
     border: 1px solid gray;
 }
-
-.logOutDiv {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    /* background-color: aqua; */
-}
