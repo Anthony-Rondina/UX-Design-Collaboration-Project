@@ -62,7 +62,7 @@ export default function AboutUsPage({user}) {
                 <img src="https://i.imgur.com/ksy5HM5.jpg?1" style={{ width: '180px', borderRadius: '5px 5px 0 0' }}/>
                 <div className={styles.AboutUsContainer}>
                 <h5>Luke Fleming</h5>
-                <p>Back-End</p>
+                <p>Full-Stack</p>
                 <a href='https://github.com/LukeFleming90'><i class="fa-brands fa-github"></i></a>
                 <a href='https://www.linkedin.com/in/luke-ryan-fleming/'><i class="fa-brands fa-linkedin"></i></a>
                 </div>
