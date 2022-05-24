@@ -4,7 +4,7 @@ import { Link,useNavigate } from "react-router-dom"
 import NavHeader from "../../components/NavHeader/NavHeader"
 import Footer from "../../components/Footer/Footer"
 import styles from "../AboutUsPage/AboutUsPage.module.css"
-export default function AboutUsPage({user}) {
+export default function AboutUsPage({setUser, user, toggle, setToggle}) {
         const [refresh, setRefresh] = useState({})
         let userId = localStorage.getItem("userID")
         const [loggedInUser, setLoggedInUser]=useState({})
@@ -37,7 +37,7 @@ export default function AboutUsPage({user}) {
         <div className={styles.mainProfileWrapper}>
             
         <div className={styles.innerProfileWrapper}>
-    <NavHeader loggedInUser={loggedInUser} user={user}/>
+    <NavHeader setUser={setUser} toggle={toggle} setToggle={setToggle} loggedInUser={loggedInUser} user={user}/>
     <h1 className={styles.AboutUsHeader}>The Creators</h1>
     <div className={styles.AboutUsPage}>
         <div className={styles.AboutUsCard}>
