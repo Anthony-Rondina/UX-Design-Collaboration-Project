@@ -12,15 +12,28 @@
 }
 
 .artText {
-    font-family: 'Acumin Pro';
-    font-style: normal;
+    margin-top: 5px;
     line-height: 16px;
     display: flex;
-    align-items: center;
+    justify-content: center;
+    font-size: 12px;
 }
 
+.topText {
+    margin: 20pt;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 545;
+}
+
+.artArray {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
 .userAvatar {
-    filter: drop-shadow(2px 8px 3px #C4C4C4)
+    filter: drop-shadow(1px 6px 3px #C4C4C4)
 }
 
 .discoverArt {
@@ -28,6 +41,17 @@
     width: 1334px;
     height: 99px;
     overflow: hidden;
+    margin: 40px;
+
+}
+
+.mainProfileWrapper {
+    background-color: rgb(232, 242, 247);
+    display: flex;
+    justify-content: center;
+    max-width: 780;
+    align-items: center;
+}
 
 }
 .mainProfileWrapper{
@@ -40,4 +64,4 @@
   .innerProfileWrapper{
     background-color: white;
     width: 1280px;
-  }
+  

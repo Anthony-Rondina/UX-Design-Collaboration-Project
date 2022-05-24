@@ -13,6 +13,7 @@
 
 .artImage {
     background-size: cover;
+    background-position: center;
     width: 351px;
     display: block;
     overflow: hidden;
