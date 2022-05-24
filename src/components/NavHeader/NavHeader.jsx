@@ -36,18 +36,9 @@ export default function NavHeader({loggedInUser, user, setUser, toggle, setToggl
         </ul>
         <div className="search-container">
             <form>
-            <i className="fa-solid fa-magnifying-glass"><input type="text" placeholder="Search for inspiration, creatives, tutorials..." name="search"></input></i>
+            <input type="text" placeholder="Search for inspiration, creatives, tutorials..." name="search"></input>
             </form>
         </div>
-        {
-            navToggle ? 
-            <>
-            <button onClick={()=>{navigate(`/user/${user._id}`); setToggle(!toggle)}}>Go to Profile</button>
-            <button onClick={handleLogOut}>Log Out</button>
-            </>
-            :
-            ""
-        }
         {user ? 
         <div className={styles.profilePicture} style={{backgroundImage: `url(${loggedInUser.avatar})`}} onClick={() => {setNavToggle(!navToggle)}}/>
         :
@@ -56,6 +47,22 @@ export default function NavHeader({loggedInUser, user, setUser, toggle, setToggl
         <button className={styles.signUpBtn} type="submit">Sign Up</button>
         </div>
     }
+    {
+    navToggle ? 
+    <>
+    <div className={styles.userDropDown}>
+        <div className="dropdown-content">
+            <button className={styles.dropBtn} onClick={()=>{navigate(`/user/${user._id}`)}}>View/Edit Profile</button>
+            <button className={styles.dropBtn} onClick={()=>{navigate(`/user/wip/${user._id}`)}}>My Work in Progress</button>
+            <button className={styles.dropBtn}>Artists I Follow</button>
+            <button className={styles.dropBtn} onClick={()=>{navigate(`/user/${user._id}`)}}>Collections I Like</button>
+            <button className={styles.dropBtn} onClick={handleLogOut}>Sign Out</button>
+        </div>
+    </div>
+    </>
+        :
+        ""
+        }
     </div>
     );
 }
