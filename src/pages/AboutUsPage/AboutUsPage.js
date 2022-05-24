@@ -34,7 +34,9 @@ export default function AboutUsPage({user}) {
             },[])
 
     return (
-    <>
+        <div className={styles.mainProfileWrapper}>
+            
+        <div className={styles.innerProfileWrapper}>
     <NavHeader loggedInUser={loggedInUser} user={user}/>
     <h1 className={styles.AboutUsHeader}>The Creators</h1>
     <div className={styles.AboutUsPage}>
@@ -134,6 +136,7 @@ export default function AboutUsPage({user}) {
         </div>
     </div>
     <Footer />
-    </>
+    </div>
+    </div>
     )
 };
