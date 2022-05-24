@@ -9,7 +9,8 @@ import Navbar from "../../components/NavHeader/NavHeader"
 import axios from "axios"
 import { useParams } from "react-router-dom"
 import Footer from "../../components/Footer/Footer"
-export default function UserProfilePage({toggle, setToggle,setChosenWork,chosenUser, user}) {
+
+export default function UserProfilePage({setChosenWork,chosenUser, user, setUser, toggle, setToggle}) {
 const [refresh, setRefresh] = useState(false)
 const [artwork, setArtWork] = useState(true)
 const [WIP, setWIP] = useState(false)
@@ -19,6 +20,7 @@ const [displayContent, setDisplayContent]=useState([])
 const [updatedUser, setUpdatedUser]=useState({})
 const [loggedInUser, setLoggedInUser]=useState({})
 const { id } = useParams()
+
 let token = localStorage.getItem("token")
 let userId = localStorage.getItem("userID")
 const choice =  (input) => {
@@ -54,17 +56,47 @@ const choice =  (input) => {
     }
 }
 
-const followUser = (input) => {
+const followUser = (id,user_id) => {
     (async () => {
         try {
-            // console.log(id)
-            const response = await axios.put(`/api/users/follow/${input}`, {
+
+            const response = await axios.patch(`/api/users/${user_id}/follow/${id}`, {
                 headers: {
                     "Authorization": `Bearer ${token}`
                 }
             })
+
+            console.log(response)
+
+
             if (response.status === 200) {
-                setRefresh(!refresh)
+                setToggle(!toggle)
+            } else {
+                console.log('Something went wrong')
+            }
+
+        } catch (err) {
+            console.log(err)
+            // console.log(`cards is ${cards}`)
+        }
+    })()
+}
+
+const unfollowUser = (id,user_id) => {
+    (async () => {
+        try {
+
+            const response = await axios.patch(`/api/users/${user_id}/unfollow/${id}`, {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            })
+
+            console.log(response)
+
+
+            if (response.status === 200) {
+                setToggle(!toggle)
             } else {
                 console.log('Something went wrong')
             }
@@ -105,7 +137,7 @@ const followUser = (input) => {
                 setLoggedInUser(response.data)
                 // console.log("updated user is",updatedUser)
                 if (response.status === 200) {
-                    setRefresh(!refresh)
+                    
                 } else {
                     console.log('Something went wrong')
                 }
@@ -120,10 +152,11 @@ const followUser = (input) => {
     useEffect(() => {
         console.log("LSID is", userId)
         getData(id)
+        console.log(toggle)
         console.log("user._id is",user)
         getLoggedInUser(userId)
         choice("art")
-    },[])
+    },[toggle])
 
     const loaded = () => {
         return (
@@ -131,8 +164,8 @@ const followUser = (input) => {
             
             <div className={styles.innerProfileWrapper}>
                 {/* {console.log("PP updated user is", updatedUser.artCollection)} */}
-                <Navbar loggedInUser={loggedInUser} user={user}/>
-                <UserBioBar followUser={followUser} updatedUser={updatedUser} id={id} user={user}/>
+                <Navbar loggedInUser={loggedInUser} user={user} setUser={setUser} toggle={toggle} setToggle={setToggle}/>
+                <UserBioBar loggedInUser={loggedInUser} followUser={followUser} unfollowUser={unfollowUser} updatedUser={updatedUser} id={id} user={user}/>
                 <ListBar updatedUser={updatedUser} user={user}setRefresh={setRefresh} setArtWork={setArtWork} setWIP={setWIP} setFollowing={setFollowing} setAbout={setAbout} setDisplayContent={setDisplayContent} displayContent={displayContent} about={about} WIP={WIP} artwork={artwork} following={following} />
                 <UserArtwork id={id} setChosenWork={setChosenWork} choice={choice} updatedUser={updatedUser} user={user}about={about} WIP={WIP} artwork={artwork} following={following} />
                 <Footer/>

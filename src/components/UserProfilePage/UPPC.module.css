@@ -198,3 +198,8 @@
    height: 100%;
    /* border: solid blue 2px; */
  }
+ .followBox{
+   display: flex;
+   align-items: center;
+   text-align: center;
+ }
