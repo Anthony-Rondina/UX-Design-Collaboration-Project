@@ -42,26 +42,26 @@ export default function Comments({toggle, setToggle, refresh, setRefresh,art, us
                         <p>Leave a Comment!</p>
                         <textarea className={styles.commentsbox} placeholder='Enter comment' type="text" ref={text} />
                         <div className="submit-button">
-                            <input type="submit" value="Add Comment" />
+                            <input className={styles.commentBtn} type="submit" value="Add Comment" />
                         </div>
                     </form>
                 </div>
             </div>
             {art.comments ?
-                <div className="commentBlock">
+                <div className={styles.commentBlock}>
                     {/* {console.log("comments is",art.comments)} */}
                     {art.comments.map((comment, idx) => {
                     // console.log(comment._id)
                         return (
                             
-                            <div key={idx} className="comment">
+                            <div key={idx} className="comments">
                                 {console.log("comment is",comment)}
                                 <div className="comment-content">
-                                    <p>{comment.text}</p>
+                                    <p className={styles.comment}>{comment.text}</p>
                                 </div>
                                 <div className="comment-user">
-                                    <p>{`Posted by: ${comment.user.firstName}`}</p>
-                                    
+                                    <p className={styles.commentUser}>{`Posted by: ${comment.user.firstName}`}</p>
+
                                     {user.email === comment.user.email || user.email === art.user.email ?
                                         <button className="delete-button" onClick={() => { handleDelete(art._id, comment._id) }}>Delete Comment</button>
                                         : ''}
