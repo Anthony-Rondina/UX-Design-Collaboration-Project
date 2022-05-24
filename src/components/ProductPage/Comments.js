@@ -1,9 +1,9 @@
-// import styles from './UserProfile.module.css';
+
 import { useRef,useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
-
-export default function Comments({refresh, setRefresh,art, user}) {
+import styles from './UserProfile.module.css';
+export default function Comments({toggle, setToggle, refresh, setRefresh,art, user}) {
     const text =useRef()
     const navigate = useNavigate();
     let token = localStorage.getItem("token")
@@ -24,23 +24,23 @@ export default function Comments({refresh, setRefresh,art, user}) {
             console.log(err)
         }
     }
-    const handleDelete = async (input) => {
-        // e.preventDefault()
+    const handleDelete = async (input1, input2) => {
         try {
-            console.log("tried")
-            const response = await axios.delete(`/api/comments/${input}`)
-            navigate(`/art/${art._id}`)
+            const response = await axios.delete(`/api/comments/${input1}/delete/${input2}`)
+            // setToggle(!toggle)
+            window.location.reload(false);
+            // navigate(`/art/${art._id}`)
         } catch (err) {
             console.log(err)
         }
     }
     return (
         <div>
-            <div className="form-outter-wrapper">
+            <div className={styles.formOutterWrapper}>
                 <div className="form-wrapper">
                     <form onSubmit={handleSubmit}>
                         <p>Leave a Comment!</p>
-                        <textarea className="enter-comment-content" placeholder='Enter comment' type="text" ref={text} />
+                        <textarea className={styles.commentsbox} placeholder='Enter comment' type="text" ref={text} />
                         <div className="submit-button">
                             <input type="submit" value="Add Comment" />
                         </div>
@@ -55,6 +55,7 @@ export default function Comments({refresh, setRefresh,art, user}) {
                         return (
                             
                             <div key={idx} className="comment">
+                                {console.log("comment is",comment)}
                                 <div className="comment-content">
                                     <p>{comment.text}</p>
                                 </div>
@@ -62,7 +63,7 @@ export default function Comments({refresh, setRefresh,art, user}) {
                                     <p>{`Posted by: ${comment.user.firstName}`}</p>
                                     
                                     {user.email === comment.user.email || user.email === art.user.email ?
-                                        <button className="delete-button" onClick={() => { handleDelete(comment._id) }}>Delete Comment</button>
+                                        <button className="delete-button" onClick={() => { handleDelete(art._id, comment._id) }}>Delete Comment</button>
                                         : ''}
                                 </div>
                             </div>

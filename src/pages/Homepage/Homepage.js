@@ -70,7 +70,7 @@ export default function Homepage({ user, setUser, toggle, setToggle }) {
                             {artArr.map((artData, idx) => {
                                 return (
                                     <div>
-                                        <Link className={styles.userAvatar} to={`/user/${artData.user._id}`}> <img src={artData.user.avatar} style={{ width: 60, height: 60, borderRadius: 40, margin: "5px 70px 3px 70px" }} /></Link>
+                                        <Link className={styles.userAvatar} to={`/user/${artData.user._id}`}> <img src={artData.user.avatar} style={{ width: 60, height: 60, borderRadius: 40, margin: "5px 60px 5px 60px" }} /></Link>
                                         <div className={styles.artText} >{artData.user.username}</div>
                                     </div>
                                 )
