@@ -4,10 +4,12 @@
 
 .filterBtn {
     background-color: white;
+    position: relative;
+    padding: 35px;
     object-fit: fill;
     display: flex;
     border-color: white;
     border: hidden;
     color: gray;
-    font-family: 'Acumin Pro';
+    justify-content: center;
 }

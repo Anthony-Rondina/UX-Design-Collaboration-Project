@@ -10,7 +10,7 @@ import FilterBtn from "../../components/FilterBtn/FilterBtn"
 export default function Homepage({ user, setUser, toggle, setToggle }) {
     const [artArr, setArtArr] = useState([])
     const [refresh, setRefresh] = useState(false)
-    const [loggedInUser, setLoggedInUser]=useState({})
+    const [loggedInUser, setLoggedInUser] = useState({})
     const { id } = useParams()
     let userId = localStorage.getItem("userID")
     const getData = () => {
@@ -41,7 +41,7 @@ export default function Homepage({ user, setUser, toggle, setToggle }) {
                 setLoggedInUser(response.data)
                 // console.log("updated user is",updatedUser)
                 if (response.status === 200) {
-                    
+
                 } else {
                     console.log('Something went wrong')
                 }
@@ -60,7 +60,7 @@ export default function Homepage({ user, setUser, toggle, setToggle }) {
     const loaded = () => {
         return (
             <div>
-                <NavHeader user={user} setUser={setUser} loggedInUser={loggedInUser} toggle={toggle} setToggle={setToggle}/>
+                <NavHeader user={user} setUser={setUser} loggedInUser={loggedInUser} toggle={toggle} setToggle={setToggle} />
                 <div className={styles.discoverArt}>
                     {artArr.map((artData, idx) => {
                         return (
