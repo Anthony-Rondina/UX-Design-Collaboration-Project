@@ -35,7 +35,7 @@
     font-style: normal;
     line-height: 16px;
     display: flex;
-    align-items: center;
+
 }
 
 .artName {
@@ -46,4 +46,8 @@
 .artistName {
     font-weight: 400;
     font-size: 13px;
+}
+
+.views {
+    text-align: right;
 }
