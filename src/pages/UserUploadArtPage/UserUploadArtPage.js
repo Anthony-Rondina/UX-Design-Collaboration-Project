@@ -116,16 +116,16 @@ export default function UserUploadArtPage({user, setUser, toggle, setToggle}) {
                                     </select>
                                 </label>
                                 <p>What is title of this peice?</p>
-                                <input className={styles.uploadInput} placeholder='Enter title of art' type="text" ref={nameOfArt} />
+                                <input className={styles.uploadInput} placeholder='Enter title of art' type="text" ref={nameOfArt} maxlength="50"/>
                                 <p>Is the work completed?</p>
-                                <input placeholder='Enter card number'  type="checkbox" className={styles.largeCheckBox} ref={isDone} />
+                                <input placeholder='Enter card number'  type="checkbox" className={styles.largeCheckBox} ref={isDone} maxlength="50"/>
                                 <p>Where is the image located?</p>
-                                <input className={styles.uploadInput} placeholder="Enter link to art" type="text" ref={image} />
+                                <input className={styles.uploadInput} placeholder="Enter link to art" type="text" ref={image} maxlength="50"/>
                                 <p>What supplies are needed?</p>
-                                <input className={styles.uploadInput} placeholder="Enter supply list" type="text" ref={supplies} />
+                                <input className={styles.uploadInput} placeholder="Enter supply list" type="text" ref={supplies} maxlength="50"/>
                                 <p>What do you want the viewer to know?</p>
-                                <input className={styles.uploadInput} placeholder="Enter art prompt" type="text" ref={artPrompt} />
-                                <input type="submit" value="Upload your art!" />
+                                <input className={styles.uploadInput} placeholder="Enter art prompt" type="text" ref={artPrompt} maxlength="50"/>
+                                <input type="submit" value="Upload your art!" maxlength="50"/>
                             </form>
                         </div>
                     </div>

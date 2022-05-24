@@ -44,7 +44,7 @@ export default function UserBioBar({loggedInUser,followUser, unfollowUser, updat
         return <h1>Loading</h1>
     }
     return (
-     updatedUser && loggedInUser.following ? loaded() : loading()
+     updatedUser && loggedInUser && loggedInUser.following ? loaded() : loading()
     )
 
     

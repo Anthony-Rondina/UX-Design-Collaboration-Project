@@ -48,7 +48,7 @@ export default function NavHeader({loggedInUser, user, setUser, toggle, setToggl
             :
             ""
         }
-        {user ? 
+        {user && loggedInUser ? 
         <div className='nav-modal'>
         <div className={styles.profilePicture} style={{backgroundImage: `url(${loggedInUser.avatar})`}} onClick={() => {setNavToggle(!navToggle)}}/>
         </div>
