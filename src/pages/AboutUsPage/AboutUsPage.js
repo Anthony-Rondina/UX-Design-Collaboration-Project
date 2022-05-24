@@ -1,14 +1,41 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
-import { Link, useParams } from "react-router-dom"
+import { Link,useNavigate } from "react-router-dom"
 import NavHeader from "../../components/NavHeader/NavHeader"
 import Footer from "../../components/Footer/Footer"
 import styles from "../AboutUsPage/AboutUsPage.module.css"
+export default function AboutUsPage({user}) {
+        const [refresh, setRefresh] = useState({})
+        let userId = localStorage.getItem("userID")
+        const [loggedInUser, setLoggedInUser]=useState({})
+        const getLoggedInUser = (input) => {
+                (async () => {
+                    try {
+                        // console.log(id)
+                        const response = await axios.get(`/api/users/${input}`)
+                        // console.log("response is",response)
+                        setLoggedInUser(response.data)
+                        // console.log("updated user is",updatedUser)
+                        if (response.status === 200) {
+                            setRefresh(!refresh)
+                        } else {
+                            console.log('Something went wrong')
+                        }
+        
+                    } catch (err) {
+                        console.log(err)
+                        // console.log(`cards is ${cards}`)
+                    }
+                })()
+            }
 
-export default function AboutUsPage() {
+            useEffect(() => {
+                getLoggedInUser(userId)
+            },[])
+
     return (
     <>
-    <NavHeader/>
+    <NavHeader loggedInUser={loggedInUser} user={user}/>
     <h1 className={styles.AboutUsHeader}>The Creators</h1>
     <div className={styles.AboutUsPage}>
         <div className={styles.AboutUsCard}>
