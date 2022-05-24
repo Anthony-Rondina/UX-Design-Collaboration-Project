@@ -15,7 +15,7 @@ export default function AboutUsPage() {
                 <img src="https://i.imgur.com/Wd1jsr2.jpg?1" style={{ width: '180px', borderRadius: '5px 5px 0 0' }}/>
                 <div className={styles.AboutUsContainer}>
                 <h5>Anthony Rondina</h5>
-                <p>Project Manager/Git Czar/Front-End</p>
+                <p>Project Manager / Git Czar / Front-End</p>
                 <a href='https://github.com/Anthony-Rondina'><i class="fa-brands fa-github"></i></a>
                 <a href='https://www.linkedin.com/in/arondina/'><i class="fa-brands fa-linkedin"></i></a>
                 </div>
@@ -24,7 +24,7 @@ export default function AboutUsPage() {
                 <img src="https://i.imgur.com/LczRoZB.jpg?1" style={{ width: '180px', borderRadius: '5px 5px 0 0' }}/>
                 <div className={styles.AboutUsContainer}>
                 <h5>James S</h5>
-                <p>Project Manager/Trello Master/Back-End</p>
+                <p>Project Manager / Trello Master / Back-End</p>
                 <a href='https://github.com/jayworks2318'><i class="fa-brands fa-github"></i></a>
                 <a href='https://www.linkedin.com/in/find-james/'><i class="fa-brands fa-linkedin"></i></a>
                 </div>
