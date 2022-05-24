@@ -1,0 +1,47 @@
+.AboutUsPage {
+    display: grid;
+    grid-template-columns: 180px 180px 180px 180px;
+    justify-content: space-around;
+    cursor: pointer;
+    text-align: center;
+}
+
+.AboutUsHeader {
+    text-align: center;
+    margin: 50px;
+}
+
+.AboutUsCard {
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin-bottom: 30px;
+}
+  
+.AboutUsCard:hover {
+    box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.2);
+}
+
+.AboutUsContainer {
+    margin: 5px;
+    margin-bottom: 0;
+}
+
+.AboutUsPage h5 {
+    margin: 5px;
+}
+
+.AboutUsPage p {
+    font-size: 13px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.AboutUsPage a {
+    font-size: 23px;
+    margin: 5px;
+}
+
+.AboutUsPage a:hover {
+    color: gray;
+}
