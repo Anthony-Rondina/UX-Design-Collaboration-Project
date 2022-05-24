@@ -127,7 +127,7 @@ async function show(req, res) {
       if(!err) {
         res.status(200).json(foundUser)
       } else {
-        res.status(400).json({ message: error.message })
+        res.status(400).json({ message: err.message })
       }
     })
   } catch (e) {

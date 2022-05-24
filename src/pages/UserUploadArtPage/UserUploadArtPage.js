@@ -7,7 +7,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import UserBioBar from "../../components/UserProfilePage/UserBioBar";
 import Navbar from "../../components/NavHeader/NavHeader"
 import Footer from "../../components/Footer/Footer";
-export default function UserUploadArtPage({user}) {
+export default function UserUploadArtPage({user, setUser, toggle, setToggle}) {
     const navigate = useNavigate();
     const type = useRef()
     const nameOfArt = useRef()
@@ -89,7 +89,7 @@ export default function UserUploadArtPage({user}) {
             <div className={styles.mainProfileWrapper}>
                 <div >
                     <div className={styles.innerProfileWrapper}>
-                        <Navbar loggedInUser={loggedInUser} user={user}/>
+                        <Navbar loggedInUser={loggedInUser} user={user} setUser={setUser} toggle={toggle} setToggle={setToggle}/>
                         <UserBioBar loggedInUser={loggedInUser} updatedUser={updatedUser} id={id} user={user}/>
                         <div className={styles.uploadFormWrapper}>
                             <h1>Upload your art!</h1>
