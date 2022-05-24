@@ -13,6 +13,7 @@ import ProductPage from '../ProductPage/ProductPage';
 import NavHeader from '../../components/NavHeader/NavHeader';
 import EditUserProfilePage from '../EditUserProfilePage/EditUserProfilePage';
 import UpdateArtPage from '../UpdateArtPage/UpdateArtPage';
+import AboutUsPage from '../AboutUsPage/AboutUsPage';
 function App() {
   const [user, setUser] = useState(getUser());
   const [chosenUser, setChosenUser] = useState({})
@@ -68,6 +69,7 @@ function App() {
           <Route path="/user/:id/artwork" element={<UserProfilePage setToggle={setToggle} toggle={toggle} setChosenWork={setChosenWork} user={user} setUser={setUser}/>}/>
           <Route path="/user/:id/upload" element={<UserUploadArtPage user={user} setUser={setUser} toggle={toggle} setToggle={setToggle}/>}/>
           <Route path="/user/edit/:id" element={<EditUserProfilePage toggle={toggle} setToggle={setToggle} user={user} setUser={setUser}/>}/>
+          <Route path="/user/about" element={<AboutUsPage toggle={toggle} setToggle={setToggle} user={user} setUser={setUser}/>}/>
         </Routes>
         :
         <AuthPage setUser={setUser} />
