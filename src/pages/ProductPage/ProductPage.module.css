@@ -24,6 +24,14 @@
     justify-content: center;
     align-items: center;
 }
-.mainProfileWrapper{
+  .mainProfileWrapper{
+    background-color: rgb(232, 242, 247);
+    display: flex;
+    justify-content: center;
+    max-width: 780;
+    align-items: center;
+  }
+  .innerProfileWrapper{
     background-color: white;
+    width: 1280px;
   }

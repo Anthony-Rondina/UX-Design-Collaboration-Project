@@ -1,7 +1,7 @@
 import styles from './SignUpForm.module.css';
 import { Component } from "react";
 import { signUp } from '../../utilities/users-service';
-
+import { getUser } from '../../utilities/users-service';
 export default class SignUpForm extends Component {
   state = {
     username: '',
@@ -28,7 +28,8 @@ handleSubmit = async (event) => {
         console.log('pass2')
         const user = await signUp(formData)
         console.log('user is now', user)
-        this.props.setUser(user)
+        const decodedUser = await getUser()
+        this.props.setUser(decodedUser)
         console.log('setUser successful!')
         localStorage.setItem('token', user)
         console.log('setitem to local storage!')
