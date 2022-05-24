@@ -1,3 +1,15 @@
-.filterBar {
-    display: flex
+.filterPanel {
+    display: flex;
+}
+
+.filterBtn {
+    background-color: white;
+    position: relative;
+    padding: 35px;
+    object-fit: fill;
+    display: flex;
+    border-color: white;
+    border: hidden;
+    color: gray;
+    justify-content: center;
 }
