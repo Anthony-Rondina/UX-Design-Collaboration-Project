@@ -53,7 +53,6 @@
     align-items: center;
 }
 
-}
 .mainProfileWrapper{
     background-color: rgb(232, 242, 247);
     display: flex;
@@ -65,3 +64,4 @@
     background-color: white;
     width: 1280px;
   
+  }
