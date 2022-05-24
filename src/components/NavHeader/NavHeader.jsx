@@ -55,7 +55,7 @@ export default function NavHeader({loggedInUser, user, setUser, toggle, setToggl
             <button className={styles.dropBtn} onClick={()=>{navigate(`/user/${user._id}`); setToggle(!toggle)}}>View/Edit Profile</button>
             <button className={styles.dropBtn} onClick={()=>{navigate(`/user/wip/${user._id}`); setToggle(!toggle)}}>My Work in Progress</button>
             <button className={styles.dropBtn} onClick={()=>(navigate(`/user/${user._id}/following`))}>Artists I Follow</button>
-            <button className={styles.dropBtn} onClick={()=>{navigate(`/user/${user._id}`); setToggle(!toggle)}}>Collections I Like</button>
+            <button className={styles.dropBtn} onClick={()=>{navigate(`/user/${user._id}/about`); setToggle(!toggle)}}>Collections I Like</button>
             <button className={styles.dropBtn} onClick={handleLogOut}>Sign Out</button>
         </div>
     </div>
