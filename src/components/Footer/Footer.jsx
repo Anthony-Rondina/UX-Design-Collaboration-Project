@@ -7,7 +7,7 @@ export default function Footer() {
     return (
     <footer className={styles.Footer}>
         <div className={styles.footerLogo}>
-            <img src={logo} style={{ width: '8rem' }} id="logo" alt="footer logo"></img>
+            <Link to="/" className="footer-logo"><img src={logo} style={{ width: '8rem' }} id="logo" alt="footer logo"></img></Link>
             <ul style={{ padding: '5px', margin: '5px', marginRight: '8px' }}>
                 <li style={{ padding: '0' }}>
                 <i className="fa-brands fa-twitter fa-lg"></i>
