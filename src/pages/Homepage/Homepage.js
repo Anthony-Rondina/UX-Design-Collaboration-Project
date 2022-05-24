@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 import styles from "./Homepage.module.css"
 import NavHeader from "../../components/NavHeader/NavHeader"
 import Footer from "../../components/Footer/Footer"
+import FilterBtn from "../../components/FilterBtn/FilterBtn"
 
 export default function Homepage({ user }) {
     const [artArr, setArtArr] = useState([])
@@ -40,14 +41,16 @@ export default function Homepage({ user }) {
                     {artArr.map((artData, idx) => {
                         return (
                             <div>
-                                <Link to={`/art/${artData._id}`}> <img src={artData.user.avatar} style={{ width: 69, height: 69, borderRadius: 40, margin: "5px 140px 3px 140px" }} /></Link>
+                                <Link className={styles.userAvatar} to={`/art/${artData._id}`}> <img src={artData.user.avatar} style={{ width: 69, height: 69, borderRadius: 40, margin: "20px 100x 3px 100px" }} /></Link>
                                 <div className={styles.artText} >{artData.user.username}</div>
                             </div>
                         )
                     })}
-
                 </div>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+                <div className={styles.filterBar}>
+                    <FilterBtn />
+                </div>
+                <div>
                     {artArr.map((artData, idx) => {
                         return (
                             <ArtistCard user={user} artData={artData} key={idx} className={styles.artistCard} />
