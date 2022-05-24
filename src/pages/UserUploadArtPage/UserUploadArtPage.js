@@ -93,7 +93,7 @@ export default function UserUploadArtPage({user, setUser, toggle, setToggle}) {
                         <UserBioBar loggedInUser={loggedInUser} updatedUser={updatedUser} id={id} user={user}/>
                         <div className={styles.uploadFormWrapper}>
                             <h1>Upload your art!</h1>
-                            <a href={`/user/${user._id}`}><button>Back to Profile</button></a>
+                            <a href={`/user/${user._id}`}><button className={styles.clickMe}>Back to Profile</button></a>
                             <form className={styles.uploadForm} onSubmit={handleSubmit}>
                             <p>What type of art is this?</p>
                             <label className={styles.inputLabel}> 
@@ -125,7 +125,7 @@ export default function UserUploadArtPage({user, setUser, toggle, setToggle}) {
                                 <input className={styles.uploadInput} placeholder="Enter supply list" type="text" ref={supplies} />
                                 <p>What do you want the viewer to know?</p>
                                 <input className={styles.uploadInput} placeholder="Enter art prompt" type="text" ref={artPrompt} />
-                                <input type="submit" value="Upload your art!" />
+                                <input className={styles.clickMe} type="submit" value="Upload your art!" />
                             </form>
                         </div>
                     </div>
