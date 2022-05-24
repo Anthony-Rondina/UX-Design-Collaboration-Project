@@ -62,7 +62,7 @@ export default function Comments({toggle, setToggle, refresh, setRefresh,art, us
                                 <div className="comment-user">
                                     <p>{`Posted by: ${comment.user.firstName}`}</p>
                                     
-                                    {user.email === comment.user.email || user.email === art.email ?
+                                    {user.email === comment.user.email || user.email === art.user.email ?
                                         <button className="delete-button" onClick={() => { handleDelete(art._id, comment._id) }}>Delete Comment</button>
                                         : ''}
                                 </div>
