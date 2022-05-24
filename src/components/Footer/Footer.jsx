@@ -25,7 +25,7 @@ export default function Footer() {
         </div>
         <ul style={{ padding: '0' }}>
             <li style={{ padding: '0' }}>
-                <Link to="/" className="footer-link">About Us</Link>
+                <Link to="/user/about" className="footer-link">About Us</Link>
             </li>
             <li>
                 <Link to="/" className="footer-link">Terms of Service</Link>

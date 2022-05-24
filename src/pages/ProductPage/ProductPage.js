@@ -59,7 +59,7 @@ export default function ProductPage({chosenWork, user, setUser, toggle, setToggl
     useEffect(() => {
         getData(id)
         getLoggedInUser(userId)
-    },[])
+    },[toggle])
     const loaded = () => {
         return (
             <>
@@ -70,7 +70,7 @@ export default function ProductPage({chosenWork, user, setUser, toggle, setToggl
                 < NavHeader loggedInUser={loggedInUser} user={user} setUser={setUser} toggle={toggle} setToggle={setToggle}/>
                     <div className={styles.OutterWraper}>
                         <div className={styles.InnerWraper}>
-                            <UserProfile art={art} />
+                            <UserProfile user={user} art={art} />
                             {/* <div className={styles.ChosenImage} style={{backgroundImage: `url(${art.image})`}}></div> */}
                             {loggedInUser._id === art.user._id ? 
                                 <div className={styles.EditButton}>
@@ -83,7 +83,7 @@ export default function ProductPage({chosenWork, user, setUser, toggle, setToggl
                             <img className={styles.ChosenImage} src={art.image}></img>
                             <ArtPrompt  art={art}/>
                             {/* <Gallery /> */}
-                            <Comments refresh={refresh} setRefresh={setRefresh} user={user} art={art}/>
+                            <Comments toggle={toggle} setToggle={setToggle} refresh={refresh} setRefresh={setRefresh} user={user} art={art}/>
                         </div>
                     </div>
                     <Footer />

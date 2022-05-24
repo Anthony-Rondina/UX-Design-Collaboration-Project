@@ -20,8 +20,9 @@ export default function UpdateArtPage({art, user, setUser, toggle, setToggle}) {
     const { id } = useParams()
     const {userId} = useParams()
     const [editArt, setEditArt] = useState({})
-
+    let storedID = localStorage.getItem("userID")
     let token = localStorage.getItem("token")
+    const [loggedInUser, setLoggedInUser]=useState({})
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
@@ -78,9 +79,48 @@ export default function UpdateArtPage({art, user, setUser, toggle, setToggle}) {
             }
         })()
     }
+    const handleDelete = async (input) => {
+        (async () => {
+            try {
+                // console.log(id)
+                const response = await axios.delete(`/api/art/${input}`)
+                navigate(`/`)
+                if (response.status === 200) {
+                    setRefresh(!refresh)
+                } else {
+                    console.log('Something went wrong')
+                }
+
+            } catch (err) {
+                console.log(err)
+                // console.log(`cards is ${cards}`)
+            }
+        })()
+    }
+    const getLoggedInUser = (input) => {
+        (async () => {
+            try {
+                // console.log(id)
+                const response = await axios.get(`/api/users/${input}`)
+                // console.log("response is",response)
+                setLoggedInUser(response.data)
+                // console.log("updated user is",updatedUser)
+                if (response.status === 200) {
+                    setRefresh(!refresh)
+                } else {
+                    console.log('Something went wrong')
+                }
+    
+            } catch (err) {
+                console.log(err)
+                // console.log(`cards is ${cards}`)
+            }
+        })()
+    }
     useEffect(() => {
         getArt(id)
         getData(userId)
+        getLoggedInUser(storedID)
     },[])
 
     const loaded = () => {
@@ -89,11 +129,11 @@ export default function UpdateArtPage({art, user, setUser, toggle, setToggle}) {
                 <div className={styles.mainProfileWrapper}>
                     <div >
                         <div className={styles.innerProfileWrapper}>
-                            <Navbar user={user} setUser={setUser} toggle={toggle} setToggle={setToggle}/>
-                            <UserBioBar updatedUser={updatedUser} id={userId} user={user}/>
+                            <Navbar loggedInUser={loggedInUser} user={user} setUser={setUser} toggle={toggle} setToggle={setToggle}/>
+                            <UserBioBar loggedInUser={loggedInUser} updatedUser={updatedUser} id={userId} user={user}/>
                             <div className={styles.uploadFormWrapper}>
                                 <h1>Update your art!</h1>
-                                <a href={`/art/${id}`}><button>Back to Profile</button></a>
+                                <a href={`/art/${id}`}><button className={styles.clickMe}>Back to Profile</button></a>
                                 <form className={styles.uploadForm} onSubmit={handleSubmit}>
                                 <p>What type of art is this?</p>
                                 <label className={styles.inputLabel}> 
@@ -125,8 +165,9 @@ export default function UpdateArtPage({art, user, setUser, toggle, setToggle}) {
                                     <input defaultValue={editArt.supplies} className={styles.uploadInput} placeholder="Enter supply list" type="text" ref={supplies} />
                                     <p>What do you want the viewer to know?</p>
                                     <input defaultValue={editArt.artPrompt} className={styles.uploadInput} placeholder="Enter art prompt" type="text" ref={artPrompt} />
-                                    <input type="submit" value="Update your art!" />
+                                    <input className={styles.clickMe} type="submit" value="Update your art!" />
                                 </form>
+                                <button onClick={()=> {handleDelete(id)}} className={styles.clickMeRed}>DELETE ART</button>
                             </div>
                         </div>
                         <Footer/>
@@ -140,7 +181,7 @@ export default function UpdateArtPage({art, user, setUser, toggle, setToggle}) {
         return <h1>Loading</h1>
     }
     return (
-     editArt ? loaded() : loading()
+     editArt && loggedInUser ? loaded() : loading()
     )
     
 }

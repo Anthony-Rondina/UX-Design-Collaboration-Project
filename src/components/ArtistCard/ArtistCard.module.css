@@ -15,16 +15,12 @@
     background-size: cover;
     width: 351px;
     display: block;
-
     overflow: hidden;
     height: 264px;
     border: 1px;
     border-radius: 10px;
     margin: auto;
     margin-bottom: 30px;
-
-
-
 }
 
 .saveBtnHidden {
