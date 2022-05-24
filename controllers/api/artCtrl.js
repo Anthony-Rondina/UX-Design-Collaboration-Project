@@ -71,10 +71,10 @@ async function getAllUserArt(req,res) {
 async function getAllUserWipArt(req,res) {
 
   try {
-    const query = Art.find({ user: req.user._id, isDone: false }).populate('user')
-    query.exec((err, foundArt) => {
-      if(!err) {
-        res.status(200).json(foundArt)
+    const query = Art.find({ user: req.params.id, isDone: false })
+     query.exec((err, foundArt) => {
+       if(!err) {
+         res.status(200).json(foundArt)
       } else {
         res.status(400).json({ message: error.message })
       }
@@ -112,11 +112,10 @@ async function create(req, res) {
     const user = await User.findById(req.user._id)
     //Make the art from the form's body
     const art = new Art(body)
-    //save art to DB
-    art.save()
     //push art to the User's Collection
     user.artCollection.push(art._id)
     art.user=req.user._id 
+    //save art to DB
     art.save()
     //save User to DB
     user.save()
@@ -129,7 +128,14 @@ async function create(req, res) {
 async function show(req, res) {
 
   try {
-    const query = Art.findById(req.params.id).populate('user')
+    const query = Art.findById(req.params.id).populate([{
+      path: 'comments',
+      populate:
+          { path: "user"
+         }
+  },{
+    path: 'user',
+  }])
     query.exec((err, foundArt) => {
       if(!err) {
         res.status(200).json(foundArt)

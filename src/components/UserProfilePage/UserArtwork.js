@@ -2,7 +2,7 @@ import styles from "./UPPC.module.css"
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react"
 import axios from "axios"
-export default function UserArtwork({setChosenWork,updatedUser, user}) {
+export default function UserArtwork({id, setChosenWork,updatedUser, user}) {
     
     const loaded = () => {
         return (
@@ -11,11 +11,16 @@ export default function UserArtwork({setChosenWork,updatedUser, user}) {
                     {/* <h1>{updatedUser.username}</h1> */}
                     {/* {console.log("user id is", updatedUser._id)} */}
                     <div className={styles.artFlexbox}>
-                        <Link to={`/user/${user._id}/upload`}><img src="https://i.imgur.com/JoSbsoa.png" alt="" className={styles.userUpload} /></Link>
+                    {user._id === id ?
+                            <Link to={`/user/${user._id}/upload`}><img src="https://i.imgur.com/JoSbsoa.png" alt="" className={styles.userUpload} /></Link>
+                            :
+                           ""
+                        }
+                        
                         {updatedUser.artCollection.map((art, idx) => {
-                            console.log(art)
+                            // console.log(art)
                             return (
-                                <Link to={`/art/${art._id}`} onClick={() => { setChosenWork(art) }}><div 
+                                <Link key={idx}  to={`/art/${art._id}`} onClick={() => { setChosenWork(art) }}><div 
                                 key={idx} 
                                 className={styles.mappedArt} 
                                 style={{backgroundImage: `url(${art.image})`}}>   

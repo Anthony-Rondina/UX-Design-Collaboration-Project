@@ -6,6 +6,10 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 router.get('/', usersCtrl.get)
 router.put('/:id', usersCtrl.put)
+
+router.patch('/:userID/follow/:id', usersCtrl.addUserFollowing)
+router.patch('/:userID/unfollow/:id', usersCtrl.removeUserFollowing)
+
 // POST /api/users
 router.post('/', usersCtrl.create);
 // POST /api/users/login

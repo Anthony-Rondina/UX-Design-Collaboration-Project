@@ -1,0 +1,93 @@
+.formContainer2 {
+    display: grid;
+    grid-template-columns: auto;
+    padding: 25px;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 1vmin;
+}
+
+.formContainer2 input {
+    border: 0.1vmin solid #C4C4C4;
+    height: 60px;
+    box-sizing: border-box;
+    width: 490px;
+    background: rgba(196, 196, 196, 0.1);
+    border-radius: 10px;
+    margin-top: 25px;
+    margin-left: 10px;
+    text-align: center;
+}
+
+.formContainer2 .pass {
+    width: 230px;
+}
+
+.formContainer2 .confirm {
+    width: 230px;
+    margin-left: 30px;
+}
+
+.formContainer2 > h4 {
+    margin-left: 25px;
+}
+
+.formContainer2 p {
+    font-family: 'AcuminPro';
+    text-align: center;
+}
+
+.formContainer2 button {
+    width: 154px;
+    height: 40px;
+    margin-left: 350px;
+    margin-top: 50px;
+    background-color: #111111;
+    color: #FFFFFF;
+    border-radius: 10px;
+    border: 0.5px solid transparent;
+    font-family: 'AcuminProSemibold'
+}
+
+.formContainer2 button:disabled, form:invalid button[type='submit'] {
+    cursor: not-allowed;
+    color: #111111;
+    background-color: #7C7C7C;
+}
+
+.formContainer2 button[type='submit'] {
+    background-color: #111111;
+    color: #FFFFFF;
+}
+
+.formContainer2 .checkbox {
+    height: 15px;
+    width: 15px;
+    border-radius: 0px !important;
+}
+
+.formContainer2 .forgot {
+    font-family: 'AcuminProSemiBold';
+    font-size: 13px;
+    color: #7C7C7C;
+    text-decoration: underline;
+}
+
+.formContainer2 .textBold {
+    font-family: 'AcuminProSemibold'
+}
+
+.formContainer2 .forgotDiv {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+@font-face {
+    font-family: 'AcuminPro';
+    src: url(../../public/fonts/acumin-pro.ttf);
+}
+
+@font-face {
+    font-family: 'AcuminProSemibold';
+    src: url(../../public/fonts/acumin-pro-semibold.ttf);
+}

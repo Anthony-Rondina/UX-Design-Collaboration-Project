@@ -8,7 +8,9 @@ import styles from "../../components/UserProfilePage/UPPC.module.css"
 import Navbar from "../../components/NavHeader/NavHeader"
 import axios from "axios"
 import { useParams } from "react-router-dom"
-export default function UserWIPPage({chosenUser, user}) {
+import Footer from "../../components/Footer/Footer"
+import UserFollowingList from "../../components/UserProfilePage/UserFollowingList"
+export default function UserWIPPage({setChosenWork,chosenUser, user, setUser, toggle, setToggle}) {
 const [refresh, setRefresh] = useState(false)
 const [artwork, setArtWork] = useState(true)
 const [WIP, setWIP] = useState(false)
@@ -17,7 +19,10 @@ const [about, setAbout]=useState(false)
 const [displayContent, setDisplayContent]=useState([])
 const [updatedUser, setUpdatedUser]=useState({})
 const { id } = useParams()
+let token = localStorage.getItem("token")
 
+let userId = localStorage.getItem("userID")
+const [loggedInUser, setLoggedInUser]=useState({})
 const choice =  (input) => {
     switch (input) {
         case "art" :
@@ -50,31 +55,105 @@ const choice =  (input) => {
             break;
     }
 }
-    const getData = (input) => {
-        (async () => {
-            try {
-                const response = await axios.get(`/api/art/${input}/false`)
-                // console.log("response is",response)
-                setUpdatedUser(response.data)
-                console.log("updated user is",response)
-                if (response.status === 200) {
-                    setRefresh(!refresh)
-                } else {
-                    console.log('Something went wrong')
-                }
-
-            } catch (err) {
-                console.log(err)
-                // console.log(`cards is ${cards}`)
+const getData = (input) => {
+    (async () => {
+        try {
+            // console.log(id)
+            const response = await axios.get(`/api/users/${input}`)
+            // console.log("response is",response)
+            setUpdatedUser(response.data)
+            // console.log("updated user is",updatedUser)
+            if (response.status === 200) {
+                setRefresh(!refresh)
+            } else {
+                console.log('Something went wrong')
             }
-        })()
-    }
 
-    useEffect(() => {
-        getData(id)
-        choice("follow")
-        console.log(WIP)
-    },[])
+        } catch (err) {
+            console.log(err)
+            // console.log(`cards is ${cards}`)
+        }
+    })()
+}
+
+const getLoggedInUser = (input) => {
+    (async () => {
+        try {
+            // console.log(id)
+            const response = await axios.get(`/api/users/${input}`)
+            // console.log("response is",response)
+            setLoggedInUser(response.data)
+            // console.log("updated user is",updatedUser)
+            if (response.status === 200) {
+                setRefresh(!refresh)
+            } else {
+                console.log('Something went wrong')
+            }
+
+        } catch (err) {
+            console.log(err)
+            // console.log(`cards is ${cards}`)
+        }
+    })()
+}
+const followUser = (id,user_id) => {
+    (async () => {
+        try {
+
+            const response = await axios.patch(`/api/users/${user_id}/follow/${id}`, {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            })
+
+            console.log(response)
+
+
+            if (response.status === 200) {
+                setToggle(!toggle)
+            } else {
+                console.log('Something went wrong')
+            }
+
+        } catch (err) {
+            console.log(err)
+            // console.log(`cards is ${cards}`)
+        }
+    })()
+}
+
+const unfollowUser = (id,user_id) => {
+    (async () => {
+        try {
+
+            const response = await axios.patch(`/api/users/${user_id}/unfollow/${id}`, {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            })
+
+            console.log(response)
+
+
+            if (response.status === 200) {
+                setToggle(!toggle)
+            } else {
+                console.log('Something went wrong')
+            }
+
+        } catch (err) {
+            console.log(err)
+            // console.log(`cards is ${cards}`)
+        }
+    })()
+}
+useEffect(() => {
+    console.log("LSID is", userId)
+    getData(id)
+    console.log("user._id is",user)
+    getLoggedInUser(userId)
+    choice("follow")
+},[toggle])
 
     const loaded = () => {
         return (
@@ -82,11 +161,11 @@ const choice =  (input) => {
             
             <div className={styles.innerProfileWrapper}>
                 {/* {console.log("PP updated user is", updatedUser.artCollection)} */}
-                <Navbar/>
-                <UserBioBar user={user}/>
-                <ListBar user={user}setRefresh={setRefresh} setArtWork={setArtWork} setWIP={setWIP} setFollowing={setFollowing} setAbout={setAbout} setDisplayContent={setDisplayContent} displayContent={displayContent} about={about} WIP={WIP} artwork={artwork} following={following} />
-                <h1>Following</h1>
-                <UserArtwork updatedUser={updatedUser} user={user}about={about} WIP={WIP} artwork={artwork} following={following} />
+                <Navbar loggedInUser={loggedInUser} user={user} setUser={setUser} toggle={toggle} setToggle={setToggle}/>
+                <UserBioBar followUser={followUser} unfollowUser={unfollowUser} loggedInUser={loggedInUser} updatedUser={updatedUser} id={id} user={user}/>
+                <ListBar updatedUser={updatedUser} user={user}setRefresh={setRefresh} setArtWork={setArtWork} setWIP={setWIP} setFollowing={setFollowing} setAbout={setAbout} setDisplayContent={setDisplayContent} displayContent={displayContent} about={about} WIP={WIP} artwork={artwork} following={following} />
+                <UserFollowingList loggedInUser={loggedInUser} setChosenWork={setChosenWork} choice={choice} updatedUser={updatedUser} user={user}about={about} WIP={WIP} artwork={artwork} following={following} />
+                <Footer/>
             </div>
         </div>
         )

@@ -6,50 +6,50 @@ import styles from "./Footer.module.css";
 export default function Footer() {
     return (
     <footer className={styles.Footer}>
-        <div className="footer-logo">
-            <img src={logo} style={{ width: '8rem' }} id="logo" alt="footer logo"></img>
-            <ul>
-                <li>
-                <FontAwesomeIcon icon="fa-brands fa-twitter" />
+        <div className={styles.footerLogo}>
+            <Link to="/" className="footer-logo"><img src={logo} style={{ width: '8rem' }} id="logo" alt="footer logo"></img></Link>
+            <ul style={{ padding: '5px', margin: '5px', marginRight: '8px' }}>
+                <li style={{ padding: '0' }}>
+                <i className="fa-brands fa-twitter fa-lg"></i>
                 </li>
-                <li>
-                <FontAwesomeIcon icon="fa-brands fa-facebook" />
+                <li >
+                <i className="fa-brands fa-facebook fa-lg"></i>
                 </li>
-                <li>
-                <FontAwesomeIcon icon="fa-brands fa-instagram" />
+                <li >
+                <i className="fa-brands fa-instagram fa-lg"></i>
                 </li>
-                <li>
-                <FontAwesomeIcon icon="fa-brands fa-youtube" />
+                <li >
+                <i className="fa-brands fa-youtube fa-lg"></i>
                 </li>
             </ul>
         </div>
-        <ul>
-            <li>
-                <Link to="#" className="footer-link">About Us</Link>
+        <ul style={{ padding: '0' }}>
+            <li style={{ padding: '0' }}>
+                <Link to="/" className="footer-link">About Us</Link>
             </li>
             <li>
-                <Link to="#" className="footer-link">Terms of Service</Link>
+                <Link to="/" className="footer-link">Terms of Service</Link>
             </li>
             <li>
-                <Link to="#" className="footer-link">Privacy Policy</Link>
+                <Link to="/" className="footer-link">Privacy Policy</Link>
             </li>
             <li>
-                <Link to="#" className="footer-link">FAQs</Link>
+                <Link to="/" className="footer-link">FAQs</Link>
             </li>
             <li>
-                <Link to="#" className="footer-link">Code of Conduct</Link>
+                <Link to="/" className="footer-link">Code of Conduct</Link>
             </li>
             <li>
-                <Link to="#" className="footer-link">Contact Us</Link>
+                <Link to="/" className="footer-link">Contact Us</Link>
             </li>
         </ul>
-        <div class="footer-search-container">
-            <h6>Subscribe to atelier newsletter</h6>
-            <form>
-                <input type="text" name="search"/>
-            </form>
-        </div>
-        <button className={styles.submitBtn} type="submit">Submit</button>
+        <form className={styles.footerForm} action="" method="get">
+            <div>
+                <label type="email">Subscribe to atelier newsletter</label><br></br>
+                <input type="email" name="email" id="email" required/>
+                <input className={styles.submitBtn} type="submit" value="Submit"/>
+            </div>
+        </form>
     </footer>
     );
 }

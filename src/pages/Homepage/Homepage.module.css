@@ -1,0 +1,32 @@
+.artistCard {
+    display: flex;
+}
+
+.filterBar {
+    position: relative;
+    display: flex;
+    height: 43pt;
+    width: 585;
+    border-color: white;
+    justify-content: center;
+}
+
+.artText {
+    font-family: 'Acumin Pro';
+    font-style: normal;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.userAvatar {
+    filter: drop-shadow(2px 8px 3px #C4C4C4)
+}
+
+.discoverArt {
+    display: flex;
+    width: 1334px;
+    height: 99px;
+    overflow: hidden;
+
+}

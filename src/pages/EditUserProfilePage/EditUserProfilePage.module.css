@@ -28,12 +28,6 @@
     gap: 1.25vmin;
     color: black;
   }
-
-  .inputLabel{
-    font-size: 2vmin;
-    display: flex;
-    align-items: center;
-  }
   .uploadInput {
     padding: 1vmin;
     font-size: 2vmin;

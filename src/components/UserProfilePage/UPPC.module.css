@@ -9,6 +9,8 @@
     max-width: 100%;
     }
     .coverImage {
+      background-size: cover;
+    background-position: center;
       width: 100%;
     }
   .userInfo {
@@ -26,10 +28,31 @@
     filter: drop-shadow(0 0 .1rem black);
   }
   .profilePic{
+    background-size: cover;
     width: 170px;
     height: 180px;
     border-radius: 50%;
     margin-left: 50px;
+    background-position: center;
+  }
+  .line1 {
+    border: 0;
+    clear:both;
+    display:block;
+    width: 96%;               
+    background-color:#808080;
+    height: 1px;
+    /* margin-top: 100px; */
+    margin-bottom: 100px;
+  }
+  .line2 {
+    border: 0;
+    clear:both;
+    display:block;
+    width: 96%;               
+    background-color:#808080;
+    height: 1px;
+    margin-top: 200px;
   }
   .userUpperOptions{
     display: flex;
@@ -48,6 +71,7 @@
     /* border: solid purple 2px; */
   }
   .rightHalf {
+    margin-top: -25px;
     display: flex;
     flex-direction: column;
     /* border: red solid 1px; */
@@ -108,7 +132,16 @@
 
   .filterResults{
     /* background-color: white; */
-    height: 100vh;
+    /* border: solid 1px blue; */
+    height: 100%;
+    min-height: 600px;
+    display: flex;
+    justify-content: center;
+    padding: 70px;
+  }
+  .aboutResults {
+    height: 70%;
+    min-height: 600px;
     display: flex;
     justify-content: center;
     padding: 70px;
@@ -120,7 +153,12 @@
     width: 100%;
     padding: 10px;
   }
-
+.aboutBox{
+  width: 100%;
+    padding: 10px;
+    height: 50%;
+    white-space: pre-wrap;
+}
   .mainProfileWrapper{
     background-color: rgb(232, 242, 247);
     display: flex;
@@ -133,9 +171,6 @@
     width: 1280px;
   }
 
-  .userMore{
-    /* font-size: 1.5em; */
-  }
 
  .userUpload{
   cursor:pointer;
@@ -160,4 +195,11 @@
    /* border: solid blue 2px; */
    display: flex;
    flex-wrap: wrap;
+   height: 100%;
+   /* border: solid blue 2px; */
+ }
+ .followBox{
+   display: flex;
+   align-items: center;
+   text-align: center;
  }
