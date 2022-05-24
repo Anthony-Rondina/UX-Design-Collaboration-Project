@@ -1,3 +1,13 @@
-.filterBar {
-    display: flex
+.filterPanel {
+    display: flex;
+}
+
+.filterBtn {
+    background-color: white;
+    object-fit: fill;
+    display: flex;
+    border-color: white;
+    border: hidden;
+    color: gray;
+    font-family: 'Acumin Pro';
 }
