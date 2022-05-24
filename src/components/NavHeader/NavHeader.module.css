@@ -58,3 +58,6 @@ a:visited {
     background-position: center;
     border: 1px solid gray;
 }
+button {
+    cursor: pointer;
+}
