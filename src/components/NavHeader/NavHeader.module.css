@@ -50,6 +50,7 @@ a:visited {
 }
 
 .profilePicture {
+    cursor: pointer;
     border-radius: 50%;
     background-size: cover;
     width: 50px;
