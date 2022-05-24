@@ -38,3 +38,18 @@
      margin-left: 10px;
      margin-right: 10px;
    }
+   .commentsbox {
+       width: 800px;
+       height: 100px;
+   }
+   .formOutterWrapper {
+       display: flex;
+       flex-direction: column;
+       text-align: center;
+       justify-content: space-around;
+   }
+   .ArtPrompt {
+       text-align: center;
+       font-weight: 600;
+       text-decoration: underline;
+   }
