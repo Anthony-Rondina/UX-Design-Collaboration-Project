@@ -59,7 +59,7 @@ export default function ProductPage({chosenWork, user, setUser, toggle, setToggl
     useEffect(() => {
         getData(id)
         getLoggedInUser(userId)
-    },[])
+    },[toggle])
     const loaded = () => {
         return (
             <>
@@ -83,7 +83,7 @@ export default function ProductPage({chosenWork, user, setUser, toggle, setToggl
                             <img className={styles.ChosenImage} src={art.image}></img>
                             <ArtPrompt  art={art}/>
                             {/* <Gallery /> */}
-                            <Comments refresh={refresh} setRefresh={setRefresh} user={user} art={art}/>
+                            <Comments toggle={toggle} setToggle={setToggle} refresh={refresh} setRefresh={setRefresh} user={user} art={art}/>
                         </div>
                     </div>
                     <Footer />

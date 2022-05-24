@@ -39,7 +39,6 @@ function App() {
       try {
         const currentUser = await getUser()
         setUser(currentUser)
-        
         // contUser = user ? user : dummyUser
         // console.log("constUser is", contUser)
         console.log("APP.js user is", user)
