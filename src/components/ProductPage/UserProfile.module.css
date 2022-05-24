@@ -53,3 +53,38 @@
        font-weight: 600;
        text-decoration: underline;
    }
+   .commentBtn {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+    display: inline;
+    position: relative;
+}
+.commentBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.deleteBtn {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 120px;
+    height: 40px;
+    display: inline;
+    position: relative;
+}
+.commentUser {
+    text-decoration: underline;
+    font-style: inherit;
+    color: red;
+    font-weight: 450;
+}
+.comment {
+    color: blue;
+}
