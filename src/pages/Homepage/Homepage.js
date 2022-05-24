@@ -10,7 +10,7 @@ import FilterBtn from "../../components/FilterBtn/FilterBtn"
 export default function Homepage({ user, setUser, toggle, setToggle }) {
     const [artArr, setArtArr] = useState([])
     const [refresh, setRefresh] = useState(false)
-    const [loggedInUser, setLoggedInUser]=useState({})
+    const [loggedInUser, setLoggedInUser] = useState({})
     const { id } = useParams()
     let userId = localStorage.getItem("userID")
     const getData = () => {
@@ -41,7 +41,7 @@ export default function Homepage({ user, setUser, toggle, setToggle }) {
                 setLoggedInUser(response.data)
                 // console.log("updated user is",updatedUser)
                 if (response.status === 200) {
-                    
+
                 } else {
                     console.log('Something went wrong')
                 }
@@ -59,29 +59,39 @@ export default function Homepage({ user, setUser, toggle, setToggle }) {
     }, [])
     const loaded = () => {
         return (
-            <div>
-                <NavHeader user={user} setUser={setUser} loggedInUser={loggedInUser} toggle={toggle} setToggle={setToggle}/>
-                <div className={styles.discoverArt}>
-                    {artArr.map((artData, idx) => {
-                        return (
-                            <div>
-                                <Link to={`/user/${artData.user._id}`}> <img src={artData.user.avatar} style={{ width: 69, height: 69, borderRadius: 40, margin: "5px 140px 3px 140px" }} /></Link>
-                                <div className={styles.artText} >{artData.user.username}</div>
-                            </div>
-                        )
-                    })}
+            <div className={styles.mainProfileWrapper}>
+                <div className={styles.innerProfileWrapper}>
+                    <div>
+                        <NavHeader user={user} setUser={setUser} loggedInUser={loggedInUser} toggle={toggle} setToggle={setToggle} />
+                        <div className={styles.topText}>
+                            Check out other Artist's Workshops
+                        </div>
+                        <div className={styles.discoverArt}>
+                            {artArr.map((artData, idx) => {
+                                return (
+                                    <div>
+                                        <Link className={styles.userAvatar} to={`/user/${artData.user._id}`}> <img src={artData.user.avatar} style={{ width: 60, height: 60, borderRadius: 40, margin: "5px 60px 5px 60px" }} /></Link>
+                                        <div className={styles.artText} >{artData.user.username}</div>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                        <div className={styles.topText}>
+                            Projects from artists you follow and more
+                        </div>
+                        <div className={styles.filterBar}>
+                            <FilterBtn />
+                        </div>
+                        <div className={styles.artArray}>
+                            {artArr.map((artData, idx) => {
+                                return (
+                                    <ArtistCard user={user} artData={artData} key={idx} className={styles.artistCard} />
+                                )
+                            })}
+                        </div>
+                        <Footer />
+                    </div>
                 </div>
-                <div className={styles.filterBar}>
-                    <FilterBtn />
-                </div>
-                <div>
-                    {artArr.map((artData, idx) => {
-                        return (
-                            <ArtistCard user={user} artData={artData} key={idx} className={styles.artistCard} />
-                        )
-                    })}
-                </div>
-                <Footer />
             </div>
         )
     }

@@ -2,12 +2,12 @@ import { useState } from "react";
 import styles from "./FilterBtn.module.css"
 
 export default function FilterBtn() {
-    const filterTypes = ['All', 'Watercolor', 'Canvis', 'Quilling', 'Acrylic', 'DIY'];
+    const filterTypes = ['All', 'Watercolor', 'Canvas', 'Quilling', 'Acrylic', 'DIY'];
     const [btn, setBtn] = useState(filterTypes[0]);
     return (
-        <div className={styles.filterBar}>
+        <div className={styles.filterPanel}>
             {filterTypes.map(filterType => (
-                <button name={filterType} onclick={() => setBtn(filterType)}>{filterType}</button>
+                <button className={styles.filterBtn} name={filterType} onclick={() => setBtn(filterType)}>{filterType}</button>
             ))}
         </div>
     )

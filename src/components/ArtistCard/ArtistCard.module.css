@@ -13,18 +13,15 @@
 
 .artImage {
     background-size: cover;
+    background-position: center;
     width: 351px;
     display: block;
-
     overflow: hidden;
     height: 264px;
     border: 1px;
     border-radius: 10px;
     margin: auto;
     margin-bottom: 30px;
-
-
-
 }
 
 .saveBtnHidden {
@@ -38,7 +35,7 @@
     font-style: normal;
     line-height: 16px;
     display: flex;
-    align-items: center;
+
 }
 
 .artName {
@@ -49,4 +46,8 @@
 .artistName {
     font-weight: 400;
     font-size: 13px;
+}
+
+.views {
+    text-align: right;
 }

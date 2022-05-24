@@ -8,7 +8,7 @@ export default function ArtistCard({ artData, user }) {
             <img className={user ? styles.saveBtn : styles.saveBtnHidden} src={SaveBtn} />
 
             <Link to={`/art/${artData._id}`}>
-                <img className={styles.artImage} src={artData.image} />
+                <div className={styles.artImage} style={{ backgroundImage: `url(${artData.image})` }} ></div>
             </Link>
 
             <div className={styles.btTextBox}>

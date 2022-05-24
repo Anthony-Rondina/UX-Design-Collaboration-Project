@@ -71,3 +71,21 @@
     width: 40px;
     height: 40px;
   }
+  .clickMe {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 125px;
+    height: 40px;
+    margin-left: 10px;
+  }
+  .clickMeRed {
+    background-color: darkred;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 125px;
+    height: 40px;
+    margin-left: 10px;
+  }

@@ -3,7 +3,7 @@ import { useRef,useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 import styles from './UserProfile.module.css';
-export default function Comments({refresh, setRefresh,art, user}) {
+export default function Comments({toggle, setToggle, refresh, setRefresh,art, user}) {
     const text =useRef()
     const navigate = useNavigate();
     let token = localStorage.getItem("token")
@@ -24,12 +24,12 @@ export default function Comments({refresh, setRefresh,art, user}) {
             console.log(err)
         }
     }
-    const handleDelete = async (input) => {
-        // e.preventDefault()
+    const handleDelete = async (input1, input2) => {
         try {
-            console.log("tried")
-            const response = await axios.delete(`/api/comments/${input}`)
-            navigate(`/art/${art._id}`)
+            const response = await axios.delete(`/api/comments/${input1}/delete/${input2}`)
+            // setToggle(!toggle)
+            window.location.reload(false);
+            // navigate(`/art/${art._id}`)
         } catch (err) {
             console.log(err)
         }
@@ -61,9 +61,9 @@ export default function Comments({refresh, setRefresh,art, user}) {
                                 </div>
                                 <div className="comment-user">
                                     <p className={styles.commentUser}>{`Posted by: ${comment.user.firstName}`}</p>
-                                    
-                                    {user.email === comment.user.email || user.admin ?
-                                        <button className={styles.deleteBtn} onClick={() => { handleDelete(comment._id) }}>Delete Comment</button>
+
+                                    {user.email === comment.user.email || user.email === art.user.email ?
+                                        <button className="delete-button" onClick={() => { handleDelete(art._id, comment._id) }}>Delete Comment</button>
                                         : ''}
                                 </div>
                             </div>
