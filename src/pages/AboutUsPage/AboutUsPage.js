@@ -53,7 +53,7 @@ export default function AboutUsPage({setUser, user, toggle, setToggle}) {
                 <img src="https://i.imgur.com/LczRoZB.jpg?1" style={{ width: '180px', borderRadius: '5px 5px 0 0' }}/>
                 <div className={styles.AboutUsContainer}>
                 <h5>James Suescun</h5>
-                <p>Project Manager / Trello Master / Back-End</p>
+                <p>Web Developer</p>
                 <a href='https://github.com/jayworks2318'><i class="fa-brands fa-github"></i></a>
                 <a href='https://www.linkedin.com/in/find-james/'><i class="fa-brands fa-linkedin"></i></a>
                 </div>
