@@ -42,6 +42,12 @@
        width: 800px;
        height: 100px;
    }
+   .outMostWrapper{
+       /* border: solid 1px blue; */
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+   }
    .formOutterWrapper {
        display: flex;
        flex-direction: column;
@@ -68,6 +74,8 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    /* border: solid 1px red; */
+    width: 800px;
 }
 .deleteBtn {
     background-color: black;
@@ -80,11 +88,62 @@
     position: relative;
 }
 .commentUser {
-    text-decoration: underline;
     font-style: inherit;
-    color: red;
-    font-weight: 450;
+    font-weight: bold;
 }
 .comment {
-    color: blue;
+    color: gray;
+    font-size: 1.4em;
+}
+.line1 {
+    border: 0;
+    clear:both;
+    display:block;
+    width: 100%;    
+    margin-right: 50px;           
+    background-color:#808080;
+    height: 1px;
+    margin-top: 50px;
+  }
+  .line3 {
+    border: 0;
+    clear:both;
+    display:block;
+    width: 100%;    
+    margin-right: 50px;           
+    background-color:#808080;
+    height: 1px;
+    margin-bottom: 50px;
+  }
+.line2 {
+    border: 0;
+    clear:both;
+    display:block;
+    width: 100%;    
+    margin-right: 50px;           
+    background-color:#808080;
+    height: 1px;
+  }
+.commentUser{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    /* border: solid purple 1px; */
+    width: 100%;
+    height: 100px;
+}
+
+.commentLeftSide{
+    font-size: 1.5em;
+}
+
+.deleteButton{
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 120px;
+    height: 40px;
+    display: inline;
+    position: relative;
 }
