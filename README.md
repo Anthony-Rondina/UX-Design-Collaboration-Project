@@ -37,14 +37,14 @@ Technologies Used:
 15. Trello
 
 # Roles:
-- **Anthony:** Project manager: Goal Setting/Check Ins
+- **Anthony:** > Project manager: Goal Setting/Check Ins
 		Git Czar
 		FrontEnd
-- **James:**	Project Manager: Trello Master/Check in’s
+- **James:**	> Project Manager: Trello Master/Check in’s
 		BackEnd
-- **Luke:**	FullStack
-- **Phong:**  Backend
-- **John:** 	FrontEnd
-- **Ornela:** 	FrontEnd
-- **Jeanette:** FrontEnd
-- **Cory:** 	FrontEnd
+- **Luke:**	> FullStack
+- **Phong:**  > Backend
+- **John:** 	> FrontEnd
+- **Ornela:** 	> FrontEnd
+- **Jeanette:** > FrontEnd
+- **Cory:** 	> FrontEnd
