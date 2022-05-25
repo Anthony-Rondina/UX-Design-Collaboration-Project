@@ -55,7 +55,7 @@ export default function AboutUsPage({setUser, user, toggle, setToggle}) {
                 <h5>James Suescun</h5>
                 <p>Web Developer</p>
                 <a href='https://github.com/jayworks2318'><i class="fa-brands fa-github"></i></a>
-                <a href='https://www.linkedin.com/in/find-james/'><i class="fa-brands fa-linkedin"></i></a>
+                <a href='https://www.linkedin.com/'><i class="fa-brands fa-linkedin"></i></a>
                 </div>
         </div>
         <div className={styles.AboutUsCard}>
