@@ -33,6 +33,7 @@ handleSubmit = async (event) => {
         console.log('setUser successful!')
         localStorage.setItem('token', user)
         console.log('setitem to local storage!')
+        window.location.reload(false);
     } catch (err) {
         this.setState({ error: "Sign up failed" })
     }

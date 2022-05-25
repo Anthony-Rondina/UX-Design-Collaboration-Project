@@ -8,36 +8,67 @@
     height: 43pt;
     width: 585px;
     border-color: white;
-    justify-content: center;
+    margin-left: 330px;
 }
 
 .artText {
-    font-family: 'Acumin Pro';
-    font-style: normal;
+    margin-top: 5px;
     line-height: 16px;
     display: flex;
-    align-items: center;
+    justify-content: center;
+    font-size: 12px;
 }
 
+.topText {
+    margin: 20pt;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 545;
+}
+
+.artArray {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 35px;
+    margin-left: 40px;
+}
+
+
 .userAvatar {
-    filter: drop-shadow(2px 8px 3px #C4C4C4)
+    filter: drop-shadow(1px 6px 3px #C4C4C4)
 }
 
 .discoverArt {
     display: flex;
-    width: 1334px;
+    width: 1250px;
+
     height: 99px;
     overflow: hidden;
+    margin: auto;
+
+
+    object-position: center;
 
 }
-.mainProfileWrapper{
+
+.mainProfileWrapper {
     background-color: rgb(232, 242, 247);
     display: flex;
     justify-content: center;
     max-width: 780;
     align-items: center;
-  }
-  .innerProfileWrapper{
+}
+
+.mainProfileWrapper {
+    background-color: rgb(232, 242, 247);
+    display: flex;
+    justify-content: center;
+    max-width: 780;
+    align-items: center;
+}
+
+.innerProfileWrapper {
     background-color: white;
     width: 1280px;
-  }
+
+}

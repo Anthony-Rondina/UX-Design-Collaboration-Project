@@ -9,7 +9,7 @@ import NavHeader from "../../components/NavHeader/NavHeader"
 import Footer from "../../components/Footer/Footer"
 import Gallery from "../../components/ProductPage/Gallery"
 import Comments from "../../components/ProductPage/Comments"
-
+import styling from '../../components/ProductPage/UserProfile.module.css';
 export default function ProductPage({chosenWork, user, setUser, toggle, setToggle}) {
     const { id } = useParams()
     const [art,setArt]= useState({})
@@ -74,7 +74,7 @@ export default function ProductPage({chosenWork, user, setUser, toggle, setToggl
                             {/* <div className={styles.ChosenImage} style={{backgroundImage: `url(${art.image})`}}></div> */}
                             {loggedInUser._id === art.user._id ? 
                                 <div className={styles.EditButton}>
-                                <Link to={`/user/chosenart/edt/${art._id}/${art.user._id}`}><p>Click me to Edit Art!</p></Link>
+                                <Link to={`/user/chosenart/edt/${art._id}/${art.user._id}`}><button className={styles.editArtButton}>Edit Your Art!</button></Link>
                                 </div>
                                 : 
                                 ""

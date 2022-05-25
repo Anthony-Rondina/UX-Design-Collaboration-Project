@@ -9,23 +9,25 @@
     width: 50px;
     height: 50px;
     position: absolute;
+
 }
 
 .artImage {
     background-size: cover;
+    background-position: center;
     width: 351px;
     display: block;
     overflow: hidden;
     height: 264px;
     border: 1px;
     border-radius: 10px;
-    margin: auto;
-    margin-bottom: 30px;
+    margin: 0px;
+    margin-bottom: 10px;
 }
 
-.saveBtnHidden {
+/* .saveBtnHidden {
     display: none;
-}
+} */
 
 .btTextBox {
     width: 200px;
@@ -34,15 +36,21 @@
     font-style: normal;
     line-height: 16px;
     display: flex;
-    align-items: center;
+
 }
 
 .artName {
     font-weight: 900;
     font-size: 13px;
+    margin-top: 0px;
 }
 
 .artistName {
     font-weight: 400;
     font-size: 13px;
+    margin-top: 0%;
+}
+
+.views {
+    text-align: right;
 }

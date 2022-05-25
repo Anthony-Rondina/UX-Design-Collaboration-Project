@@ -9,23 +9,43 @@ import FilterBtn from "../../components/FilterBtn/FilterBtn"
 
 export default function Homepage({ user, setUser, toggle, setToggle }) {
     const [artArr, setArtArr] = useState([])
+    const [artUser, setArtUser] = useState([])
     const [refresh, setRefresh] = useState(false)
     const [loggedInUser, setLoggedInUser] = useState({})
+    const [btn, setBtn] = useState("All");
     const { id } = useParams()
     let userId = localStorage.getItem("userID")
-    const getData = () => {
+    const getData = (input) => {
         (async () => {
             try {
-                const response = await axios.get(`/api/art/`)
-                console.log("response is", response)
-                setArtArr(response.data)
-                console.log("updated art", response.data)
-                if (response.status === 200) {
-                    setRefresh(!refresh)
+                if (btn === "All") {
+                    const response = await axios.get(`/api/art/`)
+                    setArtArr(response.data)
+                    console.log(response.data)
                 } else {
-                    console.log('Something went wrong')
+                    console.log(btn)
+                    const response = await axios.get(`/api/art/${input}`)
+                    console.log("response is", response.data)
+                    setArtArr(response.data)
+                    console.log("art array is", artArr)
+                    if (response.status === 200) {
+                        setRefresh(!refresh)
+                    } else {
+                        console.log('Something went wrong')
+                    }
                 }
-
+            } catch (err) {
+                console.log(err)
+            }
+        })()
+    }
+    const getUser = (input) => {
+        (async () => {
+            try {
+                if (btn === "All") {
+                    const response = await axios.get(`/api/users/`)
+                    setArtUser(response.data)
+                }
             } catch (err) {
                 console.log(err)
             }
@@ -55,33 +75,44 @@ export default function Homepage({ user, setUser, toggle, setToggle }) {
 
     useEffect(() => {
         getLoggedInUser(userId)
-        getData(id)
-    }, [])
+        getData(btn)
+        getUser()
+    }, [btn])
     const loaded = () => {
         return (
-            <div>
-                <NavHeader user={user} setUser={setUser} loggedInUser={loggedInUser} toggle={toggle} setToggle={setToggle} />
-                <div className={styles.discoverArt}>
-                    {artArr.map((artData, idx) => {
-                        return (
-                            <div>
-                                <Link to={`/user/${artData.user._id}`}> <img src={artData.user.avatar} style={{ width: 69, height: 69, borderRadius: 40, margin: "5px 140px 3px 140px" }} /></Link>
-                                <div className={styles.artText} >{artData.user.username}</div>
-                            </div>
-                        )
-                    })}
+            <div className={styles.mainProfileWrapper}>
+                <div className={styles.innerProfileWrapper}>
+                    <div>
+                        <NavHeader user={user} setUser={setUser} loggedInUser={loggedInUser} toggle={toggle} setToggle={setToggle} />
+                        <div className={styles.topText}>
+                            Check out other Artist's Workshops
+                        </div>
+                        <div className={styles.discoverArt}>
+                            {artUser.map((artData, idx) => {
+                                return (
+                                    <div>
+                                        <Link className={styles.userAvatar} to={`/user/${artData._id}`}> <img src={artData.avatar} style={{ width: 60, height: 60, borderRadius: 40, margin: "5px 60px 5px 60px" }} /></Link>
+                                        <div className={styles.artText} >{artData.username}</div>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                        <div className={styles.topText}>
+                            Projects from artists you follow and more
+                        </div>
+                        <div className={styles.filterBar}>
+                            <FilterBtn btn={btn} setBtn={setBtn} />
+                        </div>
+                        <div className={styles.artArray}>
+                            {artArr.map((artData, idx) => {
+                                return (
+                                    <ArtistCard user={user} artData={artData} key={idx} className={styles.artistCard} />
+                                )
+                            })}
+                        </div>
+                        <Footer />
+                    </div>
                 </div>
-                <div className={styles.filterBar}>
-                    <FilterBtn />
-                </div>
-                <div>
-                    {artArr.map((artData, idx) => {
-                        return (
-                            <ArtistCard user={user} artData={artData} key={idx} className={styles.artistCard} />
-                        )
-                    })}
-                </div>
-                <Footer />
             </div>
         )
     }
