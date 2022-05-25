@@ -12,6 +12,10 @@
 # NavBar:
 ![screenshot](https://i.imgur.com/ez1UeVR.png)
 
+# Creators Page:
+![screenshot](https://i.imgur.com/EeyjGTG.png)
+
+
 # Techincal Challenges:
 
 1. Relating data such as art, comments and users.
