@@ -19,11 +19,11 @@ export default function ArtistCard({ artData, user }) {
                         {artData.user.username}</p>
                 </div>
 
-                <div className={styles.views}>
+                {/* <div className={styles.views}>
                     <p>
                         {artData.views} Views
                     </p>
-                </div>
+                </div> */}
             </div>
         </div >
     );
