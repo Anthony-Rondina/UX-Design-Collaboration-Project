@@ -63,7 +63,7 @@ export default function Comments({toggle, setToggle, refresh, setRefresh,art, us
                                         : ''}
                                 </div>
                                 <div className="comment-content">
-                                    <p className={styles.comment}>{comment.text}</p>
+                                    <p className={styles.comment}>{`"${comment.text}"`}</p>
                                 </div>
                                 <hr className={styles.line2} />
                             </>
