@@ -74,7 +74,7 @@ export default function ProductPage({chosenWork, user, setUser, toggle, setToggl
                             {/* <div className={styles.ChosenImage} style={{backgroundImage: `url(${art.image})`}}></div> */}
                             {loggedInUser._id === art.user._id ? 
                                 <div className={styles.EditButton}>
-                                <Link to={`/user/chosenart/edt/${art._id}/${art.user._id}`}><button className={styles.editArtButton}>Click me to Edit Art!</button></Link>
+                                <Link to={`/user/chosenart/edt/${art._id}/${art.user._id}`}><button className={styles.editArtButton}>Edit Your Art!</button></Link>
                                 </div>
                                 : 
                                 ""
