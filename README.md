@@ -42,7 +42,7 @@
 
 # Roles:
 - **Anthony:** Project manager / Git Czar / FrontEnd
-- **James:**	Project Manager / Trello Master / BackEnd
+- **James:**	Web Developer
 - **Luke:**	FullStack
 - **Phong:**  Backend
 - **John:** 	FrontEnd
