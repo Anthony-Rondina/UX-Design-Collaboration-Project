@@ -83,6 +83,7 @@ button {
     position: absolute;
     top: 103.5px;
     background-color: white;
+    z-index: 1;
 }
 
 .dropBtn {
