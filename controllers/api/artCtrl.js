@@ -15,8 +15,9 @@ async function get(req, res) {
 
   try {
     const query = Art.find({}).populate('user')
+    console.log("PLEASE", query)
     query.exec((err, foundArt) => {
-      if(!err) {
+      if (!err) {
         res.status(200).json(foundArt)
       } else {
         res.status(400).json({ message: error.message })
@@ -39,24 +40,24 @@ async function get(req, res) {
 
 }
 
-async function getAllFilteredArt(req,res) {
+async function getAllFilteredArt(req, res) {
 
-  Art.find({ type: {$eq: req.params.artType.toUpperCase() } }, (err, foundArt) => {
+  const query = Art.find({ type: { $eq: req.params.artType.toUpperCase() } }).populate('user').execPopulate()
+  query.exec((err, foundArt) => {
     if (!err) {
       res.status(200).json(foundArt)
     } else {
       res.status(400).json(err)
     }
   })
-
 }
 
-async function getAllUserArt(req,res) {
+async function getAllUserArt(req, res) {
 
   try {
     const query = Art.find({ user: req.params.id }).populate('user')
     query.exec((err, foundArt) => {
-      if(!err) {
+      if (!err) {
         res.status(200).json(foundArt)
       } else {
         res.status(400).json({ message: error.message })
@@ -68,13 +69,13 @@ async function getAllUserArt(req,res) {
 
 }
 
-async function getAllUserWipArt(req,res) {
+async function getAllUserWipArt(req, res) {
 
   try {
     const query = Art.find({ user: req.params.id, isDone: false })
-     query.exec((err, foundArt) => {
-       if(!err) {
-         res.status(200).json(foundArt)
+    query.exec((err, foundArt) => {
+      if (!err) {
+        res.status(200).json(foundArt)
       } else {
         res.status(400).json({ message: error.message })
       }
@@ -114,7 +115,7 @@ async function create(req, res) {
     const art = new Art(body)
     //push art to the User's Collection
     user.artCollection.push(art._id)
-    art.user=req.user._id 
+    art.user = req.user._id
     //save art to DB
     art.save()
     //save User to DB
@@ -131,13 +132,14 @@ async function show(req, res) {
     const query = Art.findById(req.params.id).populate([{
       path: 'comments',
       populate:
-          { path: "user"
-         }
-  },{
-    path: 'user',
-  }])
+      {
+        path: "user"
+      }
+    }, {
+      path: 'user',
+    }])
     query.exec((err, foundArt) => {
-      if(!err) {
+      if (!err) {
         res.status(200).json(foundArt)
       } else {
         res.status(400).json({ message: error.message })
@@ -154,13 +156,13 @@ async function destroy(req, res) {
   // const user = await User.findById(req.user._id)
   try {
     Art.findByIdAndDelete(req.params.id, (err) => {
-      if(err) {
+      if (err) {
         res.status(400).json(err)
       } else {
 
         // user.artCollection.pull(req.params.id);
         // user.save();
-        res.status(200).json({message: "Deleted Art"});
+        res.status(200).json({ message: "Deleted Art" });
 
       }
     })
@@ -173,23 +175,23 @@ async function destroy(req, res) {
 //For Pulling all art from a user
 async function fromUser(req, res) {
   const person = await User.findById(req.user._id).populate("artCollection")
-    if (person) {
-      //"Done" is up to backend and can change
-      if(req.query.status === "done"){
-        const filtered = person.artCollection.filter((art) => {
-          return art.isDone === true 
-        })
-        res.status(200).json(filtered)
-      } else if (req.query.status === "wip"){
-        //"wip" is up to backend and can change
-        const filtered = person.artCollection.filter((art) => {
-          return art.isDone === false 
-        })
-        res.status(200).json(filtered)
-      } else {
-        res.status(200).json(person.artCollection)
-      }
+  if (person) {
+    //"Done" is up to backend and can change
+    if (req.query.status === "done") {
+      const filtered = person.artCollection.filter((art) => {
+        return art.isDone === true
+      })
+      res.status(200).json(filtered)
+    } else if (req.query.status === "wip") {
+      //"wip" is up to backend and can change
+      const filtered = person.artCollection.filter((art) => {
+        return art.isDone === false
+      })
+      res.status(200).json(filtered)
     } else {
-      res.status(400).json(err)
+      res.status(200).json(person.artCollection)
     }
+  } else {
+    res.status(400).json(err)
+  }
 }
