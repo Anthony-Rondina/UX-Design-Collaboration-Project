@@ -9,6 +9,7 @@ import FilterBtn from "../../components/FilterBtn/FilterBtn"
 
 export default function Homepage({ user, setUser, toggle, setToggle }) {
     const [artArr, setArtArr] = useState([])
+    const [artUser, setArtUser] = useState([])
     const [refresh, setRefresh] = useState(false)
     const [loggedInUser, setLoggedInUser] = useState({})
     const [btn, setBtn] = useState("All");
@@ -32,6 +33,18 @@ export default function Homepage({ user, setUser, toggle, setToggle }) {
                     } else {
                         console.log('Something went wrong')
                     }
+                }
+            } catch (err) {
+                console.log(err)
+            }
+        })()
+    }
+    const getUser = (input) => {
+        (async () => {
+            try {
+                if (btn === "All") {
+                    const response = await axios.get(`/api/users/`)
+                    setArtUser(response.data)
                 }
             } catch (err) {
                 console.log(err)
@@ -63,6 +76,7 @@ export default function Homepage({ user, setUser, toggle, setToggle }) {
     useEffect(() => {
         getLoggedInUser(userId)
         getData(btn)
+        getUser()
     }, [btn])
     const loaded = () => {
         return (
@@ -74,11 +88,11 @@ export default function Homepage({ user, setUser, toggle, setToggle }) {
                             Check out other Artist's Workshops
                         </div>
                         <div className={styles.discoverArt}>
-                            {artArr.map((artData, idx) => {
+                            {artUser.map((artData, idx) => {
                                 return (
                                     <div>
-                                        <Link className={styles.userAvatar} to={`/user/${artData.user._id}`}> <img src={artData.user.avatar} style={{ width: 60, height: 60, borderRadius: 40, margin: "5px 60px 5px 60px" }} /></Link>
-                                        <div className={styles.artText} >{artData.user.username}</div>
+                                        <Link className={styles.userAvatar} to={`/user/${artData._id}`}> <img src={artData.avatar} style={{ width: 60, height: 60, borderRadius: 40, margin: "5px 60px 5px 60px" }} /></Link>
+                                        <div className={styles.artText} >{artData.username}</div>
                                     </div>
                                 )
                             })}
