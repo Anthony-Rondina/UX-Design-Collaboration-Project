@@ -2,7 +2,7 @@ import { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
 import styles from './LoginForm.module.css';
 
-export default function LoginForm({ setUser }) {
+export default function LoginForm({ toggle, setToggle,setUser }) {
 const [credentials, setCredentials] = useState({
   email: '',
   password: ''
@@ -23,6 +23,8 @@ function handleChange(evt) {
       // payload of the JSON Web Token (JWT)
       const user = await usersService.login(credentials); 
       setUser(user); 
+      window.location.reload(false);
+      console.log("toggle switched on login")
     } catch {
       setError('Log In Failed - Try Again');
     }

@@ -7,7 +7,7 @@ import fb from '../../public/social-logos/Facebook.png';
 import goog from '../../public/social-logos/google.png';
 import apple from '../../public/social-logos/apple.png';
 
-export default function AuthPage({ setUser }) {
+export default function AuthPage({toggle, setToggle, setUser }) {
   const [showLogin, setShowLogin] = useState(true);
   const [showH5, setShowH5] = useState(true);
   const [showH1, setShowH1] = useState(true);
@@ -26,7 +26,7 @@ export default function AuthPage({ setUser }) {
           <a href='https://facebook.com' target='_blank'><img className={styles.mediaIcon1} alt='social-logo' src={fb}/></a>
           <a href='https://accounts.google.com/' target='_blank'><img className={styles.mediaIcon2} alt='social-logo' src={goog}/></a>
           <a href='https://apple.com' target='_blank'><img className={styles.mediaIcon3} alt='social-logo' src={apple}/></a>
-      {showLogin ? <LoginForm setUser={setUser} /> : <SignUpForm setUser={setUser} />}
+      {showLogin ? <LoginForm toggle={toggle} setToggle={setToggle} setUser={setUser} /> : <SignUpForm toggle={toggle} setToggle={setToggle} setUser={setUser} />}
       </div>
     </main>
   );
