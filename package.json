@@ -1,4 +1,8 @@
 {
+  "engines": {
+    "node": "16.13.0",
+    "npm": "8.1.0"
+  },
   "proxy": "http://localhost:3001",
   "name": "atelier-collab",
   "version": "0.1.0",
