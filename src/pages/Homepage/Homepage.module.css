@@ -8,7 +8,7 @@
     height: 43pt;
     width: 585px;
     border-color: white;
-    justify-content: center;
+    margin-left: 330px;
 }
 
 .artText {
@@ -29,6 +29,7 @@
 .artArray {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 35px;
 }
 
 
