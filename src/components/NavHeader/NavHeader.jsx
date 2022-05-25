@@ -35,10 +35,11 @@ export default function NavHeader({loggedInUser, user, setUser, toggle, setToggl
             </li>
         </ul>
         <div className="search-container">
-            <form>
-            <input type="text" placeholder="Search for inspiration, creatives, tutorials..." name="search"></input>
+            <form className={styles.searchform}>
+            <input type="text" placeholder="Search for inspiration, creatives, tutorials..." name="search"></input><i class="fa-solid fa-magnifying-glass"></i>
             </form>
         </div>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         {user ? 
         <div className={styles.profilePicture} style={{backgroundImage: `url(${loggedInUser.avatar})`}} onClick={() => {setNavToggle(!navToggle)}}/>
         :
@@ -51,7 +52,7 @@ export default function NavHeader({loggedInUser, user, setUser, toggle, setToggl
     navToggle ? 
     <>
     <div className={styles.userDropDown}>
-        <div className="dropdown-content">
+        <div className={styles.dropdowncontent}>
             <button className={styles.dropBtn} onClick={()=>{navigate(`/user/${user._id}`); setToggle(!toggle)}}>View/Edit Profile</button>
             <button className={styles.dropBtn} onClick={()=>{navigate(`/user/wip/${user._id}`); setToggle(!toggle)}}>My Work in Progress</button>
             <button className={styles.dropBtn} onClick={()=>(navigate(`/user/${user._id}/following`))}>Artists I Follow</button>
@@ -63,6 +64,7 @@ export default function NavHeader({loggedInUser, user, setUser, toggle, setToggl
         :
         ""
         }
+    </div>
     </div>
     );
 }
