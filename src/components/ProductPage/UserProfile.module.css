@@ -147,3 +147,13 @@
     display: inline;
     position: relative;
 }
+.editArtButton {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 180px;
+    height: 140px;
+    display: inline;
+    position: relative;
+}
