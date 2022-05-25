@@ -12,13 +12,14 @@ User Profile Page:
 NavBar:
 ![screenshot](https://i.imgur.com/ez1UeVR.png)
 
-Techincal Challenges:
+# Techincal Challenges:
+
 1. Relating data such as art, comments and users.
 2. Filtering search results.
 3. Group Collaboration.
 4. User Authentication.
 
-Technologies Used:
+# Technologies Used:
 
 1. MongoDB
 2. Express
