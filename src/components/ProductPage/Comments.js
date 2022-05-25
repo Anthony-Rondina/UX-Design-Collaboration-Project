@@ -1,4 +1,3 @@
-
 import { useRef,useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
@@ -35,46 +34,48 @@ export default function Comments({toggle, setToggle, refresh, setRefresh,art, us
         }
     }
     return (
-        <div>
+        <div className={styles.outMostWrapper}>
             <div className={styles.formOutterWrapper}>
                 <div className="form-wrapper">
                     <form onSubmit={handleSubmit}>
                         <p>Leave a Comment!</p>
                         <textarea className={styles.commentsbox} placeholder='Enter comment' type="text" ref={text} />
                         <div className="submit-button">
-                            <input type="submit" value="Add Comment" />
+                            <input className={styles.commentBtn} type="submit" value="Add Comment" />
                         </div>
                     </form>
+                    <hr className={styles.line1} />
                 </div>
             </div>
             {art.comments ?
-                <div className="commentBlock">
-                    {/* {console.log("comments is",art.comments)} */}
+                <div className={styles.commentBlock}>
                     {art.comments.map((comment, idx) => {
-                    // console.log(comment._id)
+                    
                         return (
                             
-                            <div key={idx} className="comment">
-                                {console.log("comment is",comment)}
-                                <div className="comment-content">
-                                    <p>{comment.text}</p>
-                                </div>
-                                <div className="comment-user">
-                                    <p>{`Posted by: ${comment.user.firstName}`}</p>
-                                    
+                            // <div key={idx}> 
+                            <>
+                                
+                                <div className={styles.commentUser}>
+                                    <span className={styles.commentLeftSide}>{`${comment.user.firstName}`}</span>
                                     {user.email === comment.user.email || user.email === art.user.email ?
-                                        <button className="delete-button" onClick={() => { handleDelete(art._id, comment._id) }}>Delete Comment</button>
+                                        <button className={styles.deleteButton} onClick={() => { handleDelete(art._id, comment._id) }}>Delete Comment</button>
                                         : ''}
                                 </div>
-                            </div>
+                                <div className="comment-content">
+                                    <p className={styles.comment}>{comment.text}</p>
+                                </div>
+                                <hr className={styles.line2} />
+                            </>
+                            // </div>
                         )
                     })}
+                    <hr className={styles.line3} />
                 </div>
+                
             :
             ""
             }
         </div>
     )   
 }
-
-

@@ -39,6 +39,7 @@
 .discoverArt {
     display: flex;
     width: 1250px;
+
     height: 99px;
     overflow: hidden;
     margin: auto;
