@@ -3,13 +3,13 @@
 )
 
 
-Main  Page:
+# Main  Page:
 ![screenshot](https://i.imgur.com/aPydPtB.png)
 
-User Profile Page:
+# User Profile Page:
 ![screenshot](https://i.imgur.com/D9VnuxF.png)
 
-NavBar:
+# NavBar:
 ![screenshot](https://i.imgur.com/ez1UeVR.png)
 
 # Techincal Challenges:
