@@ -15,7 +15,6 @@ async function get(req, res) {
 
   try {
     const query = Art.find({}).populate('user')
-    console.log("PLEASE", query)
     query.exec((err, foundArt) => {
       if (!err) {
         res.status(200).json(foundArt)
@@ -41,15 +40,25 @@ async function get(req, res) {
 }
 
 async function getAllFilteredArt(req, res) {
-
-  const query = Art.find({ type: { $eq: req.params.artType.toUpperCase() } }).populate('user').execPopulate()
-  query.exec((err, foundArt) => {
-    if (!err) {
-      res.status(200).json(foundArt)
-    } else {
-      res.status(400).json(err)
-    }
-  })
+  if (req.params.artType === "All") {
+    Art.find({}, (err, foundArt) => {
+      if (!err) {
+        res.status(200).json(foundArt)
+      } else {
+        res.status(400).json(err)
+      }
+    })
+  } else {
+    const query = Art.find({ type: { $eq: req.params.artType.toUpperCase() } })
+      .populate('user')
+    query.exec((err, foundArt) => {
+      if (!err) {
+        res.status(200).json(foundArt)
+      } else {
+        res.status(400).json(err)
+      }
+    })
+  }
 }
 
 async function getAllUserArt(req, res) {
